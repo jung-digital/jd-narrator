@@ -1,12 +1,15 @@
+/*global $*/
+'use strict';
+
 var setScrollPosition = function () {
-  if ($(document).scrollTop() == 0) {
-    $('html, body').scrollTop( $(document).height() );
-  }
+    window.setTimeout(function (){
+      $('html, body').scrollTop( $(document).height() );
+    }, 10);
 };
 
 $('html, body').scrollTop( $(document).height() );
 $(window).load(setScrollPosition);
 
-$("body").on("animationend", function(event) {
-  $(this).css("opacity", 1);
+$('body').on('animationend', function() {
+  $(this).css('opacity', 1);
 });
