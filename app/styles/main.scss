@@ -1,8 +1,19 @@
+/*======================================================*\
+ * Mixins
+\*======================================================*/
+
+@import "mixins";
+
+
 $icon-font-path: '../fonts/';
 
-body {
-  opacity: 0;
+/*======================================================*\
+ * Body
+\*======================================================*/
 
+body {
+  //opacity: 0;
+  //@include animation_delay(0.5s);
   animation-fill-mode: forwards;
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1s; /* Firefox < 16 */
