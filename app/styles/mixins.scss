@@ -5,3 +5,10 @@
        -o-animation: $animation;  /* Opera < 12.1 */
           animation: $animation;
 }
+
+@mixin transition($transitions) {
+  -webkit-transition: $transitions;
+  -moz-transition: $transitions;
+  -o-transition: $transitions;
+  transition: $transitions;
+}

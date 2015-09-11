@@ -13,3 +13,14 @@ $(window).load(setScrollPosition);
 $('body').on('animationend', function() {
   $(this).css('opacity', 1);
 });
+
+$(document).scroll(function () {
+  var divScrollUp = $('#scrollUp');
+
+  if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+    divScrollUp.addClass('scroll-up-show');
+  }
+  else {
+    divScrollUp.removeClass('scroll-up-show');
+  }
+});
