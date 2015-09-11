@@ -15,42 +15,40 @@ body {
   padding: 0;
   margin: 0;
   background-color: #090919;
-  
+  opacity: 0;
+
   animation-fill-mode: forwards;
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 1s; /* Firefox < 16 */
-        -ms-animation: fadein 1s; /* Internet Explorer */
-         -o-animation: fadein 1s; /* Opera < 12.1 */
-            animation: fadein 1s;
+  @include all-animation(fadein 1s);
+
+}
+
+@mixin fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  @include fadein;
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  @include fadein;
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  @include fadein;
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  @include fadein;
 }
 
 /* Opera < 12.1 */
 @-o-keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  @include fadein;
 }
 
 .content {

@@ -82,16 +82,5 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-
-    <script type="text/javascript">
-      var setScrollPosition = function () {
-        if ($(document).scrollTop() == 0) {
-          $('html, body').scrollTop( $(document).height() );
-        }
-      };
-
-      $('html, body').scrollTop( $(document).height() );
-      $(window).load(setScrollPosition);
-    </script>
   </body>
 </html>
