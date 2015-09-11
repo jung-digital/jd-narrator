@@ -3,6 +3,7 @@ $icon-font-path: '../fonts/';
 body {
   opacity: 0;
 
+  animation-fill-mode: forwards;
     -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1s; /* Firefox < 16 */
         -ms-animation: fadein 1s; /* Internet Explorer */
