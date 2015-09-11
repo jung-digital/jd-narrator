@@ -1,0 +1,7 @@
+@mixin all-animation($animation) {
+  -webkit-animation: $animation;  /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: $animation;  /* Firefox < 16 */
+      -ms-animation: $animation;  /* Internet Explorer */
+       -o-animation: $animation;  /* Opera < 12.1 */
+          animation: $animation;
+}
