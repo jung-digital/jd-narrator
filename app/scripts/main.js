@@ -1,4 +1,4 @@
-/*global $*/
+/*global $,Embers*/
 'use strict';
 
 /*---------------------------------------------------------------------------*\
@@ -47,3 +47,4 @@ var embers = new Embers(canvas, {
     }
   }
 });
+console.log('Embers started', embers);
