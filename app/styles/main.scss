@@ -23,7 +23,9 @@ body {
   opacity: 0;
   animation-play-state: paused;
   animation-fill-mode: forwards;
-  @include all-animation(fadein 1s);
+  @include all-animation(fadein 2s);
+
+  animation-fill-mode: forwards;
 
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#010105+0,090919+76 */
   background: #010105; /* Old browsers */

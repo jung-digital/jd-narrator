@@ -35,7 +35,7 @@ $(document).scroll(function () {
 var canvas = document.getElementById('canvasOverlay');
 
 var embers = new Embers(canvas, {
-  debug: false,
+  debug: true,
   colors: ['#D6BD9F', '#B77F49', '#EFD7BF', '#A44C2C', '#D2A383'],
   maxSparkSize: 3,
   minSparkSize: 1.2,
