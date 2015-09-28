@@ -35,8 +35,14 @@ $(document).scroll(function () {
 var canvas = document.getElementById('canvasOverlay');
 
 var embers = new Embers(canvas, {
-  debug: true,
+  debug: false,
   colors: ['#D6BD9F', '#B77F49', '#EFD7BF', '#A44C2C', '#D2A383'],
+  maxSparkSize: 3,
+  minSparkSize: 1.2,
+  maxSparkVelocity: 150,
+  minSparkVelocity: 70,
+  maxSparkLife: 20,
+  maxTailLength: 15,
   sparkSource: {
     target: document.getElementById('campfire'),
     widthProp: 'clientWidth',
@@ -47,4 +53,5 @@ var embers = new Embers(canvas, {
     }
   }
 });
+
 console.log('Embers started', embers);
