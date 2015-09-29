@@ -32,15 +32,15 @@ $(document).scroll(function () {
 /*---------------------------------------------------------------------------*\
  * Canvas Overlay
 \*---------------------------------------------------------------------------*/
-var canvas = document.getElementById('canvasOverlay');
+var canvas = document.getElementById('embers');
 
 var embers = new Embers(canvas, {
   debug: true,
   colors: ['#D6BD9F', '#B77F49', '#EFD7BF', '#A44C2C', '#D2A383'],
-  maxSparkSize: 3,
-  minSparkSize: 1.2,
-  maxSparkVelocity: 150,
-  minSparkVelocity: 70,
+  maxSparkSize: 2,
+  minSparkSize: 0.8,
+  maxSparkVelocity: 110,
+  minSparkVelocity: 50,
   maxSparkLife: 20,
   maxTailLength: 15,
   sparkSource: {
