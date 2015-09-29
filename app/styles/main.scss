@@ -143,3 +143,31 @@ div {
 .background-spacer {
   height: 2000px;
 }
+
+/*======================================================*\
+ * Page css
+\*======================================================*/
+
+body {
+  color: white;
+}
+.section {
+  height: 100vh;
+}
+
+.wrapper {
+  width: 60%;
+  margin: auto;
+}
+
+#section-campfire {
+  position: relative;
+  #campfire-wrapper {
+    @extend .wrapper;
+  }
+
+  #campfire-aside {
+    
+  }
+}
+
