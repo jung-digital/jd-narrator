@@ -148,7 +148,21 @@ body {
   color: white;
 }
 .section {
+  position: relative;
   height: 70em;
+}
+
+.narrator-logo {
+  width: 3em;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+.narrator-logo-full {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 20em;
 }
 
 .wrapper {
@@ -166,6 +180,7 @@ body {
   &:hover {
   }
 }
+
 #campfire-video {
   height:100%;
   width:100%;
