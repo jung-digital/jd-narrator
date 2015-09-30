@@ -44,7 +44,7 @@ var embers = new Embers(canvas, {
   maxSparkLife: 20,
   maxTailLength: 15,
   sparkSource: {
-    target: document.getElementById('campfire'),
+    target: document.getElementById('campfire-video'),
     widthProp: 'clientWidth',
     heightProp: 'clientHeight',
     offset: {
