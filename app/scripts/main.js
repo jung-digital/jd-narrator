@@ -34,7 +34,7 @@ $(document).scroll(function () {
 \*---------------------------------------------------------------------------*/
 var canvas = document.getElementById('embers');
 
-var embers = new Embers(canvas, {
+window.emberOptions = {
   debug: true,
   colors: ['#D6BD9F', '#B77F49', '#EFD7BF', '#A44C2C', '#D2A383'],
   maxSparkSize: 2,
@@ -52,6 +52,8 @@ var embers = new Embers(canvas, {
       y: '60%'
     }
   }
-});
+};
+
+var embers = new Embers(canvas, emberOptions);
 
 console.log('Embers started', embers);

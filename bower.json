@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "modernizr": "~2.8.1",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "ScrollMagic": "~2.0.5"
   },
   "devDependencies": {
     "chai": "~3.2.0",
