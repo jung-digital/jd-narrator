@@ -3,6 +3,7 @@
 \*======================================================*/
 
 @import "mixins";
+@import "fonts";
 
 $icon-font-path: '../fonts/';
 
@@ -15,7 +16,7 @@ html, body {
 }
 
 body {
-  font-family: Arial,Helvetica,Sans-Serif;
+  font-family: roboto-light;
   font-size: 12px;
 
   padding: 0;
