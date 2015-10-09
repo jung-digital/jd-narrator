@@ -6,7 +6,7 @@ var pixelsPerSection  = 200;
 var sectionCount = 7;
 var screenHeight = pixelsPerSection * sectionCount;
 
-var ANIMATION_SPEED = 1.2;
+var ANIMATION_SPEED = 1.1;
 
 var controller = new ScrollMagic.Controller({
   globalSceneOptions: {
@@ -64,7 +64,7 @@ function addEnterLeaveTransition(scene, element, top) {
 $(window).scroll(function () {
   emberOptions.debugText = ' scroll:' + controller.scrollPos();
 
-  $('#campfire-video').css('top', (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO)
+  $('#campfire-video').css('top', (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO + (window.innerHeight - $('#campfire-video').height()) )
 });
 
 var body = document.body;
