@@ -2,6 +2,11 @@
 'use strict';
 
 /*---------------------------------------------------------------------------*\
+ * Globals
+\*---------------------------------------------------------------------------*/
+window.CAMPFIRE_SCROLL_RATIO = 1/2;
+
+/*---------------------------------------------------------------------------*\
  * Scroll-to-bottom
 \*---------------------------------------------------------------------------*/
 var setScrollPosition = function () {
@@ -35,14 +40,14 @@ $(document).scroll(function () {
 var canvas = document.getElementById('embers');
 
 window.emberOptions = {
-  debug: true,
-  colors: ['#D6BD9F', '#B77F49', '#EFD7BF', '#A44C2C', '#D2A383'],
-  maxSparkSize: 2,
-  minSparkSize: 0.8,
-  maxSparkVelocity: 110,
+  debug: false,
+  sparkCount: 100,
+  maxSparkSize: 2.5,
+  minSparkSize: 1.0,
+  maxSparkVelocity: 120,
   minSparkVelocity: 50,
-  maxSparkLife: 20,
-  maxTailLength: 15,
+  maxSparkLife: 25,
+  maxTailLength: 19,
   sparkSource: {
     target: document.getElementById('campfire-video'),
     widthProp: 'clientWidth',
@@ -51,7 +56,8 @@ window.emberOptions = {
       x: '50%',
       y: '60%'
     }
-  }
+  },
+  scrollRatio: window.CAMPFIRE_SCROLL_RATIO
 };
 
 var embers = new Embers(canvas, emberOptions);
