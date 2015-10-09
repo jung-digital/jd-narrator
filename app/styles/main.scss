@@ -80,6 +80,10 @@ div {
   width: 100%;
 }
 
+.relative {
+  position: relative;
+}
+
 /*======================================================*\
  * Canvas Overlay
 \*======================================================*/
@@ -93,10 +97,6 @@ div {
 }
 
 /*======================================================*\
- * Layout
-\*======================================================*/
-
-/*======================================================*\
  * Parallax Elements
 \*======================================================*/
 .moon {
@@ -108,12 +108,6 @@ div {
   width: 100%;
   height: 512px;  
   color: white;
-}
-
-.footer {
-  position: relative;
-  height: 800px;
-  overflow: hidden;
 }
 
 .social {
@@ -158,13 +152,12 @@ body {
 
 .content-wrapper {
   position: relative;
-  height: 1400px;  
-  overflow: hidden;
 }
 
 .section {
   position: relative;
   height: 70em;
+  margin: 10em 0em 0em 0em;
 }
 
 .narrator-logo {
@@ -173,6 +166,7 @@ body {
   top: 10%;
   left: 10%;
 }
+
 .narrator-logo-full {
   position: absolute;
   top: 10%;
@@ -194,6 +188,12 @@ body {
   cursor: pointer;
   &:hover {
   }
+}
+
+#section-header {
+  position: fixed;
+  top: 2em;
+  left: 2em;
 }
 
 #campfire-video {
@@ -237,3 +237,17 @@ body {
   width: 20em;
 }
 
+#section-campfire {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#section-campfire-child {
+  position: absolute;
+  top: 1000px;
+  left: 50%;
+  margin-left: -37.5%;
+  opacity: 0;
+  width: 75%;
+}

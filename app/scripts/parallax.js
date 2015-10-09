@@ -1,5 +1,3 @@
-var controller = new ScrollMagic.Controller();
-
 /*------------------------------------------------------------------------------------*\
  * Scenes
  * Broken up into 7 sections of 200 pixels each
@@ -8,13 +6,35 @@ var pixelsPerSection  = 200;
 var sectionCount = 7;
 var screenHeight = pixelsPerSection * sectionCount;
 
-// create a scene
+var controller = new ScrollMagic.Controller({
+  globalSceneOptions: {
+    triggerHook: 'onLeave'
+  }
+});
+
+// get all slides
+var slides = document.querySelectorAll(".section");
+
+var tween = TweenMax.to('#section-campfire-child', 0.7, {
+    top: '50%',
+    opacity: 1
+  });
+
 var scene = new ScrollMagic.Scene({
-        duration: 200,    // the scene should last for a scroll distance of 100px
-        offset: 50        // start this scene after scrolling for 50px
-    })
-    .setPin("#my-sticky-element") // pins the element for the the scene's duration
-    .addTo(controller); // assign the scene to the controller
+  triggerElement: '#section-campfire'
+});
+
+scene.setTween(tween);
+scene.addTo(controller);
+
+// create scene for every slide
+// for (var i = 0; i < slides.length; i++) {
+//   new ScrollMagic.Scene({
+//       triggerElement: slides[i]
+//     })
+//     .setTween('')
+//     .addTo(controller);
+// }
 
 
 $(window).scroll(function () {

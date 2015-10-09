@@ -26,11 +26,15 @@
     <![endif]-->
     <canvas id="embers"></canvas>
     
-    
+    <div id="section-header">
+      <img class="narrator-logo-full" src="images/logo-full.png" alt="Narrator group logo" />
+    </div>
+
     <div class="content-wrapper">
       <div class="moon">
       </div>
-      <div id="section-your-story" class="section">
+
+      <!-- <div id="section-your-story" class="section">
         <img class="narrator-logo" src="images/logo-n.png" alt="Narrator Group" />
         <div id="your-story-wrapper">
           <div class="quote">
@@ -92,7 +96,7 @@
         </div>
       </div>
       <div id="section-story-workshop" class="section">
-      <img class="narrator-logo" src="images/logo-n.png" alt="Narrator group logo" />
+        <img class="narrator-logo" src="images/logo-n.png" alt="Narrator group logo" />
         <div id="workshop-wrapper">
           <div>
             <h6>Strategic Services</h6>
@@ -109,9 +113,9 @@
             <img src="images/image-woman.jpg" alt="Woman" />
           </div>
         </div>
-      </div>
+      </div> 
       <div id="section-work" class="section">
-      <img class="narrator-logo" src="images/logo-n.png" alt="Narrator group logo" />
+        <img class="narrator-logo" src="images/logo-n.png" alt="Narrator group logo" />
         <div id="work-wrapper">
           <h6>WORK</h6>
           <h2>Stories we&#8217;ve developed and recently told</h2>
@@ -127,8 +131,8 @@
           </div>
         </div>
       </div>
-      <div id="section-approch" class="section">
-      <img class="narrator-logo" src="images/logo-n.png" alt="Narrator group logo" />
+      <div id="section-approach" class="section">
+        <img class="narrator-logo" src="images/logo-n.png" alt="Narrator group logo" />
         <div id="approach-wrapper">
           <h6>APPROACH</h6>
           <h2>Stories are better than ads</h2>
@@ -140,15 +144,10 @@
           </div>
           <div>
             <img src="images/video-1.jpg" alt="Demo video" />
-            <!-- <video id="sizzle-reel" style="width: 100%; height: 100%;" autoplay loop>
-              <source src="video/campfire-hd.mp4" type="video/mp4">
-              For the best experience, please view this site in a modern browser.
-            </video> -->
           </div>
         </div>
-      </div>
+      </div> -->
       <div id="section-about" class="section">
-      <img class="narrator-logo" src="images/logo-n.png" alt="Narrator group logo" />
         <div id="about-wrapper">
           <h6>ABOUT</h6>
           <h2>Creating stories that sell</h2>
@@ -162,32 +161,36 @@
         </div>
       </div>
     </div>
-    <div class="footer">
+    <div id="section-campfire" class="section">
       <video id="campfire-video" autoplay loop>
         <source src="video/campfire-hd.mp4" type="video/mp4">
         For the best experience, please view this site in a modern browser.
       </video>
-      <img class="narrator-logo-full" src="images/logo-full.png" alt="Narrator group logo" />
-      <div id="campfire-wrapper">
-        <div><span>Some brands have a good story</span> <span>but aren&#8217;t telling it well.  Others don&#8217;t know or </span><span>have lost sight of their story.</span></div>
-        <a id="btn-find-story" class="btn btn-default" href="#">FINDING YOUR STORY</a>
-        <a id="btn-telling-it" class="btn btn-default" href="#">TELLING IT BETTER</a>
-      </div>
-      <div id="campfire-aside">
-        <div>The human need for stories is enduring and mysterious. Great stories stay with us&#8212;and the best storytellers make us want to linger and find out what happens next.</div>
-      </div>
-      <div id="scrollUp" class="scroll-up">
-        <img alt="Scroll Up" src="images/scroll-up.png" width="100" height="100">
-      </div>
-      <div class="social social-fixed">
-        <a href="#"><i class="fa fa-youtube"></i></a>
-        <a href="#"><i class="fa fa-vimeo"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-google-plus"></i></a>
+      <div id="section-campfire-child">
+        <div class="relative">
+          
+          <div id="campfire-wrapper">
+            <div><span>Some brands have a good story</span> <span>but aren&#8217;t telling it well.  Others don&#8217;t know or </span><span>have lost sight of their story.</span></div>
+            <a id="btn-find-story" class="btn btn-default" href="#">FINDING YOUR STORY</a>
+            <a id="btn-telling-it" class="btn btn-default" href="#">TELLING IT BETTER</a>
+          </div>
+          <div id="campfire-aside">
+            <div>The human need for stories is enduring and mysterious. Great stories stay with us&#8212;and the best storytellers make us want to linger and find out what happens next.</div>
+          </div>
+          <div id="scrollUp" class="scroll-up">
+            <img alt="Scroll Up" src="images/scroll-up.png" width="100" height="100">
+          </div>
+          <div class="social social-fixed">
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-vimeo"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+          </div>
+        </div>
       </div>
     </div>
     
@@ -204,7 +207,9 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
     <script src="/bower_components/ScrollMagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
