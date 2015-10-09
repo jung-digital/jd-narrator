@@ -19,7 +19,7 @@ $('body').on('animationend', function() {
 });
 
 $(document).scroll(function () {
-  var divScrollUp = $('#scrollUp');
+  var divScrollUp = $('.scroll-up');
 
   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
     divScrollUp.addClass('scroll-up-show');

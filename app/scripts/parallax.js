@@ -15,27 +15,23 @@ var controller = new ScrollMagic.Controller({
 // get all slides
 var slides = document.querySelectorAll(".section");
 
-var tween = TweenMax.to('#section-campfire-child', 0.7, {
-    top: '50%',
-    opacity: 1
-  });
+var tl = new TimelineMax()
+  .add([
+      TweenMax.fromTo('#section-campfire-child', 0.7, {
+        top: '200%',
+        opacity: 0
+      }, {
+        top: '50%',
+        opacity: 1
+      })
+    ]);
 
 var scene = new ScrollMagic.Scene({
   triggerElement: '#section-campfire'
 });
 
-scene.setTween(tween);
+scene.setTween(tl);
 scene.addTo(controller);
-
-// create scene for every slide
-// for (var i = 0; i < slides.length; i++) {
-//   new ScrollMagic.Scene({
-//       triggerElement: slides[i]
-//     })
-//     .setTween('')
-//     .addTo(controller);
-// }
-
 
 $(window).scroll(function () {
   emberOptions.debugText = ' scroll:' + controller.scrollPos();
