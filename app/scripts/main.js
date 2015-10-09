@@ -4,7 +4,7 @@
 /*---------------------------------------------------------------------------*\
  * Globals
 \*---------------------------------------------------------------------------*/
-window.CAMPFIRE_SCROLL_RATIO = 1/1.61;
+window.CAMPFIRE_SCROLL_RATIO = 1 / 1.61;
 
 /*---------------------------------------------------------------------------*\
  * Scroll-to-bottom
@@ -60,6 +60,6 @@ window.emberOptions = {
   scrollRatio: window.CAMPFIRE_SCROLL_RATIO
 };
 
-var embers = new Embers(canvas, emberOptions);
+var embers = new Embers(canvas, window.emberOptions);
 
 console.log('Embers started', embers);
