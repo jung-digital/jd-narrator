@@ -1,4 +1,4 @@
-/*global $,ScrollMagic,TweenLite,Power3*/
+/*global $,ScrollMagic,TweenLite,Power3,Power1*/
 'use strict';
 
 /*------------------------------------------------------------------------------------*\
