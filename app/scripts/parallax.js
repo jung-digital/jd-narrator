@@ -5,7 +5,7 @@
  * Scenes
  * Broken up into 7 sections of 200 pixels each
 \*------------------------------------------------------------------------------------*/
-var ANIMATION_SPEED = 1.1;
+var ANIMATION_SPEED = 2;
 var body = document.body;
 var html = document.documentElement;
 
@@ -67,5 +67,10 @@ scene.addTo(controller);
 $(window).scroll(function () {
   window.emberOptions.debugText = ' scroll:' + controller.scrollPos();
 
-  $('#campfire-video').css('top', (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO + (window.innerHeight - $('#campfire-video').height()));
+  TweenLite.to('#campfire-video', 0.5, {
+    top: (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO + (window.innerHeight - $('#campfire-video').height()),
+    overwrite: 'concurrent',
+    ease: Power1.easeOut
+  });
+  //$('#campfire-video').css('top', );
 });
