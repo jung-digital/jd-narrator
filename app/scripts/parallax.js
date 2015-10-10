@@ -67,10 +67,9 @@ scene.addTo(controller);
 $(window).scroll(function () {
   window.emberOptions.debugText = ' scroll:' + controller.scrollPos();
 
-  TweenLite.to('#campfire-video', 0.5, {
+  TweenLite.to('#campfire-video', 1, {
     top: (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO + (window.innerHeight - $('#campfire-video').height()),
     overwrite: 'concurrent',
     ease: Power1.easeOut
   });
-  //$('#campfire-video').css('top', );
 });
