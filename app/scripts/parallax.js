@@ -41,6 +41,30 @@ var controller = new ScrollMagic.Controller({
 });
 
 //-------------------------------------
+// section-work
+//-------------------------------------
+var scene = new ScrollMagic.Scene({
+  triggerElement: '#section-work-trigger',
+  duration: $('#section-work-trigger').height()
+});
+
+addEnterLeaveTransition(scene, '#section-work-child', '15%');
+
+scene.addTo(controller);
+
+//-------------------------------------
+// section-approach
+//-------------------------------------
+var scene = new ScrollMagic.Scene({
+  triggerElement: '#section-approach-trigger',
+  duration: $('#section-approach-trigger').height()
+});
+
+addEnterLeaveTransition(scene, '#section-approach-child', '15%');
+
+scene.addTo(controller);
+
+//-------------------------------------
 // section-about
 //-------------------------------------
 var scene = new ScrollMagic.Scene({
