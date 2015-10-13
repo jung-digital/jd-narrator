@@ -353,29 +353,29 @@ h1, h2, h3, h4, h5, h6, h7 {
   height: 400px;
   text-align: left;
 
-  .column-left {
-    width: 58%;
-    padding-right: 2%;
+  @include flex-container; 
+  
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
 
-    h1 {
-      font-size: 38px;
-      line-height: 110%;
-      font-weight: 500;
-      margin: 0em 0em 0.5em 0em;
-    }
-    img {
-      width: 100%;
-      margin: 0em 0em 2em 0em;
-    }
-    .btn {
-      float: left;
-    }
-  }
+  #work-header {
+    flex: 1 100%;
+    @include flex-container; 
 
-  .column-right {
-    width: 40%;
+    #work-title {
+      flex: 2;
+      padding: 1em;
+      h1 {
+        font-size: 38px;
+        line-height: 110%;
+        font-weight: 500;
+        margin: 0em 0em 0.5em 0em;
+      }
+    }
 
     #work-quote {
+      flex: 1;
+      padding: 1em;
       .quote {
         position: relative;
         text-align: center;
@@ -384,14 +384,49 @@ h1, h2, h3, h4, h5, h6, h7 {
         margin: 0.5em 0em;
       }
     }
-    img {
-      width: 60%;
-      margin: 1em auto;
-      display: block;
-    }
   }
 
+  #work-recent-stories { 
+    @include flex-container; 
+    flex: 1 100%;
 
+    #work-story-1 {
+      flex: 2;
+      padding: 1em;
+      img {
+        width: 100%;
+      }
+    }
+    #work-stories-right {
+      padding: 1em;
+      @include flex-container; 
+      flex: 1;
+      flex-flow: row wrap;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -ms-justify-content: center;
+      -o-justify-content: center;
+      justify-content: center;
+
+      #work-story-2 {
+        img {
+          width: 100%;
+        }
+      }
+      #work-story-3 {
+        img {
+          width: 100%;
+        }
+        align-self: flex-end;
+      }
+    }
+  }
+  #work-btn-wrapper {
+    padding: 1em;
+    .btn {
+      display: inline-block;
+    }
+  }
 }
 
 //-------------------------------------
