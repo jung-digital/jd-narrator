@@ -94,6 +94,16 @@ h1, h2, h3, h4, h5, h6, h7 {
   padding: 0px;
 }
 
+.quote {
+  position: relative;
+  margin: 1em 0em;
+  text-align: center;
+}
+
+.quote-attrib {
+  margin: 0.5em 0em;
+}
+
 .quote-orange {
   color: #ff9900;
   font-size: 20px;
@@ -113,6 +123,10 @@ h1, h2, h3, h4, h5, h6, h7 {
   font-size: 20px;
   font-family: "Oswald", san-serif;
   font-weight: 100;
+}
+
+.quote-line {
+  line-height: 0;
 }
 
 .white-line {
@@ -339,52 +353,45 @@ h1, h2, h3, h4, h5, h6, h7 {
   height: 400px;
   text-align: left;
 
-  h1 {
-    font-size: 38px;
-    line-height: 110%;
-    font-weight: 500;
-    margin: 0em 0em 0.5em 0em;
+  .column-left {
+    width: 58%;
+    padding-right: 2%;
+
+    h1 {
+      font-size: 38px;
+      line-height: 110%;
+      font-weight: 500;
+      margin: 0em 0em 0.5em 0em;
+    }
+    img {
+      width: 100%;
+      margin: 0em 0em 2em 0em;
+    }
+    .btn {
+      float: left;
+    }
   }
 
-  #work-quote {
-    float: right;
-    .quote {
-      position: relative;
-      margin: 1em 0em;
-      text-align: center;
-    }
+  .column-right {
+    width: 40%;
 
-    .quote-attrib {
-      margin: 0.5em 0em;
-    }
-
-  }
-
-  #work-recent-stories {
-    display: block;
-    position: relative;
-    .column-left {
-      width: 58%;
-      padding-right: 2%;
-      img {
-        width: 100%;
-        margin: 0em 0em 2em 0em;
+    #work-quote {
+      .quote {
+        position: relative;
+        text-align: center;
+      }
+      .quote-attrib {
+        margin: 0.5em 0em;
       }
     }
-
-    .column-right {
-      width: 40%;
-      img {
-        width: 60%;
-        margin: 1em auto;
-        display: block;
-      }
+    img {
+      width: 60%;
+      margin: 1em auto;
+      display: block;
     }
   }
 
-  .btn {
-    float: left;
-  }
+
 }
 
 //-------------------------------------
@@ -423,7 +430,6 @@ h1, h2, h3, h4, h5, h6, h7 {
 
   .quote {
     position: relative;
-    margin: 1em 0em;
     text-align: center;
   }
 
@@ -475,7 +481,6 @@ h1, h2, h3, h4, h5, h6, h7 {
 
   .quote {
     position: relative;
-    margin: 1em 0em;
     text-align: center;
   }
 
