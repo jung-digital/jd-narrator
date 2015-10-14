@@ -40,7 +40,6 @@ $(document).scroll(function () {
 var canvas = document.getElementById('embers');
 
 window.emberOptions = {
-  debug: false,
   sparkCount: 100,
   maxSparkSize: 2.5,
   minSparkSize: 1.0,
@@ -60,6 +59,10 @@ window.emberOptions = {
   scrollRatio: window.CAMPFIRE_SCROLL_RATIO
 };
 
-var embers = new Embers(canvas, window.emberOptions);
+var renderer = new JS.GraphicRenderer(canvas, {
+    canvasAutoClear: undefined,
+    debug: true
+  }, 'embers');
+var embers = new Embers(window.emberOptions);
 
-console.log('Embers started', embers);
+renderer.addChild(embers);

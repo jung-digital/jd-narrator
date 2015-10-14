@@ -102,6 +102,7 @@ gulp.task('serve', ['styles', 'fonts'], () => {
       baseDir: ['.tmp', 'app'],
       routes: {
         '/bower_components': 'bower_components',
+        '/jd-js-lib/src': '../jd-js-lib/src',
         '/jd-js-lib': '../jd-js-lib/dist'
       }
     }

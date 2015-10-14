@@ -37,5 +37,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "requirejs": "^2.1.20"
   }
 }
