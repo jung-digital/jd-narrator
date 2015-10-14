@@ -187,6 +187,14 @@ h1, h2, h3, h4, h5, h6, h7 {
 /*======================================================*\
  * Parallax Triggers
 \*======================================================*/
+#section-contact-trigger {
+  height: 1200px;
+}
+
+#section-story-type-trigger {
+  height: 1200px;
+}
+
 #section-workshop-trigger {
   height: 1200px;
 }
@@ -335,6 +343,106 @@ h1, h2, h3, h4, h5, h6, h7 {
 .column-right {
   width: 50%;
   float: right;
+}
+
+//-------------------------------------
+// section-contact
+//-------------------------------------
+#section-contact {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  bottom: 0px;
+}
+
+#section-contact-child {
+  position: fixed;
+  top: 1000px;
+  left: 50%;
+  margin-left: -37.5%;
+  opacity: 0;
+  width: 75%;
+  height: 400px;
+  text-align: left;
+
+  h1 {
+    font-size: 38px;
+    line-height: 110%;
+    font-weight: 500;
+    margin: 0em 0em;
+    max-width: 50%;
+  }
+
+  .main {
+    line-height: 2.5em;
+    margin: 2em 0em 4em;
+    font-size: 14px;
+  }
+
+  .quote {
+    position: relative;
+    text-align: center;
+  }
+
+  .quote-attrib {
+    margin: 0.5em 0em;
+  }
+
+}
+
+
+//-------------------------------------
+// section-story-type
+//-------------------------------------
+#section-story-type {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  bottom: 0px;
+}
+
+#section-story-type-child {
+  position: fixed;
+  top: 1000px;
+  left: 50%;
+  margin-left: -37.5%;
+  opacity: 0;
+  width: 75%;
+  height: 400px;
+  text-align: center;
+
+  #section-story-type-header {
+    width: 60%;
+    margin: auto;
+    h1 {
+      font-size: 38px;
+      line-height: 110%;
+      font-weight: 500;
+      margin: 0em 0em;
+    }
+
+    .main {
+      line-height: 2.5em;
+      margin: 2em 0em 4em;
+      font-size: 14px;
+    }
+  }
+
+  #story-types {
+    @include flex-container; 
+    flex-flow: wrap;
+    .story-type {
+      flex: 1;
+      margin: 2em;
+      img {
+        height: 50%;
+      }
+      span {
+        display: block;
+        font-size: 22px;
+      }
+    }
+  }
 }
 
 //-------------------------------------
