@@ -41,6 +41,18 @@ var controller = new ScrollMagic.Controller({
 });
 
 //-------------------------------------
+// section-workshop
+//-------------------------------------
+var scene = new ScrollMagic.Scene({
+  triggerElement: '#section-workshop-trigger',
+  duration: $('#section-workshop-trigger').height()
+});
+
+addEnterLeaveTransition(scene, '#section-workshop-child', '15%');
+
+scene.addTo(controller);
+
+//-------------------------------------
 // section-work
 //-------------------------------------
 var scene = new ScrollMagic.Scene({
