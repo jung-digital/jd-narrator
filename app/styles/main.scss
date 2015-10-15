@@ -356,6 +356,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 #section-contact-child {
+  @include flex-container; 
+
   position: fixed;
   top: 1000px;
   left: 50%;
@@ -365,29 +367,39 @@ h1, h2, h3, h4, h5, h6, h7 {
   height: 400px;
   text-align: left;
 
-  h1 {
-    font-size: 38px;
-    line-height: 110%;
-    font-weight: 500;
-    margin: 0em 0em;
-    max-width: 50%;
+  #contact-right {
+    flex: 1;
+    order: 2;
+    @include flex-container; 
+    flex-flow: row wrap;
+    padding-top: 9em;
+    #contact-text {
+      font-size: 22px;
+      flex: 1 100%;
+    }
+    #contact-fields {
+      flex: 1;
+    }
+    #contact-info {
+      flex: 1;
+      
+    }
   }
 
-  .main {
-    line-height: 2.5em;
-    margin: 2em 0em 4em;
-    font-size: 14px;
-  }
+  #contact-quote {
+    flex: 1;
+    order: 1;
+    .quote {
+      position: relative;
+      text-align: center;
+      margin: auto;
+      max-width: 27em;
+    }
 
-  .quote {
-    position: relative;
-    text-align: center;
+    .quote-attrib {
+      margin: 0.5em 0em;
+    }
   }
-
-  .quote-attrib {
-    margin: 0.5em 0em;
-  }
-
 }
 
 
