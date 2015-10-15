@@ -132,8 +132,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 .white-line {
   position: absolute;
   left: 50%;
-  margin-left: -75px;
-  width: 150px;
+  margin-left: -70px;
+  width: 140px;
   height: 1px;
   background-color: white;
 }
@@ -382,7 +382,7 @@ h1, h2, h3, h4, h5, h6, h7 {
     }
     #contact-info {
       flex: 1;
-      
+
     }
   }
 
@@ -424,7 +424,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   text-align: center;
 
   #section-story-type-header {
-    width: 60%;
+    max-width: 64em;
     margin: auto;
     h1 {
       font-size: 38px;
@@ -442,12 +442,17 @@ h1, h2, h3, h4, h5, h6, h7 {
 
   #story-types {
     @include flex-container; 
-    flex-flow: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 64em;
     .story-type {
       flex: 1;
       margin: 2em;
+      max-height: 12em;
+      max-width: 12em;
       img {
-        height: 50%;
+        height: 75%;
       }
       span {
         display: block;
@@ -488,7 +493,6 @@ h1, h2, h3, h4, h5, h6, h7 {
       line-height: 110%;
       font-weight: 500;
       margin: 0em 0em;
-      max-width: 50%;
     }
 
     .main {
@@ -511,6 +515,10 @@ h1, h2, h3, h4, h5, h6, h7 {
       .quote {
         position: relative;
         text-align: center;
+        .quote-text {
+          margin: auto;
+          max-width: 11em;
+        }
       }
 
       .quote-attrib {
@@ -570,6 +578,10 @@ h1, h2, h3, h4, h5, h6, h7 {
       .quote {
         position: relative;
         text-align: center;
+        .quote-text {
+          margin: auto;
+          max-width: 18em;
+        }
       }
       .quote-attrib {
         margin: 0.5em 0em;
@@ -657,6 +669,10 @@ h1, h2, h3, h4, h5, h6, h7 {
   .quote {
     position: relative;
     text-align: center;
+    .quote-text {
+      margin: auto;
+      max-width: 18em;
+    }
   }
 
   .quote-attrib {
@@ -708,6 +724,10 @@ h1, h2, h3, h4, h5, h6, h7 {
   .quote {
     position: relative;
     text-align: center;
+    .quote-text {
+      margin: auto;
+      max-width: 12em;
+    }
   }
 
   .quote-attrib {
