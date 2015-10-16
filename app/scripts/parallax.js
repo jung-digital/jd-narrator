@@ -43,86 +43,86 @@ var controller = new ScrollMagic.Controller({
 //-------------------------------------
 // section-contact
 //-------------------------------------
-var scene = new ScrollMagic.Scene({
+var sceneContact = new ScrollMagic.Scene({
   triggerElement: '#section-contact-trigger',
   duration: $('#section-contact-trigger').height()
 });
 
-addEnterLeaveTransition(scene, '#section-contact-child', '15%');
+addEnterLeaveTransition(sceneContact, '#section-contact-child', '15%');
 
-scene.addTo(controller);
+sceneContact.addTo(controller);
 
 //-------------------------------------
 // section-story-type
 //-------------------------------------
-var scene = new ScrollMagic.Scene({
+var sceneStoryType = new ScrollMagic.Scene({
   triggerElement: '#section-story-type-trigger',
   duration: $('#section-story-type-trigger').height()
 });
 
-addEnterLeaveTransition(scene, '#section-story-type-child', '15%');
+addEnterLeaveTransition(sceneStoryType, '#section-story-type-child', '15%');
 
-scene.addTo(controller);
+sceneStoryType.addTo(controller);
 
 //-------------------------------------
 // section-workshop
 //-------------------------------------
-var scene = new ScrollMagic.Scene({
+var sceneWorkshop = new ScrollMagic.Scene({
   triggerElement: '#section-workshop-trigger',
   duration: $('#section-workshop-trigger').height()
 });
 
-addEnterLeaveTransition(scene, '#section-workshop-child', '15%');
+addEnterLeaveTransition(sceneWorkshop, '#section-workshop-child', '15%');
 
-scene.addTo(controller);
+sceneWorkshop.addTo(controller);
 
 //-------------------------------------
 // section-work
 //-------------------------------------
-var scene = new ScrollMagic.Scene({
+var sceneWork = new ScrollMagic.Scene({
   triggerElement: '#section-work-trigger',
   duration: $('#section-work-trigger').height()
 });
 
-addEnterLeaveTransition(scene, '#section-work-child', '15%');
+addEnterLeaveTransition(sceneWork, '#section-work-child', '15%');
 
-scene.addTo(controller);
+sceneWork.addTo(controller);
 
 //-------------------------------------
 // section-approach
 //-------------------------------------
-var scene = new ScrollMagic.Scene({
+var sceneApproach = new ScrollMagic.Scene({
   triggerElement: '#section-approach-trigger',
   duration: $('#section-approach-trigger').height()
 });
 
-addEnterLeaveTransition(scene, '#section-approach-child', '15%');
+addEnterLeaveTransition(sceneApproach, '#section-approach-child', '15%');
 
-scene.addTo(controller);
+sceneApproach.addTo(controller);
 
 //-------------------------------------
 // section-about
 //-------------------------------------
-var scene = new ScrollMagic.Scene({
+var sceneAbout = new ScrollMagic.Scene({
   triggerElement: '#section-about-trigger',
   duration: $('#section-about-trigger').height()
 });
 
-addEnterLeaveTransition(scene, '#section-about-child', '15%');
+addEnterLeaveTransition(sceneAbout, '#section-about-child', '15%');
 
-scene.addTo(controller);
+sceneAbout.addTo(controller);
 
 //-------------------------------------
 // section-campfire
 //-------------------------------------
-scene = new ScrollMagic.Scene({
+var sceneCampfire = new ScrollMagic.Scene({
   triggerElement: '#section-campfire-trigger',
   duration: $('#section-campfire-trigger').height()
 });
 
-addEnterLeaveTransition(scene, '#section-campfire-child', '15%');
+addEnterLeaveTransition(sceneCampfire, '#section-campfire-child', '15%');
 
-scene.addTo(controller);
+sceneCampfire.addTo(controller);
 
 $(window).scroll(function () {
   window.emberOptions.debugText = ' scroll:' + controller.scrollPos();

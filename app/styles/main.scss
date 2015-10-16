@@ -132,8 +132,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 .white-line {
   position: absolute;
   left: 50%;
-  margin-left: -75px;
-  width: 150px;
+  margin-left: -70px;
+  width: 140px;
   height: 1px;
   background-color: white;
 }
@@ -356,6 +356,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 #section-contact-child {
+  @include flex-container; 
+
   position: fixed;
   top: 1000px;
   left: 50%;
@@ -365,29 +367,66 @@ h1, h2, h3, h4, h5, h6, h7 {
   height: 400px;
   text-align: left;
 
-  h1 {
-    font-size: 38px;
-    line-height: 110%;
-    font-weight: 500;
-    margin: 0em 0em;
-    max-width: 50%;
+  #contact-right {
+    flex: 1;
+    order: 2;
+    @include flex-container; 
+    flex-flow: row wrap;
+    padding-top: 9em;
+    #contact-text {
+      font-size: 22px;
+      flex: 1 100%;
+    }
+    .line {
+      flex: 1 100%;
+      border-bottom: solid white 1px;
+      margin: 1em 0em;
+    }
+    #contact-fields {
+      flex: 1;
+      @include flex-container; 
+      justify-content: flex-end;
+      flex-flow: row wrap;
+      input {
+        flex: 1 100%;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0.2em 0em;
+      }
+      .line {
+        flex: 1 100%;
+        border-bottom: solid white 1px;
+        margin: 1.8em 0em 2em;
+      }
+      a {
+        display: block;
+      }
+    }
+    #contact-info {
+      flex: 1;
+      margin-left: 1em;
+      a {
+        color: white;
+      }
+    }
   }
 
-  .main {
-    line-height: 2.5em;
-    margin: 2em 0em 4em;
-    font-size: 14px;
-  }
+  #contact-quote {
+    flex: 1;
+    order: 1;
+    .quote {
+      position: relative;
+      text-align: center;
+      margin: auto;
+      max-width: 27em;
+    }
 
-  .quote {
-    position: relative;
-    text-align: center;
+    .quote-attrib {
+      margin: 0.5em 0em;
+    }
   }
-
-  .quote-attrib {
-    margin: 0.5em 0em;
-  }
-
 }
 
 
@@ -412,7 +451,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   text-align: center;
 
   #section-story-type-header {
-    width: 60%;
+    max-width: 64em;
     margin: auto;
     h1 {
       font-size: 38px;
@@ -430,12 +469,17 @@ h1, h2, h3, h4, h5, h6, h7 {
 
   #story-types {
     @include flex-container; 
-    flex-flow: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: auto;
+    max-width: 64em;
     .story-type {
       flex: 1;
       margin: 2em;
+      max-height: 12em;
+      max-width: 12em;
       img {
-        height: 50%;
+        height: 75%;
       }
       span {
         display: block;
@@ -476,7 +520,6 @@ h1, h2, h3, h4, h5, h6, h7 {
       line-height: 110%;
       font-weight: 500;
       margin: 0em 0em;
-      max-width: 50%;
     }
 
     .main {
@@ -499,6 +542,10 @@ h1, h2, h3, h4, h5, h6, h7 {
       .quote {
         position: relative;
         text-align: center;
+        .quote-text {
+          margin: auto;
+          max-width: 11em;
+        }
       }
 
       .quote-attrib {
@@ -558,6 +605,10 @@ h1, h2, h3, h4, h5, h6, h7 {
       .quote {
         position: relative;
         text-align: center;
+        .quote-text {
+          margin: auto;
+          max-width: 18em;
+        }
       }
       .quote-attrib {
         margin: 0.5em 0em;
@@ -645,6 +696,10 @@ h1, h2, h3, h4, h5, h6, h7 {
   .quote {
     position: relative;
     text-align: center;
+    .quote-text {
+      margin: auto;
+      max-width: 18em;
+    }
   }
 
   .quote-attrib {
@@ -696,6 +751,10 @@ h1, h2, h3, h4, h5, h6, h7 {
   .quote {
     position: relative;
     text-align: center;
+    .quote-text {
+      margin: auto;
+      max-width: 12em;
+    }
   }
 
   .quote-attrib {
