@@ -59,10 +59,10 @@ window.emberOptions = {
   scrollRatio: window.CAMPFIRE_SCROLL_RATIO
 };
 
-var renderer = new JS.GraphicRenderer(canvas, {
+var renderer = new Jungle.GraphicRenderer(canvas, {
     canvasAutoClear: undefined,
     debug: true
   }, 'embers');
-var embers = new Embers(window.emberOptions);
 
-renderer.addChild(embers);
+renderer.addChild(new Starfield());
+renderer.addChild(new Embers(window.emberOptions));
