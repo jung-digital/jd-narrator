@@ -1,4 +1,4 @@
-/*global $,Embers,JS*/
+/*global $,Embers,Jungle,Starfield*/
 'use strict';
 
 /*---------------------------------------------------------------------------*\
