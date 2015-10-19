@@ -338,7 +338,6 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 #mountains-image {
-  //background-image: url(../images/campfire-background.png);
   position: fixed;
   z-index: -3;
   width: 100%;
@@ -439,7 +438,7 @@ h1, h2, h3, h4, h5, h6, h7 {
     .quote {
       position: relative;
       text-align: center;
-      margin: auto;
+      margin: 1em auto;
       max-width: 27em;
     }
 
