@@ -328,12 +328,24 @@ h1, h2, h3, h4, h5, h6, h7 {
   }
 }
 
+
 #campfire-aside {
   position: absolute;
   bottom: 0em;
   right: 2em;
   width: 20em;
   font-size: 11px;
+}
+
+#mountains-image {
+  //background-image: url(../images/campfire-background.png);
+  position: fixed;
+  z-index: -3;
+  width: 100%;
+  bottom: 0px;
+  img {
+    width: 100%;
+  }
 }
 
 #campfire-video {
@@ -749,14 +761,16 @@ h1, h2, h3, h4, h5, h6, h7 {
 
   .main {
     line-height: 2.5em;
-    margin: 2em 0em;
+    margin: 2em auto;
     font-size: 14px;
+    max-width: 60em;
   }
 
   .sub {
     line-height: 2.5em;
     font-size: 14px;
-    margin-bottom: 3em;
+    margin: 0em auto 3em;
+    max-width: 60em;
   }
 
   .quote {
