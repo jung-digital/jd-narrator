@@ -319,12 +319,24 @@ h1, h2, h3, h4, h5, h6, h7 {
   }
 }
 
+
 #campfire-aside {
   position: absolute;
   bottom: 0em;
   right: 2em;
   width: 20em;
   font-size: 11px;
+}
+
+#mountains-image {
+  //background-image: url(../images/campfire-background.png);
+  position: fixed;
+  z-index: -3;
+  width: 100%;
+  bottom: 0px;
+  img {
+    width: 100%;
+  }
 }
 
 #campfire-video {

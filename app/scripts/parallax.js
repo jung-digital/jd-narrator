@@ -132,4 +132,9 @@ $(window).scroll(function () {
     overwrite: 'concurrent',
     ease: Power1.easeOut
   });
+  TweenLite.to('#mountains-image', 1, {
+    top: (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO + (window.innerHeight - $('#mountains-image').height()),
+    overwrite: 'concurrent',
+    ease: Power1.easeOut
+  });
 });
