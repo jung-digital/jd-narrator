@@ -147,13 +147,22 @@ h1, h2, h3, h4, h5, h6, h7 {
 /*======================================================*\
  * Canvas Overlay
 \*======================================================*/
+#stars {
+  position: fixed;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+}
+
 #embers {
   position: fixed;
   z-index: -1;
   width: 100%;
   height: 100%;
   left: 0px;
-  top: 0px;  
+  top: 0px;
 }
 
 /*======================================================*\
@@ -166,7 +175,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   -o-background-size: contain;
   background-size: contain;
   width: 100%;
-  height: 512px;  
+  height: 512px;
   color: white;
 }
 
@@ -356,7 +365,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 #section-contact-child {
-  @include flex-container; 
+  @include flex-container;
 
   position: fixed;
   top: 1000px;
@@ -370,7 +379,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   #contact-right {
     flex: 1;
     order: 2;
-    @include flex-container; 
+    @include flex-container;
     flex-flow: row wrap;
     padding-top: 9em;
     #contact-text {
@@ -384,7 +393,7 @@ h1, h2, h3, h4, h5, h6, h7 {
     }
     #contact-fields {
       flex: 1 1 50%;
-      @include flex-container; 
+      @include flex-container;
       justify-content: flex-end;
       flex-flow: row wrap;
       input {
@@ -468,7 +477,7 @@ h1, h2, h3, h4, h5, h6, h7 {
   }
 
   .story-types {
-    @include flex-container; 
+    @include flex-container;
     flex-flow: row nowrap;
     justify-content: center;
     margin: auto;
@@ -502,7 +511,7 @@ h1, h2, h3, h4, h5, h6, h7 {
 }
 
 #section-workshop-child {
-  @include flex-container; 
+  @include flex-container;
 
   position: fixed;
   top: 1000px;
@@ -515,8 +524,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 
   #work-right {
     flex: 1;
-    order: 2; 
-    padding: 1em; 
+    order: 2;
+    padding: 1em;
     h1 {
       font-size: 38px;
       line-height: 110%;
@@ -581,14 +590,14 @@ h1, h2, h3, h4, h5, h6, h7 {
   height: 400px;
   text-align: left;
 
-  @include flex-container; 
-  
+  @include flex-container;
+
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
 
   #work-header {
     flex: 1 100%;
-    @include flex-container; 
+    @include flex-container;
 
     #work-title {
       flex: 2;
@@ -618,8 +627,8 @@ h1, h2, h3, h4, h5, h6, h7 {
     }
   }
 
-  #work-recent-stories { 
-    @include flex-container; 
+  #work-recent-stories {
+    @include flex-container;
     flex: 1 100%;
 
     #work-story-1 {
@@ -631,7 +640,7 @@ h1, h2, h3, h4, h5, h6, h7 {
     }
     #work-stories-right {
       padding: 1em;
-      @include flex-container; 
+      @include flex-container;
       flex: 1;
       flex-flow: row wrap;
       -webkit-justify-content: center;

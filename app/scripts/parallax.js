@@ -11,7 +11,6 @@ var html = document.documentElement;
 
 function addEnterLeaveTransition(_scene, element, top) {
   _scene.on('enter', function (event) {
-    console.log(event);
     TweenLite.to(element, ANIMATION_SPEED, {
         top: top,
         opacity: 1,

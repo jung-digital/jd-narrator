@@ -64,5 +64,18 @@ var renderer = new Jungle.GraphicRenderer(canvas, {
     debug: true
   }, 'embers');
 
-renderer.addChild(new Starfield());
 renderer.addChild(new Embers(window.emberOptions));
+
+canvas = document.getElementById('stars');
+
+renderer = new Jungle.GraphicRenderer(canvas, {
+  canvasAutoClear: undefined,
+  debug: true
+}, 'stars');
+
+renderer.addChild(new Starfield({
+  starViewScrollRatio: 0.1,
+  starDensity: 5,
+  starViewWidth: 1920,
+  starViewHeight: 9000
+}));
