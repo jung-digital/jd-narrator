@@ -102,8 +102,8 @@ gulp.task('serve', ['styles', 'fonts'], () => {
       baseDir: ['.tmp', 'app'],
       routes: {
         '/bower_components': 'bower_components',
-        '/jd-js-lib/src': '../jd-js-lib/src',
-        '/jd-js-lib': '../jd-js-lib/dist'
+        '/jungle-js/src': '../jungle-js/src',
+        '/jungle-js': '../jungle-js/dist'
       }
     }
   });
@@ -152,7 +152,7 @@ gulp.task('serve:dist', () => {
     server: {
       baseDir: ['dist'],
       routes: {
-        '/jd-js-lib': '../jd-js-lib/dist'
+        '/jungle-js': '../jungle-js/dist'
       }
     }
   });
