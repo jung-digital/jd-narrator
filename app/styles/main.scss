@@ -383,7 +383,7 @@ h1, h2, h3, h4, h5, h6, h7 {
       margin: 1em 0em;
     }
     #contact-fields {
-      flex: 1;
+      flex: 1 1 50%;
       @include flex-container; 
       justify-content: flex-end;
       flex-flow: row wrap;
@@ -405,7 +405,7 @@ h1, h2, h3, h4, h5, h6, h7 {
       }
     }
     #contact-info {
-      flex: 1;
+      flex: 1 1 45%;
       margin-left: 1em;
       a {
         color: white;
