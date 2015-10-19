@@ -467,17 +467,19 @@ h1, h2, h3, h4, h5, h6, h7 {
     }
   }
 
-  #story-types {
+  .story-types {
     @include flex-container; 
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: center;
     margin: auto;
     max-width: 64em;
+
     .story-type {
       flex: 1;
       margin: 2em;
       max-height: 12em;
       max-width: 12em;
+      height: 12em;
       img {
         height: 75%;
       }
