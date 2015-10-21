@@ -61,7 +61,9 @@ window.emberOptions = {
 
 var renderer = new Jungle.GraphicRenderer(canvas, {
     canvasAutoClear: undefined,
-    debug: true
+    debug: true,
+    debugPosX: 10,
+    debugPosY: 70
   }, 'embers');
 
 renderer.addChild(new Embers(window.emberOptions));
@@ -70,7 +72,9 @@ canvas = document.getElementById('stars');
 
 renderer = new Jungle.GraphicRenderer(canvas, {
   canvasAutoClear: undefined,
-  debug: true
+  debug: true,
+  debugPosX: 10,
+  debugPosY: 70
 }, 'stars');
 
 renderer.addChild(new Starfield({
