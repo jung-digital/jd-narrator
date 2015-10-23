@@ -7,476 +7,707 @@
 
 $icon-font-path: '../fonts/';
 
-/*======================================================*\
- * Body
-\*======================================================*/
-html, body {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
 
-body {
-  color: white;
+@media (min-width: 768px) {
+  /*======================================================*\
+   * Body
+  \*======================================================*/
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
-  font-family: roboto-light;
-  font-size: 12px;
+  body {
+    color: white;
 
-  padding: 0;
-  margin: 0;
-  opacity: 0;
-  animation-play-state: paused;
-  animation-fill-mode: forwards;
-  @include all-animation(fadein 2s);
+    font-family: roboto-light;
+    font-size: 12px;
 
-  animation-fill-mode: forwards;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+    @include all-animation(fadein 2s);
 
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#010105+0,090919+76 */
-  background: #010105; /* Old browsers */
-  background: -moz-linear-gradient(top,  #010105 0%, #090919 51%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#010105), color-stop(51%,#090919)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #010105 0%,#090919 51%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #010105 0%,#090919 51%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #010105 0%,#090919 51%); /* IE10+ */
-  background: linear-gradient(to bottom,  #010105 0%,#090919 51%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010105', endColorstr='#090919',GradientType=0 ); /* IE6-9 */
-}
+    animation-fill-mode: forwards;
 
-@mixin fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#010105+0,090919+76 */
+    background: #010105; /* Old browsers */
+    background: -moz-linear-gradient(top,  #010105 0%, #090919 51%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#010105), color-stop(51%,#090919)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #010105 0%,#090919 51%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #010105 0%,#090919 51%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #010105 0%,#090919 51%); /* IE10+ */
+    background: linear-gradient(to bottom,  #010105 0%,#090919 51%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010105', endColorstr='#090919',GradientType=0 ); /* IE6-9 */
+  }
 
-@keyframes fadein {
-  @include fadein;
-}
+  @mixin fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
 
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-  @include fadein;
-}
+  @keyframes fadein {
+    @include fadein;
+  }
 
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-  @include fadein;
-}
+  /* Firefox < 16 */
+  @-moz-keyframes fadein {
+    @include fadein;
+  }
 
-/* Internet Explorer */
-@-ms-keyframes fadein {
-  @include fadein;
-}
+  /* Safari, Chrome and Opera > 12.1 */
+  @-webkit-keyframes fadein {
+    @include fadein;
+  }
 
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-  @include fadein;
-}
+  /* Internet Explorer */
+  @-ms-keyframes fadein {
+    @include fadein;
+  }
 
-/*======================================================*\
- * Global
-\*======================================================*/
-div {
-  padding: 0px;
-  margin: 0px;
-}
+  /* Opera < 12.1 */
+  @-o-keyframes fadein {
+    @include fadein;
+  }
 
-h1, h2, h3, h4, h5, h6, h7 {
-  font-family: "Oswald", san-serif;
-  font-weight: 100;
-}
+  /*======================================================*\
+   * Global
+  \*======================================================*/
+  div {
+    padding: 0px;
+    margin: 0px;
+  }
 
-.relative {
-  position: relative;
-}
+  h1, h2, h3, h4, h5, h6, h7 {
+    font-family: "Oswald", san-serif;
+    font-weight: 100;
+  }
 
-.fill {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-}
+  .relative {
+    position: relative;
+  }
 
-.quote {
-  position: relative;
-  margin: 1em 0em;
-  text-align: center;
-}
+  .fill {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
 
-.quote-attrib {
-  margin: 0.5em 0em;
-}
+  .quote {
+    position: relative;
+    margin: 1em 0em;
+    text-align: center;
+  }
 
-.quote-orange {
-  color: #ff9900;
-  font-size: 20px;
-  font-family: "Oswald", san-serif;
-  font-weight: 100;
-}
+  .quote-attrib {
+    margin: 0.5em 0em;
+  }
 
-.quote-blue {
-  color: #0099ff;
-  font-size: 20px;
-  font-family: "Oswald", san-serif;
-  font-weight: 100;
-}
+  .quote-orange {
+    color: #ff9900;
+    font-size: 20px;
+    font-family: "Oswald", san-serif;
+    font-weight: 100;
+  }
 
-.quote-yellow {
-  color: #ffc94c;
-  font-size: 20px;
-  font-family: "Oswald", san-serif;
-  font-weight: 100;
-}
+  .quote-blue {
+    color: #0099ff;
+    font-size: 20px;
+    font-family: "Oswald", san-serif;
+    font-weight: 100;
+  }
 
-.quote-line {
-  line-height: 0;
-}
+  .quote-yellow {
+    color: #ffc94c;
+    font-size: 20px;
+    font-family: "Oswald", san-serif;
+    font-weight: 100;
+  }
 
-.white-line {
-  position: absolute;
-  left: 50%;
-  margin-left: -70px;
-  width: 140px;
-  height: 1px;
-  background-color: white;
-}
+  .quote-line {
+    line-height: 0;
+  }
 
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  .white-line {
+    position: absolute;
+    left: 50%;
+    margin-left: -70px;
+    width: 140px;
+    height: 1px;
+    background-color: white;
+  }
 
-/*======================================================*\
- * Canvas Overlay
-\*======================================================*/
-#stars {
-  position: fixed;
-  z-index: -3;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-}
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
-#embers {
-  position: fixed;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  left: 0px;
-  top: 0px;
-}
+  /*======================================================*\
+   * Canvas Overlay
+  \*======================================================*/
+  #stars {
+    position: fixed;
+    z-index: -3;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+  }
 
-/*======================================================*\
- * Parallax Elements
-\*======================================================*/
-.moon {
-  background: url("/images/moon.png") no-repeat top center;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
-  width: 100%;
-  height: 512px;
-  color: white;
-}
+  #embers {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+  }
 
-.social {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  width: 200px;
-  margin-left: -100px;
-  color: white;
-  text-align: center;
-  font-size: 18px;
-  a {
+  /*======================================================*\
+   * Parallax Elements
+  \*======================================================*/
+  .moon {
+    background: url("/images/moon.png") no-repeat top center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    width: 100%;
+    height: 512px;
     color: white;
   }
-}
 
-/*======================================================*\
- * Parallax Triggers
-\*======================================================*/
-#section-contact-trigger {
-  height: 1200px;
-}
-
-#section-story-type-trigger {
-  height: 1200px;
-}
-
-#section-workshop-trigger {
-  height: 1200px;
-}
-
-#section-work-trigger {
-  height: 1200px;
-}
-
-#section-approach-trigger {
-  height: 1200px;
-}
-#section-about-trigger {
-  height: 1200px;
-}
-
-#section-campfire-trigger {
-  height: 1200px;
-}
-
-
-/*======================================================*\
- * Scroll up
-\*======================================================*/
-.scroll-up {
-  opacity: 0;
-
-  position: fixed;
-  top: 10%;
-  color: white;
-  left: 50%;
-  width: 200px;
-  margin-left: -100px;
-  text-align: center;
-
-  @include transition(opacity 1s ease-in-out);
-}
-
-.scroll-up img {
-  width: 80px;
-  height: 80px;
-}
-
-.scroll-up-show {
-  opacity: 1;
-}
-
-/*======================================================*\
- * Page css
-\*======================================================*/
-.narrator-logo {
-  width: 3em;
-  position: absolute;
-  top: 10%;
-  left: 10%;
-}
-
-.narrator-logo-full {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  width: 20em;
-}
-
-.wrapper {
-  width: 60%;
-  margin: auto;
-}
-
-.btn {
-  border: .1em solid white;
-  padding: 1.2em 2em;
-  display: inline-block;
-  font-size: 1.2em;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-  }
-}
-
-#section-header {
-  position: fixed;
-  top: 2em;
-  left: 2em;
-}
-
-#campfire-wrapper {
-  @extend .wrapper;
-
-  position: absolute;
-  bottom: 50%;
-  left: 50%;
-  margin-left: -30em;
-  width: 60em;
-  text-align: center;
-
-  h1 {
-    font-size: 36px;
-    margin: 0em 0em;
-    font-weight: 100;
-    font-family: "roboto-light", san-serif;
-  }
-
-  div {
-    font-size: 2.5em;
-    font-weight: 100;
-    span {
-      display: inline-block;
+  .social {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    a {
+      color: white;
     }
   }
 
-  #btn-find-story {
-    position: absolute;
-    left: 0;
-    margin-top: 4em;
+  /*======================================================*\
+   * Parallax Triggers
+  \*======================================================*/
+  #section-contact-trigger {
+    height: 1200px;
   }
 
-  #btn-telling-it {
-    position: absolute;
-    right: 0;
-    margin-top: 4em;
+  #section-story-type-trigger {
+    height: 1200px;
   }
-}
+
+  #section-workshop-trigger {
+    height: 1200px;
+  }
+
+  #section-work-trigger {
+    height: 1200px;
+  }
+
+  #section-approach-trigger {
+    height: 1200px;
+  }
+  #section-about-trigger {
+    height: 1200px;
+  }
+
+  #section-campfire-trigger {
+    height: 1200px;
+  }
 
 
-#campfire-aside {
-  position: absolute;
-  bottom: 0em;
-  right: 2em;
-  width: 20em;
-  font-size: 11px;
-}
+  /*======================================================*\
+   * Scroll up
+  \*======================================================*/
+  .scroll-up {
+    opacity: 0;
 
-#mountains-image {
-  position: fixed;
-  z-index: -3;
-  width: 100%;
-  img {
+    position: fixed;
+    top: 10%;
+    color: white;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    text-align: center;
+
+    @include transition(opacity 1s ease-in-out);
+  }
+
+  .scroll-up img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .scroll-up-show {
+    opacity: 1;
+  }
+
+  /*======================================================*\
+   * Page css
+  \*======================================================*/
+  .narrator-logo {
+    width: 3em;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+
+  .narrator-logo-full {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 20em;
+  }
+
+  .wrapper {
+    width: 60%;
+    margin: auto;
+  }
+
+  .btn {
+    border: .1em solid white;
+    padding: 1.2em 2em;
+    display: inline-block;
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+    }
+  }
+
+  #section-header {
+    position: fixed;
+    top: 2em;
+    left: 2em;
+  }
+
+  #campfire-wrapper {
+    @extend .wrapper;
+
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    margin-left: -30em;
+    width: 60em;
+    text-align: center;
+
+    h1 {
+      font-size: 36px;
+      margin: 0em 0em;
+      font-weight: 100;
+      font-family: "roboto-light", san-serif;
+    }
+
+    div {
+      font-size: 2.5em;
+      font-weight: 100;
+      span {
+        display: inline-block;
+      }
+    }
+
+    #btn-find-story {
+      position: absolute;
+      left: 0;
+      margin-top: 4em;
+    }
+
+    #btn-telling-it {
+      position: absolute;
+      right: 0;
+      margin-top: 4em;
+    }
+  }
+
+
+  #campfire-aside {
+    position: absolute;
+    bottom: 0em;
+    right: 2em;
+    width: 20em;
+    font-size: 11px;
+  }
+
+  #mountains-image {
+    position: fixed;
+    z-index: -3;
     width: 100%;
+    img {
+      width: 100%;
+    }
   }
-}
 
-#campfire-video {
-  position: fixed;
-  z-index: -2;
-  width: 100%;
-  bottom: 0px;
-}
+  #campfire-video {
+    position: fixed;
+    z-index: -2;
+    width: 100%;
+    bottom: 0px;
+  }
 
-.column-left {
-  width: 48%;
-  float: left;
-  padding-right: 2%;
-}
+  .column-left {
+    width: 48%;
+    float: left;
+    padding-right: 2%;
+  }
 
-.column-right {
-  width: 50%;
-  float: right;
-}
+  .column-right {
+    width: 50%;
+    float: right;
+  }
 
-//-------------------------------------
-// section-contact
-//-------------------------------------
-#section-contact {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  bottom: 0px;
-}
+  //-------------------------------------
+  // section-contact
+  //-------------------------------------
+  #section-contact {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    bottom: 0px;
+  }
 
-#section-contact-child {
-  @include flex-container;
-
-  position: fixed;
-  top: 1000px;
-  left: 50%;
-  margin-left: -37.5%;
-  opacity: 0;
-  width: 75%;
-  height: 400px;
-  text-align: left;
-
-  #contact-right {
-    flex: 1;
-    order: 2;
+  #section-contact-child {
     @include flex-container;
-    flex-flow: row wrap;
-    padding-top: 9em;
-    #contact-text {
-      font-size: 22px;
-      flex: 1 100%;
-    }
-    .line {
-      flex: 1 100%;
-      border-bottom: solid white 1px;
-      margin: 1em 0em;
-    }
-    #contact-fields {
-      flex: 1 1 50%;
+
+    position: fixed;
+    top: 1000px;
+    left: 50%;
+    margin-left: -37.5%;
+    opacity: 0;
+    width: 75%;
+    height: 400px;
+    text-align: left;
+
+    #contact-right {
+      flex: 1;
+      order: 2;
       @include flex-container;
-      justify-content: flex-end;
       flex-flow: row wrap;
-      input {
+      padding-top: 9em;
+      #contact-text {
+        font-size: 22px;
         flex: 1 100%;
-        width: 100%;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        margin: 0.2em 0em;
       }
       .line {
         flex: 1 100%;
         border-bottom: solid white 1px;
-        margin: 1.8em 0em 2em;
+        margin: 1em 0em;
       }
-      a {
-        display: block;
+      #contact-fields {
+        flex: 1 1 50%;
+        @include flex-container;
+        justify-content: flex-end;
+        flex-flow: row wrap;
+        input {
+          flex: 1 100%;
+          width: 100%;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          margin: 0.2em 0em;
+        }
+        .line {
+          flex: 1 100%;
+          border-bottom: solid white 1px;
+          margin: 1.8em 0em 2em;
+        }
+        a {
+          display: block;
+        }
+      }
+      #contact-info {
+        flex: 1 1 45%;
+        margin-left: 1em;
+        a {
+          color: white;
+        }
       }
     }
-    #contact-info {
-      flex: 1 1 45%;
-      margin-left: 1em;
-      a {
-        color: white;
+
+    #contact-quote {
+      flex: 1;
+      order: 1;
+      .quote {
+        position: relative;
+        text-align: center;
+        margin: 1em auto;
+        max-width: 27em;
+      }
+
+      .quote-attrib {
+        margin: 0.5em 0em;
       }
     }
   }
 
-  #contact-quote {
-    flex: 1;
-    order: 1;
-    .quote {
-      position: relative;
-      text-align: center;
-      margin: 1em auto;
-      max-width: 27em;
+
+  //-------------------------------------
+  // section-story-type
+  //-------------------------------------
+  #section-story-type {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    bottom: 0px;
+  }
+
+  #section-story-type-child {
+    position: fixed;
+    top: 1000px;
+    left: 50%;
+    margin-left: -37.5%;
+    opacity: 0;
+    width: 75%;
+    height: 400px;
+    text-align: center;
+
+    #section-story-type-header {
+      max-width: 64em;
+      margin: auto;
+      h1 {
+        font-size: 38px;
+        line-height: 110%;
+        font-weight: 500;
+        margin: 0em 0em;
+      }
+
+      .main {
+        line-height: 2.5em;
+        margin: 2em 0em 4em;
+        font-size: 14px;
+      }
     }
 
-    .quote-attrib {
-      margin: 0.5em 0em;
+    .story-types {
+      @include flex-container;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: auto;
+      max-width: 64em;
+
+      .story-type {
+        flex: 1;
+        margin: 2em;
+        max-height: 12em;
+        max-width: 12em;
+        height: 12em;
+        img {
+          height: 75%;
+        }
+        span {
+          display: block;
+          font-size: 22px;
+        }
+      }
     }
   }
-}
 
+  //-------------------------------------
+  // section-workshop
+  //-------------------------------------
+  #section-workshop {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    bottom: 0px;
+  }
 
-//-------------------------------------
-// section-story-type
-//-------------------------------------
-#section-story-type {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  bottom: 0px;
-}
+  #section-workshop-child {
+    @include flex-container;
 
-#section-story-type-child {
-  position: fixed;
-  top: 1000px;
-  left: 50%;
-  margin-left: -37.5%;
-  opacity: 0;
-  width: 75%;
-  height: 400px;
-  text-align: center;
+    position: fixed;
+    top: 1000px;
+    left: 50%;
+    margin-left: -37.5%;
+    opacity: 0;
+    width: 75%;
+    height: 400px;
+    text-align: left;
 
-  #section-story-type-header {
-    max-width: 64em;
-    margin: auto;
+    #work-right {
+      flex: 1;
+      order: 2;
+      padding: 1em;
+      h1 {
+        font-size: 38px;
+        line-height: 110%;
+        font-weight: 500;
+        margin: 0em 0em;
+      }
+
+      .main {
+        line-height: 2.5em;
+        margin: 2em 0em 2em;
+        font-size: 14px;
+      }
+
+      a {
+        align-self: flex-end;
+      }
+    }
+    #work-left {
+      flex: 1;
+      order: 1;
+      padding: 1em;
+
+      #workshop-quote {
+        margin: 4em 0em 3em;
+        .quote {
+          position: relative;
+          text-align: center;
+          .quote-text {
+            margin: auto;
+            max-width: 11em;
+          }
+        }
+
+        .quote-attrib {
+          margin: 0.5em 0em;
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  //-------------------------------------
+  // section-work
+  //-------------------------------------
+  #section-work {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    bottom: 0px;
+  }
+
+  #section-work-child {
+    position: fixed;
+    top: 1000px;
+    left: 50%;
+    margin-left: -37.5%;
+    opacity: 0;
+    width: 75%;
+    height: 400px;
+    text-align: left;
+
+    @include flex-container;
+
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+
+    #work-header {
+      flex: 1 100%;
+      @include flex-container;
+
+      #work-title {
+        flex: 2;
+        padding: 1em;
+        h1 {
+          font-size: 38px;
+          line-height: 110%;
+          font-weight: 500;
+          margin: 0em 0em 0.5em 0em;
+        }
+      }
+
+      #work-quote {
+        flex: 1;
+        padding: 1em;
+        .quote {
+          position: relative;
+          text-align: center;
+          .quote-text {
+            margin: auto;
+            max-width: 18em;
+          }
+        }
+        .quote-attrib {
+          margin: 0.5em 0em;
+        }
+      }
+    }
+
+    #work-recent-stories {
+      @include flex-container;
+      flex: 1 100%;
+
+      #work-story-1 {
+        flex: 2;
+        padding: 1em;
+        img {
+          width: 100%;
+        }
+      }
+      #work-stories-right {
+        padding: 1em;
+        @include flex-container;
+        flex: 1;
+        flex-flow: row wrap;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+
+        #work-story-2 {
+          img {
+            width: 100%;
+          }
+        }
+        #work-story-3 {
+          align-self: flex-end;
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    #work-btn-wrapper {
+      padding: 1em;
+      .btn {
+        display: inline-block;
+      }
+    }
+  }
+
+  //-------------------------------------
+  // section-approach
+  //-------------------------------------
+  #section-approach {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    bottom: 0px;
+  }
+
+  #section-approach-child {
+    position: fixed;
+    top: 1000px;
+    left: 50%;
+    margin-left: -37.5%;
+    opacity: 0;
+    width: 75%;
+    height: 400px;
+    text-align: left;
+
     h1 {
       font-size: 38px;
       line-height: 110%;
       font-weight: 500;
       margin: 0em 0em;
+      max-width: 50%;
     }
 
     .main {
@@ -484,323 +715,95 @@ h1, h2, h3, h4, h5, h6, h7 {
       margin: 2em 0em 4em;
       font-size: 14px;
     }
-  }
 
-  .story-types {
-    @include flex-container;
-    flex-flow: row nowrap;
-    justify-content: center;
-    margin: auto;
-    max-width: 64em;
-
-    .story-type {
-      flex: 1;
-      margin: 2em;
-      max-height: 12em;
-      max-width: 12em;
-      height: 12em;
-      img {
-        height: 75%;
-      }
-      span {
-        display: block;
-        font-size: 22px;
+    .quote {
+      position: relative;
+      text-align: center;
+      .quote-text {
+        margin: auto;
+        max-width: 18em;
       }
     }
-  }
-}
 
-//-------------------------------------
-// section-workshop
-//-------------------------------------
-#section-workshop {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  bottom: 0px;
-}
-
-#section-workshop-child {
-  @include flex-container;
-
-  position: fixed;
-  top: 1000px;
-  left: 50%;
-  margin-left: -37.5%;
-  opacity: 0;
-  width: 75%;
-  height: 400px;
-  text-align: left;
-
-  #work-right {
-    flex: 1;
-    order: 2;
-    padding: 1em;
-    h1 {
-      font-size: 38px;
-      line-height: 110%;
-      font-weight: 500;
-      margin: 0em 0em;
-    }
-
-    .main {
-      line-height: 2.5em;
-      margin: 2em 0em 2em;
-      font-size: 14px;
-    }
-
-    a {
-      align-self: flex-end;
-    }
-  }
-  #work-left {
-    flex: 1;
-    order: 1;
-    padding: 1em;
-
-    #workshop-quote {
-      margin: 4em 0em 3em;
-      .quote {
-        position: relative;
-        text-align: center;
-        .quote-text {
-          margin: auto;
-          max-width: 11em;
-        }
-      }
-
-      .quote-attrib {
-        margin: 0.5em 0em;
-      }
+    .quote-attrib {
+      margin: 0.5em 0em;
     }
 
     img {
       width: 100%;
     }
   }
-}
 
-//-------------------------------------
-// section-work
-//-------------------------------------
-#section-work {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  bottom: 0px;
-}
-
-#section-work-child {
-  position: fixed;
-  top: 1000px;
-  left: 50%;
-  margin-left: -37.5%;
-  opacity: 0;
-  width: 75%;
-  height: 400px;
-  text-align: left;
-
-  @include flex-container;
-
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-
-  #work-header {
-    flex: 1 100%;
-    @include flex-container;
-
-    #work-title {
-      flex: 2;
-      padding: 1em;
-      h1 {
-        font-size: 38px;
-        line-height: 110%;
-        font-weight: 500;
-        margin: 0em 0em 0.5em 0em;
-      }
-    }
-
-    #work-quote {
-      flex: 1;
-      padding: 1em;
-      .quote {
-        position: relative;
-        text-align: center;
-        .quote-text {
-          margin: auto;
-          max-width: 18em;
-        }
-      }
-      .quote-attrib {
-        margin: 0.5em 0em;
-      }
-    }
-  }
-
-  #work-recent-stories {
-    @include flex-container;
-    flex: 1 100%;
-
-    #work-story-1 {
-      flex: 2;
-      padding: 1em;
-      img {
-        width: 100%;
-      }
-    }
-    #work-stories-right {
-      padding: 1em;
-      @include flex-container;
-      flex: 1;
-      flex-flow: row wrap;
-      -webkit-justify-content: center;
-      -moz-justify-content: center;
-      -ms-justify-content: center;
-      -o-justify-content: center;
-      justify-content: center;
-
-      #work-story-2 {
-        img {
-          width: 100%;
-        }
-      }
-      #work-story-3 {
-        align-self: flex-end;
-        img {
-          width: 100%;
-        }
-      }
-    }
-  }
-  #work-btn-wrapper {
-    padding: 1em;
-    .btn {
-      display: inline-block;
-    }
-  }
-}
-
-//-------------------------------------
-// section-approach
-//-------------------------------------
-#section-approach {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  bottom: 0px;
-}
-
-#section-approach-child {
-  position: fixed;
-  top: 1000px;
-  left: 50%;
-  margin-left: -37.5%;
-  opacity: 0;
-  width: 75%;
-  height: 400px;
-  text-align: left;
-
-  h1 {
-    font-size: 38px;
-    line-height: 110%;
-    font-weight: 500;
-    margin: 0em 0em;
-    max-width: 50%;
-  }
-
-  .main {
-    line-height: 2.5em;
-    margin: 2em 0em 4em;
-    font-size: 14px;
-  }
-
-  .quote {
-    position: relative;
-    text-align: center;
-    .quote-text {
-      margin: auto;
-      max-width: 18em;
-    }
-  }
-
-  .quote-attrib {
-    margin: 0.5em 0em;
-  }
-
-  img {
+  //-------------------------------------
+  // section-about
+  //-------------------------------------
+  #section-about {
+    position: fixed;
+    z-index: 1;
     width: 100%;
-  }
-}
-
-//-------------------------------------
-// section-about
-//-------------------------------------
-#section-about {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  bottom: 0px;
-}
-
-#section-about-child {
-  position: fixed;
-  top: 1000px;
-  left: 50%;
-  margin-left: -37.5%;
-  opacity: 0;
-  width: 75%;
-  height: 400px;
-  text-align: center;
-
-  h1 {
-    font-size: 42px;
-    margin: 0em 0em;
+    bottom: 0px;
   }
 
-  .main {
-    line-height: 2.5em;
-    margin: 2em auto;
-    font-size: 14px;
-    max-width: 60em;
-  }
-
-  .sub {
-    line-height: 2.5em;
-    font-size: 14px;
-    margin: 0em auto 3em;
-    max-width: 60em;
-  }
-
-  .quote {
-    position: relative;
+  #section-about-child {
+    position: fixed;
+    top: 1000px;
+    left: 50%;
+    margin-left: -37.5%;
+    opacity: 0;
+    width: 75%;
+    height: 400px;
     text-align: center;
-    .quote-text {
-      margin: auto;
-      max-width: 12em;
+
+    h1 {
+      font-size: 42px;
+      margin: 0em 0em;
+    }
+
+    .main {
+      line-height: 2.5em;
+      margin: 2em auto;
+      font-size: 14px;
+      max-width: 60em;
+    }
+
+    .sub {
+      line-height: 2.5em;
+      font-size: 14px;
+      margin: 0em auto 3em;
+      max-width: 60em;
+    }
+
+    .quote {
+      position: relative;
+      text-align: center;
+      .quote-text {
+        margin: auto;
+        max-width: 12em;
+      }
+    }
+
+    .quote-attrib {
+      margin: 0.5em 0em;
     }
   }
 
-  .quote-attrib {
-    margin: 0.5em 0em;
+  //-------------------------------------
+  // section-campfire
+  //-------------------------------------
+  #section-campfire {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    z-index: 2;
   }
-}
 
-//-------------------------------------
-// section-campfire
-//-------------------------------------
-#section-campfire {
-  position: fixed;
-  margin: 0px;
-  padding: 0px;
-  z-index: 2;
-}
-
-#section-campfire-child {
-  position: fixed;
-  left: 50%;
-  margin-left: -37.5%;
-  opacity: 0;
-  width: 75%;
-  height: 75%;
-  min-height: 400px;
+  #section-campfire-child {
+    position: fixed;
+    left: 50%;
+    margin-left: -37.5%;
+    opacity: 0;
+    width: 75%;
+    height: 75%;
+    min-height: 400px;
+  }
 }
