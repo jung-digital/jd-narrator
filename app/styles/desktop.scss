@@ -182,7 +182,7 @@ $icon-font-path: '../fonts/';
   }
 
   .social {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: 50%;
     width: 200px;
@@ -291,45 +291,6 @@ $icon-font-path: '../fonts/';
     top: 2em;
     left: 2em;
   }
-
-  #campfire-wrapper {
-    @extend .wrapper;
-
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    margin-left: -30em;
-    width: 60em;
-    text-align: center;
-
-    h1 {
-      font-size: 36px;
-      margin: 0em 0em;
-      font-weight: 100;
-      font-family: "roboto-light", san-serif;
-    }
-
-    div {
-      font-size: 2.5em;
-      font-weight: 100;
-      span {
-        display: inline-block;
-      }
-    }
-
-    #btn-find-story {
-      position: absolute;
-      left: 0;
-      margin-top: 4em;
-    }
-
-    #btn-telling-it {
-      position: absolute;
-      right: 0;
-      margin-top: 4em;
-    }
-  }
-
 
   #campfire-aside {
     position: absolute;
@@ -805,5 +766,45 @@ $icon-font-path: '../fonts/';
     width: 75%;
     height: 75%;
     min-height: 400px;
+  }
+
+  #campfire-wrapper {
+    @extend .wrapper;
+
+    position: absolute;
+    bottom: 50%;
+    right: auto;
+    left: 50%;
+    margin-left: -30em;
+    width: 60em;
+    text-align: center;
+
+    h1 {
+      font-size: 36px;
+      margin: 0em 0em;
+      max-width: 100%;
+      font-weight: 100;
+      font-family: "roboto-light", san-serif;
+    }
+
+    div {
+      font-size: 2.5em;
+      font-weight: 100;
+      span {
+        display: inline-block;
+      }
+    }
+
+    #btn-find-story {
+      position: absolute;
+      left: 0;
+      margin-top: 4em;
+    }
+
+    #btn-telling-it {
+      position: absolute;
+      right: 0;
+      margin-top: 4em;
+    }
   }
 }
