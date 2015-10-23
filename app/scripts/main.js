@@ -26,14 +26,17 @@ $('body').on('animationend', function() {
 $(document).scroll(function () {
   var divScrollUp = $('.scroll-up');
   var divSocialIcons = $('.social-fixed');
+  var divNarratorLogo = $('.narrator-logo-full');
 
   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
     divScrollUp.addClass('scroll-up-show');
     divSocialIcons.addClass('social-show');
+    divNarratorLogo.addClass('narrator-logo-show');
   }
   else {
     divScrollUp.removeClass('scroll-up-show');
     divSocialIcons.removeClass('social-show');
+    divNarratorLogo.removeClass('narrator-logo-show');
   }
 });
 

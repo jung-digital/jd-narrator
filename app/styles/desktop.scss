@@ -307,19 +307,14 @@ $icon-font-path: '../fonts/';
     float: right;
   }
 
-  //-------------------------------------
-  // section-contact
-  //-------------------------------------
-  #section-contact {
+  %section {
     position: fixed;
     z-index: 1;
     width: 100%;
     bottom: 0px;
   }
 
-  #section-contact-child {
-    @include flex-container;
-
+  %section-child {
     position: fixed;
     top: 1000px;
     left: 50%;
@@ -327,6 +322,20 @@ $icon-font-path: '../fonts/';
     opacity: 0;
     width: 75%;
     height: 400px;
+  }
+
+  //-------------------------------------
+  // section-contact
+  //-------------------------------------
+  #section-contact {
+    @extend %section;
+  }
+
+  #section-contact-child {
+    @include flex-container;
+
+
+    @extend %section-child;
     text-align: left;
 
     #contact-right {
@@ -396,20 +405,12 @@ $icon-font-path: '../fonts/';
   // section-story-type
   //-------------------------------------
   #section-story-type {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    bottom: 0px;
+    @extend %section;
   }
 
   #section-story-type-child {
-    position: fixed;
-    top: 1000px;
-    left: 50%;
-    margin-left: -37.5%;
-    opacity: 0;
-    width: 75%;
-    height: 400px;
+
+    @extend %section-child;
     text-align: center;
 
     #section-story-type-header {
@@ -457,22 +458,13 @@ $icon-font-path: '../fonts/';
   // section-workshop
   //-------------------------------------
   #section-workshop {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    bottom: 0px;
+    @extend %section;
   }
 
   #section-workshop-child {
     @include flex-container;
 
-    position: fixed;
-    top: 1000px;
-    left: 50%;
-    margin-left: -37.5%;
-    opacity: 0;
-    width: 75%;
-    height: 400px;
+    @extend %section-child;
     text-align: left;
 
     #work-right {
@@ -527,20 +519,12 @@ $icon-font-path: '../fonts/';
   // section-work
   //-------------------------------------
   #section-work {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    bottom: 0px;
+    @extend %section;
   }
 
   #section-work-child {
-    position: fixed;
-    top: 1000px;
-    left: 50%;
-    margin-left: -37.5%;
-    opacity: 0;
-    width: 75%;
-    height: 400px;
+
+    @extend %section-child;
     text-align: left;
 
     @include flex-container;
@@ -627,20 +611,12 @@ $icon-font-path: '../fonts/';
   // section-approach
   //-------------------------------------
   #section-approach {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    bottom: 0px;
+    @extend %section;
   }
 
   #section-approach-child {
-    position: fixed;
-    top: 1000px;
-    left: 50%;
-    margin-left: -37.5%;
-    opacity: 0;
-    width: 75%;
-    height: 400px;
+
+    @extend %section-child;
     text-align: left;
 
     h1 {
@@ -679,20 +655,12 @@ $icon-font-path: '../fonts/';
   // section-about
   //-------------------------------------
   #section-about {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    bottom: 0px;
+    @extend %section;
   }
 
   #section-about-child {
-    position: fixed;
-    top: 1000px;
-    left: 50%;
-    margin-left: -37.5%;
-    opacity: 0;
-    width: 75%;
-    height: 400px;
+
+    @extend %section-child;
     text-align: center;
 
     h1 {
