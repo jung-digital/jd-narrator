@@ -299,32 +299,6 @@ $icon-font-path: '../fonts/';
     left: 2em;
   }
 
-  #campfire-aside {
-    position: absolute;
-    bottom: 0em;
-    right: 2em;
-    width: 20em;
-    font-size: 11px;
-  }
-
-  #mountains-image {
-    position: fixed;
-    z-index: -3;
-    width: 200vw;
-    left: -50vw;
-    img {
-      width: 100%;
-    }
-  }
-
-  #campfire-video {
-    position: fixed;
-    z-index: -2;
-    width: 200vw;
-    left: -50vw;
-    bottom: 0px;
-  }
-
   .column-left {
     width: 48%;
     float: left;
@@ -725,7 +699,7 @@ $icon-font-path: '../fonts/';
     text-align: center;
 
     h1 {
-      font-size: 42px;
+      font-size: 36px;
       margin: 0em 0em;
     }
 
@@ -815,7 +789,26 @@ $icon-font-path: '../fonts/';
       margin-top: 4em;
     }
   }
-  .campfire-aside {
+
+  #campfire-aside {
     display: none;
+  }
+
+  #mountains-image {
+    position: fixed;
+    z-index: -3;
+    width: 200vw;
+    left: -50vw;
+    img {
+      width: 100%;
+    }
+  }
+
+  #campfire-video {
+    position: fixed;
+    z-index: -2;
+    width: 200vw;
+    left: -50vw;
+    bottom: 0px;
   }
 }
