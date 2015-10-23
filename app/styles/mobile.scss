@@ -134,8 +134,8 @@ $icon-font-path: '../fonts/';
   .white-line {
     position: absolute;
     left: 50%;
-    margin-left: -70px;
-    width: 140px;
+    margin-left: -50px;
+    width: 100px;
     height: 1px;
     background-color: white;
   }
@@ -282,11 +282,7 @@ $icon-font-path: '../fonts/';
   }
 
   .narrator-logo-small {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    height: 2em;
-    width: 2.4em;
+    display: none;
   }
 
   .wrapper {
@@ -675,20 +671,21 @@ $icon-font-path: '../fonts/';
     text-align: center;
 
     h1 {
-      font-size: 36px;
+      font-size: 24px;
+      font-weight: 500;
       margin: 0em 0em;
     }
 
     .main {
-      line-height: 2.5em;
+      line-height: 2em;
       margin: 2em auto;
-      font-size: 14px;
+      font-size: 12px;
       max-width: 60em;
     }
 
     .sub {
-      line-height: 2.5em;
-      font-size: 14px;
+      line-height: 2em;
+      font-size: 12px;
       margin: 0em auto 3em;
       max-width: 60em;
     }

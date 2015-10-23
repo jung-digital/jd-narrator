@@ -271,6 +271,16 @@ $icon-font-path: '../fonts/';
     top: 10%;
     left: 10%;
     width: 20em;
+    display: block;
+  }
+
+  .narrator-logo-small {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    height: 2em;
+    width: 2.4em;
+    display: block;
   }
 
   .wrapper {
