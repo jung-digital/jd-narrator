@@ -96,6 +96,10 @@ $icon-font-path: '../fonts/';
     padding: 0px;
   }
 
+  .mobile-hidden {
+    display: auto;
+  }
+
   .quote {
     position: relative;
     margin: 1em 0em;
@@ -302,8 +306,10 @@ $icon-font-path: '../fonts/';
 
   #mountains-image {
     position: fixed;
+    top: 53px;
     z-index: -3;
     width: 100%;
+    left: auto;
     img {
       width: 100%;
     }
@@ -311,9 +317,11 @@ $icon-font-path: '../fonts/';
 
   #campfire-video {
     position: fixed;
+    top: 370px;
     z-index: -2;
     width: 100%;
-    bottom: 0px;
+    left: auto;
+    //bottom: 0px;
   }
 
   .column-left {
@@ -806,5 +814,8 @@ $icon-font-path: '../fonts/';
       right: 0;
       margin-top: 4em;
     }
+  }
+  .campfire-aside {
+    display: inline;
   }
 }

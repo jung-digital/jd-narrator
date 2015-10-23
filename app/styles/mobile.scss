@@ -251,8 +251,8 @@ $icon-font-path: '../fonts/';
   }
 
   .scroll-up img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 
   .scroll-up-show {
@@ -283,9 +283,9 @@ $icon-font-path: '../fonts/';
 
   .btn {
     border: .1em solid white;
-    padding: 1.2em 2em;
+    padding: 1em 1.5em;
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1em;
     color: white;
     text-decoration: none;
     cursor: pointer;
@@ -310,7 +310,8 @@ $icon-font-path: '../fonts/';
   #mountains-image {
     position: fixed;
     z-index: -3;
-    width: 100%;
+    width: 200vw;
+    left: -50vw;
     img {
       width: 100%;
     }
@@ -319,7 +320,8 @@ $icon-font-path: '../fonts/';
   #campfire-video {
     position: fixed;
     z-index: -2;
-    width: 100%;
+    width: 200vw;
+    left: -50vw;
     bottom: 0px;
   }
 
@@ -768,10 +770,10 @@ $icon-font-path: '../fonts/';
   #section-campfire-child {
     position: fixed;
     left: 50%;
-    margin-left: -37.5%;
+    margin-left: -45%;
     opacity: 0;
-    width: 75%;
-    height: 75%;
+    width: 90%;
+    height: 90%;
     min-height: 400px;
   }
 
@@ -779,16 +781,16 @@ $icon-font-path: '../fonts/';
     @extend .wrapper;
 
     position: absolute;
-    bottom: 50%;
+    bottom: 70%;
     right: 0%;
     margin-left: -30em;
     width: 100%;
     text-align: center;
 
     h1 {
-      font-size: 24px;
+      font-size: 20px;
       margin: 0em auto;
-      max-width: 80%;
+      max-width: 90%;
       font-weight: 100;
       font-family: "roboto-light", san-serif;
     }
@@ -812,5 +814,8 @@ $icon-font-path: '../fonts/';
       right: 0;
       margin-top: 4em;
     }
+  }
+  .campfire-aside {
+    display: none;
   }
 }
