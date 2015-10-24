@@ -103,7 +103,7 @@ var sceneWork = new ScrollMagic.Scene({
   duration: $('#section-work-trigger').height()
 });
 
-addEnterLeaveTransition(sceneWork, '#section-work-child', getTopPercent());
+addEnterLeaveTransition(sceneWork, '#section-work-child', getTopPercent('', '10%'));
 
 sceneWork.addTo(controller);
 
