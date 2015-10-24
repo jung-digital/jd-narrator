@@ -329,9 +329,9 @@ $icon-font-path: '../fonts/';
     top: 1000px;
     left: 50%;
     margin-left: -37.5%;
-    opacity: 0;
     width: 75%;
     height: 400px;
+    opacity: 0;
   }
 
   //-------------------------------------
@@ -625,39 +625,70 @@ $icon-font-path: '../fonts/';
   }
 
   #section-approach-child {
-
     @extend %section-child;
     text-align: left;
+    margin-left: -37.5%;
+    width: 75%;
+    display: block;
 
-    h1 {
-      font-size: 38px;
-      line-height: 110%;
-      font-weight: 500;
-      margin: 0em 0em;
-      max-width: 50%;
-    }
+    #approach-main {
+      width: 48%;
+      float: left;
+      padding-right: 2%;
+      display: block;
+      background-color: inherit;
+      flex: none;
 
-    .main {
-      line-height: 2.5em;
-      margin: 2em 0em 4em;
-      font-size: 14px;
-    }
+      h1 {
+        font-size: 38px;
+        line-height: 110%;
+        font-weight: 500;
+        margin: 0em 0em;
+      }
 
-    .quote {
-      position: relative;
-      text-align: center;
-      .quote-text {
-        margin: auto;
-        max-width: 18em;
+      .main {
+        line-height: 2.5em;
+        margin: 2em 0em 4em;
+        font-size: 14px;
       }
     }
 
-    .quote-attrib {
-      margin: 0.5em 0em;
+    #approach-reel {
+      width: 50%;
+      float: right;
+      padding-top: 10em;
+      display: block;
+      flex: none;
+      img {
+        width: 100%;
+      }
     }
 
-    img {
-      width: 100%;
+    #approach-quote {
+      width: 48%;
+      float: left;
+      padding-right: 2%;
+      display: block;
+      flex: none;
+      background-color: inherit;
+      .quote {
+        position: relative;
+        text-align: center;
+        margin: 1em 0em;
+        .quote-text {
+          @extend .quote-blue;
+          margin: auto;
+          max-width: 18em;
+        }
+      }
+
+      .quote-attrib {
+        margin: 0.5em 0em;
+        color: white;
+      }
+      .white-line {
+        background-color: white;
+      }
     }
   }
 

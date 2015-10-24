@@ -308,17 +308,6 @@ $icon-font-path: '../fonts/';
     left: 2em;
   }
 
-  .column-left {
-    width: 48%;
-    float: left;
-    padding-right: 2%;
-  }
-
-  .column-right {
-    width: 50%;
-    float: right;
-  }
-
   %section {
     position: fixed;
     z-index: 1;
@@ -625,37 +614,71 @@ $icon-font-path: '../fonts/';
 
   #section-approach-child {
     @extend %section-child;
-    text-align: left;
+    text-align: center;
 
-    h1 {
-      font-size: 38px;
-      line-height: 110%;
-      font-weight: 500;
-      margin: 0em 0em;
-      max-width: 50%;
-    }
+    @include flex-container;
+    flex-flow: column;
+    width: 100%;
+    margin-left: -50%;
 
-    .main {
-      line-height: 2.5em;
-      margin: 2em 0em 4em;
-      font-size: 14px;
-    }
+    #approach-main {
+      //width: 48%;
+      flex: 1;
+      order: 1;
+      background-color: rgba(28, 172, 239, 0.5);
 
-    .quote {
-      position: relative;
-      text-align: center;
-      .quote-text {
-        margin: auto;
-        max-width: 18em;
+      h1 {
+        font-size: 24px;
+        line-height: 110%;
+        font-weight: 500;
+        margin: 0em 0em;
+      }
+
+      .main {
+        line-height: 2em;
+        margin: 1em 1em 2em;
+        font-size: 12px;
+        text-align: left;
       }
     }
 
-    .quote-attrib {
-      margin: 0.5em 0em;
+    #approach-reel {
+      //width: 50%;
+      flex: 1;
+      order: 3;
+      img {
+        width: 100%;
+      }
     }
 
-    img {
-      width: 100%;
+    #approach-quote {
+      flex: 1;
+      order: 2;
+      background-color: white;
+      padding: 1em 0em;
+
+      .quote {
+        position: relative;
+        text-align: center;
+        margin: 0em;
+        .quote-text {
+          margin: auto;
+          max-width: 18em;
+          color: black;
+          font-size: 16px;
+          font-family: "Oswald", san-serif;
+          font-weight: 100;
+        }
+      }
+
+      .quote-attrib {
+        margin: 0.3em 0em 0.2em;
+        color: grey;
+        font-size: 12px;
+      }
+      .white-line {
+        background-color: DimGray;
+      }
     }
   }
 

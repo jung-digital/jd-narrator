@@ -44,11 +44,17 @@ var controller = new ScrollMagic.Controller({
  * Section Globals
 \*-----------------------------------------------------------*/
 
-function getTopPercent() {
+function getTopPercent(mobile, desktop) {
   if ($(window).width() < 785) {
+    if (mobile) {
+      return mobile;
+    }    
     return '5%';
   }
   else {
+    if (desktop) {
+      return desktop;
+    }
     return '15%';
   }
 }
@@ -109,7 +115,7 @@ var sceneApproach = new ScrollMagic.Scene({
   duration: $('#section-approach-trigger').height()
 });
 
-addEnterLeaveTransition(sceneApproach, '#section-approach-child', getTopPercent());
+addEnterLeaveTransition(sceneApproach, '#section-approach-child', getTopPercent('0%', ''));
 
 sceneApproach.addTo(controller);
 
