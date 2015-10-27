@@ -53,7 +53,7 @@ window.emberOptions = {
     heightProp: 'clientHeight',
     offset: {
       x: '50%',
-      y: '60%'
+      y: '45%'
     }
   },
   scrollRatio: window.CAMPFIRE_SCROLL_RATIO
