@@ -25,12 +25,18 @@ $('body').on('animationend', function() {
 
 $(document).scroll(function () {
   var divScrollUp = $('.scroll-up');
+  var divSocialIcons = $('.social-fixed');
+  var divNarratorLogo = $('.narrator-logo-full');
 
   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
     divScrollUp.addClass('scroll-up-show');
+    divSocialIcons.addClass('social-show');
+    divNarratorLogo.addClass('narrator-logo-show');
   }
   else {
     divScrollUp.removeClass('scroll-up-show');
+    divSocialIcons.removeClass('social-show');
+    divNarratorLogo.removeClass('narrator-logo-show');
   }
 });
 
@@ -61,7 +67,9 @@ window.emberOptions = {
 
 var renderer = new Jungle.GraphicRenderer(canvas, {
     canvasAutoClear: undefined,
-    debug: true
+    debug: true,
+    debugPosX: 10,
+    debugPosY: 70
   }, 'embers');
 
 renderer.addChild(new Embers(window.emberOptions));
@@ -70,7 +78,9 @@ canvas = document.getElementById('stars');
 
 renderer = new Jungle.GraphicRenderer(canvas, {
   canvasAutoClear: undefined,
-  debug: true
+  debug: true,
+  debugPosX: 10,
+  debugPosY: 70
 }, 'stars');
 
 renderer.addChild(new Starfield({

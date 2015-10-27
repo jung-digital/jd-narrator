@@ -39,6 +39,26 @@ var controller = new ScrollMagic.Controller({
   }
 });
 
+
+/*-----------------------------------------------------------*\
+ * Section Globals
+\*-----------------------------------------------------------*/
+
+function getTopPercent(mobile, desktop) {
+  if ($(window).width() < 785) {
+    if (mobile) {
+      return mobile;
+    }    
+    return '5%';
+  }
+  else {
+    if (desktop) {
+      return desktop;
+    }
+    return '15%';
+  }
+}
+
 //-------------------------------------
 // section-contact
 //-------------------------------------
@@ -47,7 +67,7 @@ var sceneContact = new ScrollMagic.Scene({
   duration: $('#section-contact-trigger').height()
 });
 
-addEnterLeaveTransition(sceneContact, '#section-contact-child', '15%');
+addEnterLeaveTransition(sceneContact, '#section-contact-child', getTopPercent());
 
 sceneContact.addTo(controller);
 
@@ -59,7 +79,7 @@ var sceneStoryType = new ScrollMagic.Scene({
   duration: $('#section-story-type-trigger').height()
 });
 
-addEnterLeaveTransition(sceneStoryType, '#section-story-type-child', '15%');
+addEnterLeaveTransition(sceneStoryType, '#section-story-type-child', getTopPercent());
 
 sceneStoryType.addTo(controller);
 
@@ -71,7 +91,7 @@ var sceneWorkshop = new ScrollMagic.Scene({
   duration: $('#section-workshop-trigger').height()
 });
 
-addEnterLeaveTransition(sceneWorkshop, '#section-workshop-child', '15%');
+addEnterLeaveTransition(sceneWorkshop, '#section-workshop-child', getTopPercent());
 
 sceneWorkshop.addTo(controller);
 
@@ -83,7 +103,7 @@ var sceneWork = new ScrollMagic.Scene({
   duration: $('#section-work-trigger').height()
 });
 
-addEnterLeaveTransition(sceneWork, '#section-work-child', '15%');
+addEnterLeaveTransition(sceneWork, '#section-work-child', getTopPercent('', '10%'));
 
 sceneWork.addTo(controller);
 
@@ -95,7 +115,7 @@ var sceneApproach = new ScrollMagic.Scene({
   duration: $('#section-approach-trigger').height()
 });
 
-addEnterLeaveTransition(sceneApproach, '#section-approach-child', '15%');
+addEnterLeaveTransition(sceneApproach, '#section-approach-child', getTopPercent('0%', ''));
 
 sceneApproach.addTo(controller);
 
@@ -107,7 +127,7 @@ var sceneAbout = new ScrollMagic.Scene({
   duration: $('#section-about-trigger').height()
 });
 
-addEnterLeaveTransition(sceneAbout, '#section-about-child', '15%');
+addEnterLeaveTransition(sceneAbout, '#section-about-child', getTopPercent());
 
 sceneAbout.addTo(controller);
 
@@ -119,7 +139,7 @@ var sceneCampfire = new ScrollMagic.Scene({
   duration: $('#section-campfire-trigger').height()
 });
 
-addEnterLeaveTransition(sceneCampfire, '#section-campfire-child', '15%');
+addEnterLeaveTransition(sceneCampfire, '#section-campfire-child', getTopPercent());
 
 sceneCampfire.addTo(controller);
 
