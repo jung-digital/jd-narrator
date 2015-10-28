@@ -26,11 +26,6 @@ $icon-font-path: '../fonts/';
     padding: 0;
     margin: 0;
     opacity: 0;
-    animation-play-state: paused;
-    animation-fill-mode: forwards;
-    @include all-animation(fadein 2s);
-
-    animation-fill-mode: forwards;
 
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#010105+0,090919+76 */
     background: #010105; /* Old browsers */
@@ -41,6 +36,14 @@ $icon-font-path: '../fonts/';
     background: -ms-linear-gradient(top,  #010105 0%,#090919 51%); /* IE10+ */
     background: linear-gradient(to bottom,  #010105 0%,#090919 51%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010105', endColorstr='#090919',GradientType=0 ); /* IE6-9 */
+  }
+
+  .body-fadein {
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+    @include all-animation(fadein 2s);
+
+    animation-fill-mode: forwards;
   }
 
   @mixin fadein {
