@@ -12,7 +12,7 @@ window.CAMPFIRE_SCROLL_RATIO = 1 / 1.61;
 var canvas = document.getElementById('embers');
 
 window.emberOptions = {
-  sparkCount: 90,
+  sparkCount: 60,
   maxSparkSize: 2.5,
   minSparkSize: 1.0,
   maxSparkVelocity: 120,
@@ -32,11 +32,11 @@ window.emberOptions = {
 };
 
 window.emberRenderer = new Jungle.GraphicRenderer(canvas, {
-    canvasAutoClear: undefined,
-    debug: true,
+    canvasAutoClear: true,
+    //debug: true,
     debugPosX: 500,
     debugPosY: 100,
-    fillWindowWidth: true
+    resizeToCanvas: true
   }, 'embers');
 
 emberRenderer.addChild(new Embers(window.emberOptions));
@@ -47,11 +47,11 @@ emberRenderer.addChild(new Embers(window.emberOptions));
 canvas = document.getElementById('stars');
 
 window.starRenderer = new Jungle.GraphicRenderer(canvas, {
-  canvasAutoClear: undefined,
-  debug: true,
+  canvasAutoClear: true,
+  //debug: true,
   debugPosX: 10,
   debugPosY: 100,
-  fillWindowWidth: true
+  resizeToCanvas: true
 }, 'stars');
 
 starRenderer.addChild(new Starfield({
