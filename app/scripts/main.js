@@ -1,4 +1,4 @@
-/*global $,Embers,Jungle,Starfield*/
+/*global Embers,Jungle,Starfield*/
 'use strict';
 
 /*---------------------------------------------------------------------------*\
@@ -39,7 +39,7 @@ window.emberRenderer = new Jungle.GraphicRenderer(canvas, {
     resizeToCanvas: true
   }, 'embers');
 
-emberRenderer.addChild(new Embers(window.emberOptions));
+window.emberRenderer.addChild(new Embers(window.emberOptions));
 
 /*---------------------------------------------------------------------------*\
  * Ember Canvas Underlay
@@ -54,7 +54,7 @@ window.starRenderer = new Jungle.GraphicRenderer(canvas, {
   resizeToCanvas: true
 }, 'stars');
 
-starRenderer.addChild(new Starfield({
+window.starRenderer.addChild(new Starfield({
   starViewScrollRatio: 0.1,
   starDensity: 2,
   starViewWidth: 1920,

@@ -1,4 +1,4 @@
-/*global $,ScrollMagic,TweenLite,Power3,Power1,Sine*/
+/*global $,ScrollMagic,TweenLite,Power1*/
 'use strict';
 
 /*------------------------------------------------------------------------------------*\
@@ -159,8 +159,6 @@ $('body').on('animationend', function() {
 /*---------------------------------------------------------------------------*\
  * Scroll Up Button
 \*---------------------------------------------------------------------------*/
-$(document).scroll(document_scrollHandler);
-$(window).resize(document_scrollHandler.bind(window, true));
 
 var loaded = false;
 $(document).ready(function () {
@@ -173,7 +171,7 @@ $(document).ready(function () {
   }, 500);
 });
 
-function document_scrollHandler(instant) {
+function documentScrollHandler(instant) {
   var instantaneous = instant || !loaded;
 
   var divScrollUp = $('.scroll-up');
@@ -202,4 +200,7 @@ function document_scrollHandler(instant) {
     overwrite: 'concurrent',
     ease: Power1.easeOut
   });
-};
+}
+
+$(document).scroll(documentScrollHandler);
+$(window).resize(documentScrollHandler.bind(window, true));
