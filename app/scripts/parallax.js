@@ -9,18 +9,31 @@ var ANIMATION_SPEED = 2;
 var body = document.body;
 var html = document.documentElement;
 
+var loaded = false;
+
+function firstSceneTransition() {
+  console.log('First scene transition!');
+  loaded = true;
+  documentScrollHandler(true);
+  $(document.body).addClass('body-fadein');
+}
+
 function addEnterLeaveTransition(_scene, element, top) {
   _scene.on('enter', function () {
-    TweenLite.to(element, ANIMATION_SPEED, {
-        top: top,
-        opacity: 1,
-        overwrite: 'concurrent',
-        ease: Power1.easeOut
-      });
+    TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
+      top: top,
+      opacity: 1,
+      overwrite: 'concurrent',
+      ease: Power1.easeOut
+    });
+
+    setTimeout(function () {
+      firstSceneTransition();
+    }, 1);
   });
 
   _scene.on('leave', function (event) {
-    TweenLite.to(element, ANIMATION_SPEED, {
+    TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
         top: event.scrollDirection === 'REVERSE' ? '200%' : '-200%',
         opacity: 0,
         overwrite: 'concurrent',
@@ -159,18 +172,6 @@ $('body').on('animationend', function() {
 /*---------------------------------------------------------------------------*\
  * Scroll Up Button
 \*---------------------------------------------------------------------------*/
-
-var loaded = false;
-$(document).ready(function () {
-  scrollToBottom();
-
-  setTimeout(function () {
-    loaded = true;
-    setupScenes();
-    $(document.body).addClass('body-fadein');
-  }, 500);
-});
-
 function documentScrollHandler(instant) {
   var instantaneous = instant || !loaded;
 
@@ -204,3 +205,21 @@ function documentScrollHandler(instant) {
 
 $(document).scroll(documentScrollHandler);
 $(window).resize(documentScrollHandler.bind(window, true));
+
+$(document).ready(function () {
+  var cfv = $('#campfire-video');
+
+  console.log('Video loading state: ', cfv.readyState);
+
+  if (cfv.readyState >= 2) {
+    videoCanPlayHandler();
+  } else {
+    cfv.on('canplay', videoCanPlayHandler);
+  }
+
+  function videoCanPlayHandler() {
+    console.log('Video loaded!')
+    scrollToBottom();
+    setupScenes();
+  }
+});
