@@ -12,10 +12,12 @@ var html = document.documentElement;
 var loaded = false;
 
 function firstSceneTransition() {
-  console.log('First scene transition!');
-  loaded = true;
-  documentScrollHandler(true);
-  $(document.body).addClass('body-fadein');
+  if (!loaded) {
+    console.log('First scene transition!');
+    loaded = true;
+    documentScrollHandler(true);
+    $(document.body).addClass('body-fadein');
+  }
 }
 
 function addEnterLeaveTransition(_scene, element, top) {
@@ -27,9 +29,11 @@ function addEnterLeaveTransition(_scene, element, top) {
       ease: Power1.easeOut
     });
 
-    setTimeout(function () {
-      firstSceneTransition();
-    }, 1);
+    if (!loaded) {
+      setTimeout(function () {
+        firstSceneTransition();
+      }, 1);
+    }
   });
 
   _scene.on('leave', function (event) {
