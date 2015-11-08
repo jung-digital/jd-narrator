@@ -38,8 +38,8 @@ $icon-font-path: '../fonts/';
    * Scroll up
   \*======================================================*/
   .scroll-up img {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
   }
 
   /*======================================================*\
@@ -114,7 +114,6 @@ $icon-font-path: '../fonts/';
       font-size: 38px;
       line-height: 110%;
       font-weight: 500;
-      margin: 0em 0em;
     }
 
     .main {
@@ -125,7 +124,8 @@ $icon-font-path: '../fonts/';
   }
 
   #approach-reel {
-    width: 50%;
+    width: 48%;
+    padding-left: 2%;
     float: right;
     padding-top: 10em;
     display: block;

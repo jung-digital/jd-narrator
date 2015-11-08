@@ -215,9 +215,14 @@ documentScrollHandler = function (instant) {
   }
 
   var campfireHeight = $('#campfire-video').height();
+  var mountainsHeight = $('#mountains-image').height();
   var value = ((controller.scrollPos() + window.innerHeight) - documentHeight()) * window.CAMPFIRE_SCROLL_RATIO;
   value -= campfireHeight * 0.2;
-  console.log(value);
+
+  // For the sake of performance, don't bother continuing to tween the video position once it is already
+  // out of view
+  value = Math.max(-(campfireHeight + mountainsHeight), value);
+
   TweenLite.to('.campfire-video-container', instantaneous ? 0 : 1, {
     bottom: value,
     overwrite: 'concurrent',
