@@ -1,6 +1,38 @@
 /*global $,ScrollMagic,TweenLite,Power1*/
 'use strict';
 
+/*---------------------------------------------------------------------------*\
+ * Scaling Sections
+\*---------------------------------------------------------------------------*/
+var curSection;
+
+/**
+ * This function automatically scales a section based on the window's:
+ *
+ * - innerWidth out of 968
+ * - innerHeight out of 700
+ */
+function sectionsScale() {
+  var scaleX = window.innerWidth / 968;
+  var scaleY = window.innerHeight / 700;
+  var scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+
+  $('.section-child').css('transform', 'scale(' + scale + ',' + scale + ')');
+}
+
+/**
+ * This function calculates a post-scaling of a section's ideal top position
+ * so that it is centered in the window.
+ *
+ * @param section
+ * @returns {string}
+ */
+function getSectionFocusTop(section) {
+  var rect = section.getBoundingClientRect();
+  var percent = ((window.innerHeight - rect.height) / 2) / window.innerHeight;
+  return (percent * 100) + '%';
+}
+
 /*------------------------------------------------------------------------------------*\
  * Scenes
  * Broken up into 7 sections of 200 pixels each
@@ -22,8 +54,10 @@ function firstSceneTransition() {
 
 function addEnterLeaveTransition(_scene, element, top) {
   _scene.on('enter', function () {
+    curSection = $(element).get(0);
+
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
-      top: top,
+      top: getSectionFocusTop(curSection),
       opacity: 1,
       overwrite: 'concurrent',
       ease: Power1.easeOut
@@ -60,21 +94,6 @@ var controller = new ScrollMagic.Controller({
 /*-----------------------------------------------------------*\
  * Section Globals
 \*-----------------------------------------------------------*/
-function getTopPercent(mobile, desktop) {
-  if ($(window).width() < 785) {
-    if (mobile) {
-      return mobile;
-    }
-    return '5%';
-  }
-  else {
-    if (desktop) {
-      return desktop;
-    }
-    return '15%';
-  }
-}
-
 function setupScenes() {
   //-------------------------------------
   // section-contact
@@ -84,7 +103,7 @@ function setupScenes() {
     duration: $('#section-contact-trigger').height()
   });
 
-  addEnterLeaveTransition(sceneContact, '#section-contact-child', getTopPercent());
+  addEnterLeaveTransition(sceneContact, '#section-contact-child');
 
   sceneContact.addTo(controller);
 
@@ -96,7 +115,7 @@ function setupScenes() {
     duration: $('#section-story-type-trigger').height()
   });
 
-  addEnterLeaveTransition(sceneStoryType, '#section-story-type-child', getTopPercent());
+  addEnterLeaveTransition(sceneStoryType, '#section-story-type-child');
 
   sceneStoryType.addTo(controller);
 
@@ -108,7 +127,7 @@ function setupScenes() {
     duration: $('#section-workshop-trigger').height()
   });
 
-  addEnterLeaveTransition(sceneWorkshop, '#section-workshop-child', getTopPercent());
+  addEnterLeaveTransition(sceneWorkshop, '#section-workshop-child');
 
   sceneWorkshop.addTo(controller);
 
@@ -120,7 +139,7 @@ function setupScenes() {
     duration: $('#section-work-trigger').height()
   });
 
-  addEnterLeaveTransition(sceneWork, '#section-work-child', getTopPercent('', '10%'));
+  addEnterLeaveTransition(sceneWork, '#section-work-child');
 
   sceneWork.addTo(controller);
 
@@ -132,7 +151,7 @@ function setupScenes() {
     duration: $('#section-approach-trigger').height()
   });
 
-  addEnterLeaveTransition(sceneApproach, '#section-approach-child', getTopPercent('0%', ''));
+  addEnterLeaveTransition(sceneApproach, '#section-approach-child');
 
   sceneApproach.addTo(controller);
 
@@ -144,7 +163,7 @@ function setupScenes() {
     duration: $('#section-about-trigger').height()
   });
 
-  addEnterLeaveTransition(sceneAbout, '#section-about-child', getTopPercent());
+  addEnterLeaveTransition(sceneAbout, '#section-about-child');
 
   sceneAbout.addTo(controller);
 
@@ -156,7 +175,7 @@ function setupScenes() {
     duration: $('#section-campfire-trigger').height()
   });
 
-  addEnterLeaveTransition(sceneCampfire, '#section-campfire-child', getTopPercent());
+  addEnterLeaveTransition(sceneCampfire, '#section-campfire-child');
 
   sceneCampfire.addTo(controller);
 }
@@ -206,7 +225,11 @@ function documentScrollHandler(instant) {
 }
 
 $(document).scroll(documentScrollHandler);
-$(window).resize(documentScrollHandler.bind(window, true));
+$(window).resize(function () {
+  sectionsScale();
+  curSection.style.top = getSectionFocusTop(curSection);
+  documentScrollHandler.bind(window, true)
+});
 
 $(document).ready(function () {
   var cfv = $('#campfire-video');
@@ -220,7 +243,8 @@ $(document).ready(function () {
   }
 
   function videoCanPlayHandler() {
-    console.log('Video loaded!')
+    console.log('Video loaded!');
+    sectionsScale();
     scrollToBottom();
     setupScenes();
 

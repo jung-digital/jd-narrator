@@ -18,11 +18,11 @@
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
-  display: flex; 
+  display: flex;
 }
 
-@mixin calc($property, $expression) { 
-  #{$property}: -webkit-calc(#{$expression}); 
-  #{$property}: -moz-calc(#{$expression}); 
-  #{$property}: calc(#{$expression}); 
-} 
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}

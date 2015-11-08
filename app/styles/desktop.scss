@@ -7,7 +7,6 @@
 
 $icon-font-path: '../fonts/';
 
-
 @media (min-width: 768px) {
   /*======================================================*\
    * Body
@@ -100,69 +99,66 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   #section-approach-child {
     text-align: left;
-    margin-left: -37.5%;
-    width: 75%;
     display: block;
+  }
 
-    #approach-main {
-      width: 48%;
-      float: left;
-      padding-right: 2%;
-      display: block;
-      background-color: inherit;
-      flex: none;
+  #approach-main {
+    width: 48%;
+    float: left;
+    padding-right: 2%;
+    display: block;
+    background-color: inherit;
+    flex: none;
 
-      h1 {
-        font-size: 38px;
-        line-height: 110%;
-        font-weight: 500;
-        margin: 0em 0em;
-      }
+    h1 {
+      font-size: 38px;
+      line-height: 110%;
+      font-weight: 500;
+      margin: 0em 0em;
+    }
 
-      .main {
-        line-height: 2.5em;
-        margin: 2em 0em 4em;
-        font-size: 14px;
+    .main {
+      line-height: 2.5em;
+      margin: 2em 0em 3em;
+      font-size: 14px;
+    }
+  }
+
+  #approach-reel {
+    width: 50%;
+    float: right;
+    padding-top: 10em;
+    display: block;
+    flex: none;
+    img {
+      width: 100%;
+    }
+  }
+
+  #approach-quote {
+    float: left;
+    display: block;
+    background-color: inherit;
+
+    .quote {
+      position: relative;
+      text-align: center;
+      margin: 1em 0em;
+
+      .quote-text {
+        @extend .quote-blue;
+        margin: auto;
+        max-width: 18em;
+        font-size: 26px;
       }
     }
 
-    #approach-reel {
-      width: 50%;
-      float: right;
-      padding-top: 10em;
-      display: block;
-      flex: none;
-      img {
-        width: 100%;
-      }
+    .quote-attrib {
+      margin: 0.5em 0em;
+      color: white;
     }
-
-    #approach-quote {
-      width: 48%;
-      float: left;
-      padding-right: 2%;
-      display: block;
-      flex: none;
-      background-color: inherit;
-      .quote {
-        position: relative;
-        text-align: center;
-        margin: 1em 0em;
-        .quote-text {
-          @extend .quote-blue;
-          margin: auto;
-          max-width: 18em;
-          color: white;
-        }
-      }
-
-      .quote-attrib {
-        margin: 0.5em 0em;
-        color: white;
-      }
-      .white-line {
-        background-color: white;
-      }
+    .white-line {
+      background-color: white;
     }
   }
 
@@ -207,25 +203,7 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-campfire
   //-------------------------------------
-  #section-campfire {
-    position: fixed;
-    margin: 0px;
-    padding: 0px;
-    z-index: 2;
-  }
-
-  #section-campfire-child {
-    margin-left: -37.5%;
-    width: 75%;
-    height: 75%;
-  }
-
   #campfire-wrapper {
-    bottom: 50%;
-    right: auto;
-    left: 50%;
-    width: 60em;
-
     h1 {
       font-size: 36px;
       margin: 0em 0em;
@@ -234,10 +212,9 @@ $icon-font-path: '../fonts/';
   }
 
   #campfire-aside {
-    display: inline;
     position: absolute;
-    bottom: 0em;
-    right: 2em;
+    top: 300px;
+    left: 20px;
     width: 20em;
     font-size: 11px;
   }
