@@ -152,6 +152,7 @@ $icon-font-path: '../fonts/';
           @extend .quote-blue;
           margin: auto;
           max-width: 18em;
+          color: white;
         }
       }
 
@@ -242,18 +243,11 @@ $icon-font-path: '../fonts/';
   }
 
   #mountains-image {
-    position: fixed;
-    top: 53px;
-    z-index: -3;
     width: 100%;
-    left: auto;
-    img {
-      width: 100%;
-    }
+    left: 0;
   }
 
-  #campfire-video {
-    top: 370px;
+  .campfire-video-container {
     width: 100%;
     left: auto;
   }

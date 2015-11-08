@@ -194,14 +194,12 @@ function documentScrollHandler(instant) {
     divNarratorLogo.removeClass('narrator-logo-show');
   }
 
-  TweenLite.to('#campfire-video', instantaneous ? 0 : 1, {
-    top: (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO + (window.innerHeight - $('#campfire-video').height()),
-    overwrite: 'concurrent',
-    ease: Power1.easeOut
-  });
-
-  TweenLite.to('#mountains-image', instantaneous ? 0 : 1, {
-    top: (documentHeight() - window.innerHeight - controller.scrollPos()) * window.CAMPFIRE_SCROLL_RATIO + (window.innerHeight - $('#mountains-image').height()),
+  var campfireHeight = $('#campfire-video').height();
+  var value = ((controller.scrollPos() + window.innerHeight) - documentHeight()) * window.CAMPFIRE_SCROLL_RATIO;
+  value -= campfireHeight * 0.2;
+  console.log(value);
+  TweenLite.to('.campfire-video-container', instantaneous ? 0 : 1, {
+    bottom: value,
     overwrite: 'concurrent',
     ease: Power1.easeOut
   });
@@ -225,5 +223,8 @@ $(document).ready(function () {
     console.log('Video loaded!')
     scrollToBottom();
     setupScenes();
+
+    // Remove all jquery events from the video
+    cfv.off();
   }
 });
