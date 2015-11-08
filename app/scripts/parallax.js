@@ -42,6 +42,7 @@ var body = document.body;
 var html = document.documentElement;
 
 var loaded = false;
+var documentScrollHandler = function() {}; // Overwritten below
 
 function firstSceneTransition() {
   if (!loaded) {
@@ -52,7 +53,7 @@ function firstSceneTransition() {
   }
 }
 
-function addEnterLeaveTransition(_scene, element, top) {
+function addEnterLeaveTransition(_scene, element) {
   _scene.on('enter', function () {
     curSection = $(element).get(0);
 
@@ -195,7 +196,7 @@ $('body').on('animationend', function() {
 /*---------------------------------------------------------------------------*\
  * Scroll Up Button
 \*---------------------------------------------------------------------------*/
-function documentScrollHandler(instant) {
+documentScrollHandler = function (instant) {
   var instantaneous = instant || !loaded;
 
   var divScrollUp = $('.scroll-up');
@@ -222,25 +223,19 @@ function documentScrollHandler(instant) {
     overwrite: 'concurrent',
     ease: Power1.easeOut
   });
-}
+};
 
 $(document).scroll(documentScrollHandler);
 $(window).resize(function () {
   sectionsScale();
   curSection.style.top = getSectionFocusTop(curSection);
-  documentScrollHandler.bind(window, true)
+  documentScrollHandler.bind(window, true);
 });
 
 $(document).ready(function () {
   var cfv = $('#campfire-video');
 
   console.log('Video loading state: ', cfv.readyState);
-
-  if (cfv.readyState >= 2) {
-    videoCanPlayHandler();
-  } else {
-    cfv.on('canplay', videoCanPlayHandler);
-  }
 
   function videoCanPlayHandler() {
     console.log('Video loaded!');
@@ -250,5 +245,11 @@ $(document).ready(function () {
 
     // Remove all jquery events from the video
     cfv.off();
+  }
+
+  if (cfv.readyState >= 2) {
+    videoCanPlayHandler();
+  } else {
+    cfv.on('canplay', videoCanPlayHandler);
   }
 });
