@@ -142,8 +142,8 @@ function setupScenes() {
   // section-contact
   //-------------------------------------
   var sceneContact = new ScrollMagic.Scene({
-    triggerElement: '#section-contact-trigger',
-    duration: $('#section-contact-trigger').height()
+    triggerElement: '#contact',
+    duration: $('#contact').height()
   });
 
   addEnterLeaveTransition(sceneContact, '#section-contact-child');
@@ -154,8 +154,8 @@ function setupScenes() {
   // section-story-type
   //-------------------------------------
   var sceneStoryType = new ScrollMagic.Scene({
-    triggerElement: '#section-story-type-trigger',
-    duration: $('#section-story-type-trigger').height()
+    triggerElement: '#story',
+    duration: $('#story').height()
   });
 
   addEnterLeaveTransition(sceneStoryType, '#section-story-type-child');
@@ -166,8 +166,8 @@ function setupScenes() {
   // section-workshop
   //-------------------------------------
   var sceneWorkshop = new ScrollMagic.Scene({
-    triggerElement: '#section-workshop-trigger',
-    duration: $('#section-workshop-trigger').height()
+    triggerElement: '#workshop',
+    duration: $('#workshop').height()
   });
 
   addEnterLeaveTransition(sceneWorkshop, '#section-workshop-child');
@@ -178,8 +178,8 @@ function setupScenes() {
   // section-work
   //-------------------------------------
   var sceneWork = new ScrollMagic.Scene({
-    triggerElement: '#section-work-trigger',
-    duration: $('#section-work-trigger').height()
+    triggerElement: '#work',
+    duration: $('#work').height()
   });
 
   addEnterLeaveTransition(sceneWork, '#section-work-child');
@@ -190,8 +190,8 @@ function setupScenes() {
   // section-approach
   //-------------------------------------
   var sceneApproach = new ScrollMagic.Scene({
-    triggerElement: '#section-approach-trigger',
-    duration: $('#section-approach-trigger').height()
+    triggerElement: '#approach',
+    duration: $('#approach').height()
   });
 
   addEnterLeaveTransition(sceneApproach, '#section-approach-child');
@@ -202,8 +202,8 @@ function setupScenes() {
   // section-about
   //-------------------------------------
   var sceneAbout = new ScrollMagic.Scene({
-    triggerElement: '#section-about-trigger',
-    duration: $('#section-about-trigger').height()
+    triggerElement: '#about',
+    duration: $('#about').height()
   });
 
   addEnterLeaveTransition(sceneAbout, '#section-about-child');
@@ -214,8 +214,8 @@ function setupScenes() {
   // section-campfire
   //-------------------------------------
   var sceneCampfire = new ScrollMagic.Scene({
-    triggerElement: '#section-campfire-trigger',
-    duration: $('#section-campfire-trigger').height()
+    triggerElement: '#campfire',
+    duration: $('#campfire').height()
   });
 
   addEnterLeaveTransition(sceneCampfire, '#section-campfire-child');
