@@ -280,11 +280,18 @@ $(window).resize(function () {
 
 function onHashChangeHandler() {
   var hash = window.location.hash.slice(1);
-  var sectionID = '#subsection-' + hash;
+  console.log('Hash detected: ' + hash);
 
-  var section = $(sectionID);
+  var section = $('#' + hash);
+  var subSectionID = '#subsection-' + hash;
+  var subSection = $(subSectionID);
 
+  console.log(section);
+  
   if (section.length) {
+    console.log('Allow browser to scroll to section ' + hash);
+    controller.scrollTo('#' + hash);
+  } else if (subSection.length) {
     // Force body to full opacity
     $(body).css('opacity', 1);
 
