@@ -852,18 +852,39 @@ $icon-font-path: '../fonts/';
   }
 
   .subsection-child {
-    max-width: 800px;
+    max-width: 650px;
     margin: 0 auto;
     text-align: center;
 
   }
 
   #subsection-music {
-    position: fixed;
     display: none;
+    padding: 4em 0em;
+
+    .content {
+      line-height: 2em;
+      margin: 2em;
+    }
+
+    ul {
+      text-align: left;
+      line-height: 2em;
+      margin-left: 4em;
+    }
 
     .music-girl {
       width: 100px;
+    }
+
+    .music-cassette {
+      width: 250px;
+      margin: 2em;
+    }
+
+    .icon {
+      width: 55px;
+      margin: 2em;
     }
   }
 }
