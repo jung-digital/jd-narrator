@@ -215,7 +215,7 @@ $icon-font-path: '../fonts/';
    * Parallax Triggers
   \*======================================================*/
   #section-contact-trigger {
-    height: 400px;
+    height: 1200px;
   }
 
   #section-story-type-trigger {
@@ -255,7 +255,7 @@ $icon-font-path: '../fonts/';
     margin-left: -100px;
     text-align: center;
 
-    top: 40px;
+    top: 60px;
 
     @include transition(opacity 1s ease-in-out);
   }
@@ -355,7 +355,7 @@ $icon-font-path: '../fonts/';
   }
 
   #contact-right {
-    flex: 1;
+    flex: 1 70%;
     order: 2;
     @include flex-container;
     flex-flow: row wrap;
@@ -413,7 +413,7 @@ $icon-font-path: '../fonts/';
   }
 
   #contact-quote {
-    flex: 1;
+    flex: 1 30%;
     order: 1;
     .quote {
       position: relative;
@@ -635,6 +635,7 @@ $icon-font-path: '../fonts/';
         }
       }
     }
+
     #work-btn-wrapper {
       padding: 1em;
       .btn {
@@ -655,17 +656,21 @@ $icon-font-path: '../fonts/';
   }
 
   #section-approach-flex {
-    @include flex-container;
   }
 
   #approach-main {
-    background-color: rgba(28, 172, 239, 0.5);
+    text-align: center;
+    background-color: rgba(28, 172, 239, 0.3);
+    padding-top: 1em;
+    h2 {
+      margin: 0.5em 0em;
+    }
 
     h1 {
       font-size: 24px;
       line-height: 110%;
       font-weight: 500;
-      margin: 1em 0em;
+      margin: 0.5em 0em;
     }
 
     .main {
@@ -770,7 +775,7 @@ $icon-font-path: '../fonts/';
 
   #campfire-wrapper {
     position: absolute;
-    top: 230px;
+    top: 140px;
     width: 100%;
     text-align: center;
 
@@ -778,6 +783,7 @@ $icon-font-path: '../fonts/';
       font-size: 20px;
       font-weight: 100;
       font-family: "roboto-light", san-serif;
+      margin: 0 1em;
     }
 
     div {
@@ -787,18 +793,16 @@ $icon-font-path: '../fonts/';
         display: inline-block;
       }
     }
+  }
 
-    #btn-find-story {
-      position: absolute;
-      left: 0;
-      top: 200px;
-    }
+  #btn-find-story {
+    margin: 1em 0;
+    width: 220px;
+  }
 
-    #btn-telling-it {
-      position: absolute;
-      right: 0;
-      top: 200px;
-    }
+  #btn-telling-it {
+    margin: 1em 0;
+    width: 220px;
   }
 
   #campfire-aside {
@@ -835,5 +839,31 @@ $icon-font-path: '../fonts/';
     left: -50vw;
     bottom: 0px;
     height: 100%;
+  }
+
+  //-------------------------------------
+  // section-music
+  //-------------------------------------
+  .subsection {
+    background-color: #081325;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
+
+  .subsection-child {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+
+  #subsection-music {
+    position: fixed;
+    display: none;
+
+    .music-girl {
+      width: 100px;
+    }
   }
 }

@@ -102,6 +102,10 @@ $icon-font-path: '../fonts/';
     display: block;
   }
 
+  #section-approach-flex {
+    @include flex-container;
+  }
+
   #approach-main {
     width: 48%;
     float: left;
@@ -204,6 +208,8 @@ $icon-font-path: '../fonts/';
   // section-campfire
   //-------------------------------------
   #campfire-wrapper {
+    top: 230px;
+
     h1 {
       font-size: 36px;
       margin: 0em 0em;
@@ -217,6 +223,18 @@ $icon-font-path: '../fonts/';
     left: 20px;
     width: 20em;
     font-size: 11px;
+  }
+
+  #btn-find-story {
+    position: absolute;
+    left: 0;
+    top: 200px;
+  }
+
+  #btn-telling-it {
+    position: absolute;
+    right: 0;
+    top: 200px;
   }
 
   #mountains-image {

@@ -2,9 +2,44 @@
 'use strict';
 
 /*---------------------------------------------------------------------------*\
+ * hashchange
+\*---------------------------------------------------------------------------*/
+(function(window) {
+
+  // exit if the browser implements that event
+  if ( 'onhashchange' in window.document.body ) {
+    return;
+  }
+
+  var location = window.location;
+  var oldURL = location.href;
+  var oldHash = location.hash;
+
+  // check the location hash on a 100ms interval
+  setInterval(function() {
+    var newURL = location.href,
+      newHash = location.hash;
+
+    // if the hash has changed and a handler has been bound...
+    if ( newHash !== oldHash && typeof window.onhashchange === 'function' ) {
+      // execute the handler
+      window.onhashchange({
+        type: 'hashchange',
+        oldURL: oldURL,
+        newURL: newURL
+      });
+
+      oldURL = newURL;
+      oldHash = newHash;
+    }
+  }, 100);
+})(window);
+
+/*---------------------------------------------------------------------------*\
  * Scaling Sections
 \*---------------------------------------------------------------------------*/
 var curSection;
+var curSubSection;
 
 /**
  * This function automatically scales a section based on the window's:
@@ -16,6 +51,7 @@ function sectionsScale() {
   var scaleX = window.innerWidth / 968;
   var scaleY = window.innerHeight / 700;
   var scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+  scale = window.innerWidth < 768 ? 1 : scale;
 
   $('.section-child').css('transform', 'scale(' + scale + ',' + scale + ')');
 }
@@ -30,6 +66,8 @@ function sectionsScale() {
 function getSectionFocusTop(section) {
   var rect = section.getBoundingClientRect();
   var percent = ((window.innerHeight - rect.height) / 2) / window.innerHeight;
+  percent = Math.max(0, percent);
+
   return (percent * 100) + '%';
 }
 
@@ -49,7 +87,11 @@ function firstSceneTransition() {
     console.log('First scene transition!');
     loaded = true;
     documentScrollHandler(true);
-    $(document.body).addClass('body-fadein');
+
+    // If a subsection has already loaded we don't need to fade in the body
+    if (!curSubSection) {
+      $(document.body).addClass('body-fadein');
+    }
   }
 }
 
@@ -234,8 +276,25 @@ $(document).scroll(documentScrollHandler);
 $(window).resize(function () {
   sectionsScale();
   curSection.style.top = getSectionFocusTop(curSection);
-  documentScrollHandler.bind(window, true);
 });
+
+function onHashChangeHandler() {
+  var hash = window.location.hash.slice(1);
+  var sectionID = '#subsection-' + hash;
+
+  var section = $(sectionID);
+
+  if (section.length) {
+    // Force body to full opacity
+    $(body).css('opacity', 1);
+
+    curSubSection = section;
+
+    curSubSection.show();
+
+    $('#sections').hide();
+  }
+}
 
 $(document).ready(function () {
   var cfv = $('#campfire-video');
@@ -244,6 +303,10 @@ $(document).ready(function () {
 
   function videoCanPlayHandler() {
     console.log('Video loaded!');
+
+    // Check to see if we are in a subsection
+    onHashChangeHandler();
+
     sectionsScale();
     scrollToBottom();
     setupScenes();
@@ -252,9 +315,12 @@ $(document).ready(function () {
     cfv.off();
   }
 
+  // Check to see if the video is already loaded enough to play (state 2)
   if (cfv.readyState >= 2) {
     videoCanPlayHandler();
   } else {
     cfv.on('canplay', videoCanPlayHandler);
   }
 });
+
+window.onhashchange = onHashChangeHandler;
