@@ -231,6 +231,10 @@ var scrollToBottom = function () {
   $('body').css('animation-play-state', 'running');
 };
 
+var scrollToTop = function () {
+  $('html, body').scrollTop( 0 );
+};
+
 $('body').on('animationend', function() {
   $(this).css('opacity', 1);
 });
@@ -300,6 +304,8 @@ function onHashChangeHandler() {
     curSubSection.show();
 
     $('#sections').hide();
+
+    scrollToTop();
   }
 }
 
@@ -315,7 +321,11 @@ $(document).ready(function () {
     onHashChangeHandler();
 
     sectionsScale();
-    scrollToBottom();
+
+    if (!curSubSection) {
+      scrollToBottom();
+    }
+
     setupScenes();
 
     // Remove all jquery events from the video
