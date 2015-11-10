@@ -49,7 +49,6 @@
             <img src="images/campfire.png">
             <h1>For the best experience, please view this site in a modern browser.</h1>
           </video>
-
           <div id="campfire-image">
             <img src="images/campfire.png" alt="Campfire">
           </div>
@@ -107,8 +106,10 @@
                 </a>
               </div>
               <div class="story-type">
-                <img src="images/icon-branding.png" alt="Branding icon" />
-                <span>Branding</span>
+                <a href="#branding">
+                  <img src="images/icon-branding.png" alt="Branding icon" />
+                  <span>Branding</span>
+                </a>
               </div>
               <div class="story-type">
                 <a href="#music">
@@ -201,7 +202,6 @@
       <div id="approach"></div>
       <div id="section-approach" class="section">
         <div id="section-approach-child" class="section-child">
-
           <div id="section-approach-flex" class="content-centered">
             <div id="approach-main">
               <h2>APPROACH</h2>
@@ -241,7 +241,6 @@
           </div>
         </div>
       </div>
-
       <div id="campfire"></div>
       <div id="section-campfire" class="section">
         <div id="section-campfire-child" class="section-child">
@@ -273,7 +272,6 @@
         </div>
       </div>
     </div>
-
     <div id="subsection-music" class="subsection">
       <div class="subsection-child" class="subsection-child">
         <img class="music-girl" src="/images/music-girl.png" />
@@ -315,7 +313,7 @@
         <div class="quote-blue">&quot;Videos are shared 12x more than links and text posts combined.&quot;</div>
         <h2>PINTEREST</h2>
         <div id="video-callout">CLICK TO WATCH THE VIDEOS</div>
-        <div class="video-examples">
+        <div class="video-examples-row">
           <div class="video-example">
             <a href="#">
               <img src="images/video-1.jpg" alt="Video" />
@@ -337,7 +335,7 @@
             </a>
           </div>
         </div>
-        <div class="video-examples">
+        <div class="video-examples-row">
           <div class="video-example">
             <a href="#">
               <img src="images/video-1.jpg" alt="Digital" />
@@ -352,44 +350,74 @@
             <a href="#">
               <img src="images/video-1.jpg" alt="Content" />
             </a>
-          </div><!-- 
-          <div class="video-example">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="subsection-branding" class="subsection">
+      <div class="subsection-child" class="subsection-child">
+        <h2>BRANDING CREATIVE SERVICES</h2>
+        <h1>A brand is much more than a logo</h1>
+        <div class="white-line"></div>
+        <div class="content">A brand is much more than a logo. It's the gut-level feeling a product or service creates in people. Great brands tell a story&#8212;expressing a character and a natural authenticity people relate to. They ignite a desire in our hearts to hear more. Our brand development services draw people to your brand.</div>
+        <ul>
+          <li>Story and key messaging</li>
+          <li>Audience and problem definition, voice and tone</li>
+          <li>Naming, identity, logo and video imagery</li>
+        </ul>
+        <img class="icon" src="images/icon-branding.png" />
+        <div class="quote-blue">&quot;Emotion is the primary reason consumers prefer brand name products.&quot;</div>
+        <h2>PSYCHOLOGY TODAY</h2>
+        <div class="brand-examples-row">
+          <div class="brand-example">
             <a href="#">
-              <img src="images/video-1.jpg" alt="Broadcast" />
+              <img src="images/icon-branding.png" alt="Brand 1" />
             </a>
-          </div> -->
+          </div>
+          <div class="brand-example">
+            <a href="#">
+              <img src="images/icon-branding.png" alt="Brand 2" />
+            </a>
+          </div>
+          <div class="brand-example">
+            <a href="#">
+              <img src="images/icon-branding.png" alt="Brand 3" />
+            </a>
+          </div>
+          <div class="brand-example">
+            <a href="#">
+              <img src="images/icon-branding.png" alt="Brand 4" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.3.1/gl-matrix-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
-
     <!-- build:js scripts/vendor.js -->
-      <!-- bower:js -->
-      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="/bower_components/ScrollMagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-      <!-- endbower -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/ScrollMagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js scripts/plugins.js -->
     <!-- endbuild -->
-
     <!-- build:js scripts/main.js -->
-      <script src="/jungle-js/narrator/narrator.min.js"></script>
-      <script src="scripts/main.js"></script>
-      <script src="scripts/parallax.js"></script>
+    <script src="/jungle-js/narrator/narrator.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/parallax.js"></script>
     <!-- endbuild -->
   </body>
 </html>
