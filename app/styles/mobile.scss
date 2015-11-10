@@ -855,9 +855,11 @@ $icon-font-path: '../fonts/';
     display: none;
   }
 
-  //-------------------------------------
-  // section-music
-  //-------------------------------------
+
+
+  /*======================================================*\
+   * Subsections
+  \*======================================================*/
   .subsection {
     background-color: #081325;
     width: 100%;
@@ -895,6 +897,9 @@ $icon-font-path: '../fonts/';
     }
   }
 
+  //-------------------------------------
+  // section-music
+  //-------------------------------------
   #subsection-music {
     display: none;
     padding: 4em 0em;
@@ -908,10 +913,10 @@ $icon-font-path: '../fonts/';
       margin: 2em;
     }
   }
+
   //-------------------------------------
   // section-video
   //-------------------------------------
-
   #subsection-video {
     display: none;
     padding: 4em 0em;
@@ -931,7 +936,7 @@ $icon-font-path: '../fonts/';
       font-weight: 400;
       margin-left: 0.6em;
     }
-    .video-examples {
+    .video-examples-row {
       @include flex-container;
       flex-flow: row nowrap;
       justify-content: center;
@@ -940,6 +945,44 @@ $icon-font-path: '../fonts/';
       font-size: 18px;
 
       .video-example {
+        flex: 1;
+        margin: 0.6em;
+        a {
+          color: white;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  //-------------------------------------
+  // section-video
+  //-------------------------------------
+  #subsection-branding {
+    display: none;
+    padding: 4em 0em;
+
+    h1 {
+      max-width: 8em;
+      margin: auto;
+    }
+
+    .quote-blue {
+      max-width: 16em;
+      margin: auto;
+    }
+
+    .brand-examples-row {
+      @include flex-container;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: 4em auto 2em;
+      max-width: 64em;
+      font-size: 18px;
+
+      .brand-example {
         flex: 1;
         margin: 0.6em;
         a {
