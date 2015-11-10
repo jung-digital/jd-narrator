@@ -470,6 +470,9 @@ $icon-font-path: '../fonts/';
         max-height: 12em;
         max-width: 12em;
         height: 12em;
+        a {
+          color: white;
+        }
         img {
           height: 75%;
         }
@@ -856,22 +859,34 @@ $icon-font-path: '../fonts/';
     margin: 0 auto;
     text-align: center;
 
+    h1 {
+      font-size: 54px;
+      font-weight: 500;
+      margin: 6px 0px;
+    }
+    .content {
+      font-size: 16px;
+      text-align: justify;
+      line-height: 2em;
+      margin: 2em;
+    }
+    ul {
+      font-size: 16px;
+      margin-right: 2em;
+      text-align: left;
+      line-height: 2em;
+      margin-left: 3em;
+    }
+
+    .icon {
+      width: 75px;
+      margin: 2em;
+    }
   }
 
   #subsection-music {
     display: none;
     padding: 4em 0em;
-
-    .content {
-      line-height: 2em;
-      margin: 2em;
-    }
-
-    ul {
-      text-align: left;
-      line-height: 2em;
-      margin-left: 4em;
-    }
 
     .music-girl {
       width: 100px;
@@ -881,10 +896,48 @@ $icon-font-path: '../fonts/';
       width: 250px;
       margin: 2em;
     }
+  }
+    //-------------------------------------
+  // section-video
+  //-------------------------------------
 
-    .icon {
-      width: 55px;
-      margin: 2em;
+  #subsection-video {
+    display: none;
+    padding: 4em 0em;
+
+    .sizzle-reel {
+      width: 350px;
+    }
+
+    .quote-blue {
+      max-width: 12em;
+      margin: auto;
+    }
+
+    #video-callout {
+      text-align: left;
+      font-size: 18px;
+      font-weight: 400;
+      margin-left: 0.6em;
+    }
+    .video-examples {
+      @include flex-container;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: auto;
+      max-width: 64em;
+      font-size: 18px;
+
+      .video-example {
+        flex: 1;
+        margin: 0.6em;
+        a {
+          color: white;
+        }
+        img {
+          width: 100%;
+        }
+      }
     }
   }
 }
