@@ -250,7 +250,7 @@ documentScrollHandler = function (instant) {
   var divSocialIcons = $('.social-fixed');
   var divNarratorLogo = $('.narrator-logo-full');
 
-  if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+  if($(window).scrollTop() + $(window).height() > $(document).height() - 500) {
     divScrollUp.addClass('scroll-up-show');
     divSocialIcons.addClass('social-show');
     divNarratorLogo.addClass('narrator-logo-show');
@@ -307,33 +307,59 @@ function onHashChangeHandler() {
   }
 }
 
+/*---------------------------------------------------------------------------*\
+ * document ready
+\*---------------------------------------------------------------------------*/
+window.startup = function(noCampfireVideo) {
+  if (noCampfireVideo) {
+    $('#campfire-video').hide();
+    $('#campfire-image').show();
+  }
+
+  // Check to see if we are in a subsection
+  onHashChangeHandler();
+
+  sectionsScale();
+
+  if (!window.location.hash) {
+    scrollToBottom();
+  }
+
+  setupScenes();
+}
+
 $(document).ready(function () {
   var cfv = $('#campfire-video');
-
-  console.log('Video loading state: ', cfv.readyState);
 
   function videoCanPlayHandler() {
     console.log('Video loaded!');
 
-    // Check to see if we are in a subsection
-    onHashChangeHandler();
-
-    sectionsScale();
-
-    if (!window.location.hash) {
-      scrollToBottom();
-    }
-
-    setupScenes();
+    startup();
 
     // Remove all jquery events from the video
     cfv.off();
   }
 
-  // Check to see if the video is already loaded enough to play (state 2)
-  if (cfv.readyState >= 2) {
+  // Here we give a grace period for the video to start playing. If it doesn't
+  // automatically start playing we open the page anyway.
+  function onLoadStartHandler() {
+    setTimeout(function () {
+      startup();
+
+      // Remove all jquery events from the video
+      cfv.off();
+    }, 500);
+  }
+
+  if (window.campfireLoadError) {
+    console.log('could not load campfire video', campfireLoadError);
+    startup(true);
+  } else if (cfv.readyState >= 2) {
+    // Check to see if the video is already loaded enough to play (state 2)
     videoCanPlayHandler();
   } else {
+    cfv.on('onloadstart', onLoadStartHandler);
+
     cfv.on('canplay', videoCanPlayHandler);
   }
 });

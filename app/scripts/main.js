@@ -43,7 +43,7 @@ window.emberRenderer.addChild(new Embers(window.emberOptions));
 
 /*---------------------------------------------------------------------------*\
  * Ember Canvas Underlay
- \*---------------------------------------------------------------------------*/
+\*---------------------------------------------------------------------------*/
 canvas = document.getElementById('stars');
 
 window.starRenderer = new Jungle.GraphicRenderer(canvas, {
