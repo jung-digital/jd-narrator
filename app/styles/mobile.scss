@@ -1113,6 +1113,33 @@ $icon-font-path: '../fonts/';
   }
 
   //-------------------------------------
+  // section-content
+  //-------------------------------------
+  #subsection-content {
+    display: none;
+    padding: 0em 0em 4em;
+    
+    .subsection-banner {
+      height: 20vh;
+      min-height: 100px;
+      max-height: 300px;
+      overflow: hidden;
+      #content-image {
+        width: 100%;
+      }
+    }
+
+    h1 {
+      margin: 0em auto 6px;
+    }
+
+    .quote-blue {
+      max-width: 16em;
+      margin: auto;
+    }
+  }
+
+  //-------------------------------------
   // section-broadcast
   //-------------------------------------
   #subsection-broadcast {
@@ -1130,7 +1157,7 @@ $icon-font-path: '../fonts/';
     .icon {
       width: 50px;
     }
-    
+
     .quote-blue {
       max-width: 12em;
       margin: auto;
