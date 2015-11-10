@@ -177,6 +177,7 @@ $icon-font-path: '../fonts/';
     }
 
     .main {
+      display:block;
       line-height: 2.5em;
       margin: 2em auto;
       font-size: 14px;
@@ -184,10 +185,19 @@ $icon-font-path: '../fonts/';
     }
 
     .sub {
+      display:block;
       line-height: 2.5em;
       font-size: 14px;
       margin: 0em auto 3em;
       max-width: 60em;
+    }
+
+    .main-mobile {
+      display: none;
+    }
+
+    .sub {
+      display: none;
     }
 
     .quote {
