@@ -111,6 +111,7 @@ function addEnterLeaveTransition(_scene, element) {
         firstSceneTransition();
       }, 1);
     }
+    history.replaceState(null, null, '#' + _scene.triggerElement().id);
   });
 
   _scene.on('leave', function (event) {
@@ -284,6 +285,10 @@ $(window).resize(function () {
 
 function onHashChangeHandler() {
   var hash = window.location.hash.slice(1);
+
+  if (hash.toLowerCase() === 'campfire') {
+    scrollToBottom();
+  }
 
   var subSectionID = '#subsection-' + hash;
   var subSection = $(subSectionID);
