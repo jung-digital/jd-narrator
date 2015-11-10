@@ -1,6 +1,9 @@
 /*global $,ScrollMagic,TweenLite,Power1*/
 'use strict';
 
+// Constant used for pass-in to startup()
+var NO_CAMPFIRE_VIDEO = true;
+
 /*---------------------------------------------------------------------------*\
  * hashchange
 \*---------------------------------------------------------------------------*/
@@ -312,6 +315,7 @@ function onHashChangeHandler() {
 \*---------------------------------------------------------------------------*/
 window.startup = function(noCampfireVideo) {
   if (noCampfireVideo) {
+    console.log('Hiding campfire video');
     $('#campfire-video').hide();
     $('#campfire-image').show();
   }
@@ -328,39 +332,48 @@ window.startup = function(noCampfireVideo) {
   setupScenes();
 }
 
+//--------------------------------------------------
+// The following code is complicated.
+// Essentially what we have to do is wait for the
+// campfire video to start playing automatically.
+// If it doesn't start playing or we have a load error
+// we revert to dislaying an image of the campfire
+// instead
+//--------------------------------------------------
 $(document).ready(function () {
-  var cfv = $('#campfire-video');
+  var campfireVideo = $('#campfire-video');
+
+  function waitForCampfireVideo(autoplay) {
+    if (autoplay) {
+      if (campfireVideo[0].readyState >= 4) {
+        videoCanPlayHandler();
+      } else {
+        campfireVideo.on('canplay', videoCanPlayHandler);
+      }
+    } else {
+      startup(NO_CAMPFIRE_VIDEO);
+    }
+  }
 
   function videoCanPlayHandler() {
-    console.log('Video loaded!');
+    campfireVideo[0].play();
 
     startup();
 
-    // Remove all jquery events from the video
-    cfv.off();
-  }
-
-  // Here we give a grace period for the video to start playing. If it doesn't
-  // automatically start playing we open the page anyway.
-  function onLoadStartHandler() {
-    setTimeout(function () {
-      startup();
-
-      // Remove all jquery events from the video
-      cfv.off();
-    }, 500);
+    campfireVideo.off();
   }
 
   if (window.campfireLoadError) {
     console.log('could not load campfire video', campfireLoadError);
-    startup(true);
-  } else if (cfv.readyState >= 2) {
-    // Check to see if the video is already loaded enough to play (state 2)
-    videoCanPlayHandler();
+    startup(NO_CAMPFIRE_VIDEO);
   } else {
-    cfv.on('onloadstart', onLoadStartHandler);
-
-    cfv.on('canplay', videoCanPlayHandler);
+    detectAutoplay(100, function (autoplay) {
+      if (autoplay) {
+        waitForCampfireVideo(autoplay);
+      } else {
+        startup(NO_CAMPFIRE_VIDEO);
+      }
+    });
   }
 });
 
