@@ -1083,4 +1083,32 @@ $icon-font-path: '../fonts/';
       }
     }
   }
+
+  //-------------------------------------
+  // section-social
+  //-------------------------------------
+  #subsection-social {
+    display: none;
+    padding: 0em 0em 4em;
+    
+    .subsection-banner {
+      height: 20vh;
+      min-height: 100px;
+      max-height: 300px;
+      overflow: hidden;
+      #social-image {
+        width: 100%;
+      }
+    }
+
+    h1 {
+      max-width: 10em;
+      margin: 0em auto 6px;
+    }
+
+    .quote-blue {
+      max-width: 16em;
+      margin: auto;
+    }
+  }
 }
