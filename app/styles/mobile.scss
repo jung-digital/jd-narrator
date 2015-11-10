@@ -1037,4 +1037,50 @@ $icon-font-path: '../fonts/';
       }
     }
   }
+
+  //-------------------------------------
+  // section-digital
+  //-------------------------------------
+  #subsection-digital {
+    display: none;
+    padding: 4em 0em;
+    
+    #digital-image {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 52px;
+    }
+
+    .quote-blue {
+      margin: auto;
+    }
+
+    #digital-callout {
+      text-align: left;
+      font-size: 18px;
+      font-weight: 400;
+      margin: 3em 0em 0em 0.6em;
+    }
+    .digital-examples-row {
+      @include flex-container;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: auto;
+      max-width: 64em;
+      font-size: 18px;
+
+      .digital-example {
+        flex: 1;
+        margin: 0.6em;
+        a {
+          color: white;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
