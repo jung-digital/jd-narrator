@@ -743,16 +743,24 @@ $icon-font-path: '../fonts/';
     }
 
     .main {
+      display:none;
+    }
+
+    .sub {
+      display:none;
+    }
+
+    .main-mobile {
       line-height: 2em;
-      margin: 2em auto;
+      margin: 2em;
       font-size: 12px;
       max-width: 60em;
     }
 
-    .sub {
+    .sub-mobile {
       line-height: 2em;
       font-size: 12px;
-      margin: 0em auto 3em;
+      margin: 2em;
       max-width: 60em;
     }
 
@@ -1044,7 +1052,7 @@ $icon-font-path: '../fonts/';
   #subsection-digital {
     display: none;
     padding: 4em 0em;
-    
+
     #digital-image {
       width: 100%;
     }
