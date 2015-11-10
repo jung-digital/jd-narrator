@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jd narrator</title>
+    <title>The Narrator Group</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <!-- build:css styles/vendor.css -->
@@ -43,10 +43,16 @@
       </div>
       <div class="campfire-video-container">
         <div class="campfire-video-offset">
-          <video id="campfire-video" autoplay loop muted>
-            <source src="video/campfire-cropped.mp4" type="video/mp4">
-            For the best experience, please view this site in a modern browser.
+          <script>function errHandler(e) {window.campfireLoadError = e; console.log(window.campfireLoadError); if (window.startup) startup(true);}</script>
+          <video id="campfire-video" autoplay loop muted onerror="errHandler(event)">
+            <source src="video/campfire-cropped-test.mp4" type="video/mp4" onerror="errHandler(event)">
+            <img src="images/campfire.png">
+            <h1>For the best experience, please view this site in a modern browser.</h1>
           </video>
+
+          <div id="campfire-image">
+            <img src="images/campfire.png" alt="Campfire">
+          </div>
           <div id="mountains-image">
             <img src="images/campfire-background.png" alt="Mountains">
           </div>
@@ -193,7 +199,7 @@
       <div id="approach"></div>
       <div id="section-approach" class="section">
         <div id="section-approach-child" class="section-child">
-          
+
           <div id="section-approach-flex" class="content-centered">
             <div id="approach-main">
               <h2>APPROACH</h2>
@@ -233,6 +239,7 @@
           </div>
         </div>
       </div>
+
       <div id="campfire"></div>
       <div id="section-campfire" class="section">
         <div id="section-campfire-child" class="section-child">
@@ -250,18 +257,21 @@
             </div>
           </div>
         </div>
-        <div class="social-fixed">
-          <a href="#"><i class="fa fa-youtube"></i></a>
-          <a href="#"><i class="fa fa-vimeo"></i></a>
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-pinterest-p"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-google-plus"></i></a>
+        <div class="social-fixed-wrapper">
+          <div class="social-fixed">
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-vimeo"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+          </div>
         </div>
       </div>
     </div>
+
     <div id="subsection-music" class="subsection">
       <div class="subsection-child" class="subsection-child">
         <img class="music-girl" src="/images/music-girl.png" />
@@ -286,33 +296,36 @@
         <img class="music-cassette" src="/images/music-cassettes.png" />
       </div>
     </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-    e.src='https://www.google-analytics.com/analytics.js';
-    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-XXXXX-X');ga('send','pageview');
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.3.1/gl-matrix-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenLite.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.3.1/gl-matrix-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
     <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/ScrollMagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-    <!-- endbower -->
+      <!-- bower:js -->
+      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="/bower_components/ScrollMagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+      <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js scripts/plugins.js -->
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- endbuild -->
-    <script src="/jungle-js/narrator/narrator.min.js"></script>
+
     <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <script src="scripts/parallax.js"></script>
+      <script src="/jungle-js/narrator/narrator.min.js"></script>
+      <script src="scripts/main.js"></script>
+      <script src="scripts/parallax.js"></script>
     <!-- endbuild -->
   </body>
 </html>
