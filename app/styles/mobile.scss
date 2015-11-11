@@ -15,6 +15,7 @@ $icon-font-path: '../fonts/';
   html, body {
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -751,17 +752,15 @@ $icon-font-path: '../fonts/';
     }
 
     .main-mobile {
-      line-height: 2em;
-      margin: 2em;
-      font-size: 12px;
-      max-width: 60em;
+      line-height: 1.5em;
+      margin: 1em;
+      font-size: 14px;
     }
 
     .sub-mobile {
-      line-height: 2em;
-      font-size: 12px;
-      margin: 2em;
-      max-width: 60em;
+      line-height: 1.5em;
+      margin: 1em;
+      font-size: 14px;
     }
 
     .quote {
@@ -1098,7 +1097,7 @@ $icon-font-path: '../fonts/';
   #subsection-social {
     display: none;
     padding: 0em 0em 4em;
-    
+
     .subsection-banner {
       height: 20vh;
       min-height: 100px;
