@@ -1,4 +1,4 @@
-/*global $,ScrollMagic,TweenLite,Power1*/
+/*global $,ScrollMagic,TweenLite,Power1,campfireLoadError,detectAutoplay*/
 'use strict';
 
 // Constant used for pass-in to startup()
@@ -100,7 +100,7 @@ function firstSceneTransition() {
 
 function addEnterLeaveTransition(_scene, element) {
   _scene.on('enter', function () {
-    var _temp = curSection = $(element).get(0);
+    var tempSectionPlaceholder = curSection = $(element).get(0);
 
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
@@ -116,7 +116,7 @@ function addEnterLeaveTransition(_scene, element) {
     }
 
     setTimeout(function () {
-      if (curSection === _temp) {
+      if (curSection === tempSectionPlaceholder) {
         console.log('Replacing state', _scene.triggerElement().id);
 
         history.replaceState(null, null, '#' + _scene.triggerElement().id);
@@ -344,7 +344,7 @@ window.startup = function(noCampfireVideo) {
   }
 
   setupScenes();
-}
+};
 
 //--------------------------------------------------
 // The following code is complicated.
@@ -357,6 +357,14 @@ window.startup = function(noCampfireVideo) {
 $(document).ready(function () {
   var campfireVideo = $('#campfire-video');
 
+  function videoCanPlayHandler() {
+    campfireVideo[0].play();
+
+    window.startup();
+
+    campfireVideo.off();
+  }
+
   function waitForCampfireVideo(autoplay) {
     if (autoplay) {
       if (campfireVideo[0].readyState >= 4) {
@@ -365,27 +373,19 @@ $(document).ready(function () {
         campfireVideo.on('canplay', videoCanPlayHandler);
       }
     } else {
-      startup(NO_CAMPFIRE_VIDEO);
+      window.startup(NO_CAMPFIRE_VIDEO);
     }
-  }
-
-  function videoCanPlayHandler() {
-    campfireVideo[0].play();
-
-    startup();
-
-    campfireVideo.off();
   }
 
   if (window.campfireLoadError) {
     console.log('could not load campfire video', campfireLoadError);
-    startup(NO_CAMPFIRE_VIDEO);
+    window.startup(NO_CAMPFIRE_VIDEO);
   } else {
     detectAutoplay(100, function (autoplay) {
       if (autoplay) {
         waitForCampfireVideo(autoplay);
       } else {
-        startup(NO_CAMPFIRE_VIDEO);
+        window.startup(NO_CAMPFIRE_VIDEO);
       }
     });
   }
