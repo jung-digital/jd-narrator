@@ -906,14 +906,35 @@ $icon-font-path: '../fonts/';
       width: 75px;
       margin: 2em;
     }
+
+    .callout {
+      text-align: left;
+      font-size: 18px;
+      font-weight: 400;
+      margin: 3em 0em 0em 0.6em;
+    }
+
+    .examples-row {
+      @include flex-container;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: auto;
+      max-width: 64em;
+      font-size: 18px;
+      .example {
+        flex: 1;
+        margin: 0.6em;
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
 
   //-------------------------------------
   // section-music
   //-------------------------------------
   #subsection-music {
-    display: none;
-    padding: 4em 0em;
 
     .music-girl {
       width: 100px;
@@ -929,8 +950,6 @@ $icon-font-path: '../fonts/';
   // section-video
   //-------------------------------------
   #subsection-video {
-    display: none;
-    padding: 4em 0em;
 
     .sizzle-reel {
       width: 350px;
@@ -941,29 +960,9 @@ $icon-font-path: '../fonts/';
       margin: auto;
     }
 
-    #video-callout {
-      text-align: left;
-      font-size: 18px;
-      font-weight: 400;
-      margin-left: 0.6em;
-    }
     .video-examples-row {
-      @include flex-container;
-      flex-flow: row nowrap;
-      justify-content: center;
-      margin: auto;
-      max-width: 64em;
-      font-size: 18px;
-
       .video-example {
-        flex: 1;
-        margin: 0.6em;
-        a {
-          color: white;
-        }
-        img {
-          width: 100%;
-        }
+
       }
     }
   }
@@ -972,8 +971,6 @@ $icon-font-path: '../fonts/';
   // section-branding
   //-------------------------------------
   #subsection-branding {
-    display: none;
-    padding: 4em 0em;
 
     h1 {
       max-width: 8em;
@@ -986,22 +983,10 @@ $icon-font-path: '../fonts/';
     }
 
     .brand-examples-row {
-      @include flex-container;
-      flex-flow: row nowrap;
-      justify-content: center;
       margin: 4em auto 2em;
-      max-width: 64em;
-      font-size: 18px;
 
       .brand-example {
-        flex: 1;
-        margin: 0.6em;
-        a {
-          color: white;
-        }
-        img {
-          width: 100%;
-        }
+
       }
     }
   }
@@ -1010,8 +995,6 @@ $icon-font-path: '../fonts/';
   // section-design
   //-------------------------------------
   #subsection-design {
-    display: none;
-    padding: 4em 0em;
 
     h1 {
       max-width: 8em;
@@ -1022,29 +1005,9 @@ $icon-font-path: '../fonts/';
       margin: auto;
     }
 
-    #design-callout {
-      text-align: left;
-      font-size: 18px;
-      font-weight: 400;
-      margin: 3em 0em 0em 0.6em;
-    }
     .design-examples-row {
-      @include flex-container;
-      flex-flow: row nowrap;
-      justify-content: center;
-      margin: auto;
-      max-width: 64em;
-      font-size: 18px;
-
       .design-example {
-        flex: 1;
-        margin: 0.6em;
-        a {
-          color: white;
-        }
-        img {
-          width: 100%;
-        }
+
       }
     }
   }
@@ -1053,8 +1016,6 @@ $icon-font-path: '../fonts/';
   // section-digital
   //-------------------------------------
   #subsection-digital {
-    display: none;
-    padding: 4em 0em;
 
     #digital-image {
       width: 100%;
@@ -1068,29 +1029,9 @@ $icon-font-path: '../fonts/';
       margin: auto;
     }
 
-    #digital-callout {
-      text-align: left;
-      font-size: 18px;
-      font-weight: 400;
-      margin: 3em 0em 0em 0.6em;
-    }
     .digital-examples-row {
-      @include flex-container;
-      flex-flow: row nowrap;
-      justify-content: center;
-      margin: auto;
-      max-width: 64em;
-      font-size: 18px;
-
       .digital-example {
-        flex: 1;
-        margin: 0.6em;
-        a {
-          color: white;
-        }
-        img {
-          width: 100%;
-        }
+
       }
     }
   }
@@ -1127,7 +1068,6 @@ $icon-font-path: '../fonts/';
   // section-content
   //-------------------------------------
   #subsection-content {
-    display: none;
     padding: 0em 0em 4em;
 
     .subsection-banner {
@@ -1174,29 +1114,9 @@ $icon-font-path: '../fonts/';
       margin: auto;
     }
 
-    #broadcast-callout {
-      text-align: left;
-      font-size: 18px;
-      font-weight: 400;
-      margin: 3em 0em 0em 0.6em;
-    }
     .broadcast-examples-row {
-      @include flex-container;
-      flex-flow: row nowrap;
-      justify-content: center;
-      margin: auto;
-      max-width: 64em;
-      font-size: 18px;
-
       .broadcast-example {
-        flex: 1;
-        margin: 0.6em;
-        a {
-          color: white;
-        }
-        img {
-          width: 100%;
-        }
+
       }
     }
   }
@@ -1205,7 +1125,6 @@ $icon-font-path: '../fonts/';
   // section-workshop
   //-------------------------------------
   #subsection-workshop-detail {
-    display: none;
     padding: 0em 0em 4em;
 
 
@@ -1243,12 +1162,6 @@ $icon-font-path: '../fonts/';
       margin: auto;
     }
 
-    #workshop-callout {
-      text-align: left;
-      font-size: 18px;
-      font-weight: 400;
-      margin: 3em 0em 0em 0.6em;
-    }
     #contact-section {
       flex: 1 70%;
       order: 2;
@@ -1282,9 +1195,6 @@ $icon-font-path: '../fonts/';
         text-align: left;
         font-size: 18px;
         line-height: 2em;
-        a {
-          color: white;
-        }
       }
     }
   }
