@@ -885,12 +885,14 @@ $icon-font-path: '../fonts/';
       margin: 6px 0px;
     }
     .content {
+      color: #a9a9a9;
       font-size: 16px;
       text-align: left;
       line-height: 2em;
       margin: 2em;
     }
     ul {
+      color: #a9a9a9;
       font-size: 16px;
       margin-right: 2em;
       text-align: left;
@@ -1116,6 +1118,172 @@ $icon-font-path: '../fonts/';
     .quote-blue {
       max-width: 16em;
       margin: auto;
+    }
+  }
+
+  //-------------------------------------
+  // section-content
+  //-------------------------------------
+  #subsection-content {
+    display: none;
+    padding: 0em 0em 4em;
+    
+    .subsection-banner {
+      height: 20vh;
+      min-height: 100px;
+      max-height: 300px;
+      overflow: hidden;
+      #content-image {
+        width: 100%;
+      }
+    }
+
+    h1 {
+      margin: 0em auto 6px;
+    }
+
+    .quote-blue {
+      max-width: 16em;
+      margin: auto;
+    }
+  }
+
+  //-------------------------------------
+  // section-broadcast
+  //-------------------------------------
+  #subsection-broadcast {
+    display: none;
+    padding: 4em 0em;
+    
+    #broadcast-image {
+      width: 450px;
+    }
+
+    h1 {
+      font-size: 52px;
+    }
+
+    .icon {
+      width: 50px;
+    }
+
+    .quote-blue {
+      max-width: 12em;
+      margin: auto;
+    }
+
+    #broadcast-callout {
+      text-align: left;
+      font-size: 18px;
+      font-weight: 400;
+      margin: 3em 0em 0em 0.6em;
+    }
+    .broadcast-examples-row {
+      @include flex-container;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: auto;
+      max-width: 64em;
+      font-size: 18px;
+
+      .broadcast-example {
+        flex: 1;
+        margin: 0.6em;
+        a {
+          color: white;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  //-------------------------------------
+  // section-workshop
+  //-------------------------------------
+  #subsection-workshop-detail {
+    display: none;
+    padding: 0em 0em 4em;
+    
+
+    #workshop-image {
+      width: 450px;
+    }
+
+    h1 {
+      margin: 0em auto 6px;
+    }
+
+    .content {
+      margin-bottom: 0em;
+    }
+
+    ol {
+      color: #a9a9a9;
+      font-size: 16px;
+      text-align: left;
+      margin: 0em 2em 0em 3em;
+      margin-right: 2em;
+      margin-left: 3em;
+      line-height: 2em;
+
+      ul {
+        margin-left: 0em;
+        list-style: inside;
+        padding: 0em;
+        margin-bottom: 2em;
+      }
+    }
+
+    .quote-blue {
+      max-width: 16em;
+      margin: auto;
+    }
+
+    #workshop-callout {
+      text-align: left;
+      font-size: 18px;
+      font-weight: 400;
+      margin: 3em 0em 0em 0.6em;
+    }
+    #contact-section {
+      flex: 1 70%;
+      order: 2;
+      @include flex-container;
+      flex-flow: row wrap;
+      padding-top: 2em;
+
+      #contact-fields {
+        flex: 1 1 50%;
+        @include flex-container;
+        justify-content: flex-end;
+        flex-flow: row wrap;
+        margin-left: 10%;
+
+        input[type=text] {
+          border: none;
+          padding: 8px;
+          font-size: 18px;
+          flex: 1 100%;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          margin: 0.2em 0em;
+        }
+      }
+
+      #contact-info {
+        color: #a9a9a9;
+        flex: 1 1 35%;
+        margin-left: 5%;
+        text-align: left;
+        font-size: 18px;
+        line-height: 2em;
+        a {
+          color: white;
+        }
+      }
     }
   }
 }
