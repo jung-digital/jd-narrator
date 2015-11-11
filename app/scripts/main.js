@@ -21,8 +21,6 @@ window.emberOptions = {
   maxTailLength: 18,
   sparkSource: {
     target: document.getElementById('campfire-video'),
-    widthProp: 'clientWidth',
-    heightProp: 'clientHeight',
     offset: {
       x: '50%',
       y: '45%'

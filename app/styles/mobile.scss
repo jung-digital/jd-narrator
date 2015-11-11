@@ -15,6 +15,7 @@ $icon-font-path: '../fonts/';
   html, body {
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -751,17 +752,15 @@ $icon-font-path: '../fonts/';
     }
 
     .main-mobile {
-      line-height: 2em;
-      margin: 2em;
-      font-size: 12px;
-      max-width: 60em;
+      line-height: 1.5em;
+      margin: 1em;
+      font-size: 14px;
     }
 
     .sub-mobile {
-      line-height: 2em;
-      font-size: 12px;
-      margin: 2em;
-      max-width: 60em;
+      line-height: 1.5em;
+      margin: 1em;
+      font-size: 14px;
     }
 
     .quote {
@@ -798,7 +797,7 @@ $icon-font-path: '../fonts/';
     text-align: center;
 
     h1 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 100;
       font-family: "roboto-light", san-serif;
       margin: 0 1em;
@@ -816,11 +815,13 @@ $icon-font-path: '../fonts/';
   #btn-find-story {
     margin: 1em;
     width: 190px;
+    font-size: 18px;
   }
 
   #btn-telling-it {
     margin: 1em;
     width: 190px;
+    font-size: 18px;
   }
 
   #campfire-aside {
@@ -1042,7 +1043,7 @@ $icon-font-path: '../fonts/';
   #subsection-social {
     display: none;
     padding: 0em 0em 4em;
-    
+
     .subsection-banner {
       height: 20vh;
       min-height: 100px;
@@ -1069,7 +1070,7 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   #subsection-content {
     padding: 0em 0em 4em;
-    
+
     .subsection-banner {
       height: 20vh;
       min-height: 100px;
@@ -1094,7 +1095,9 @@ $icon-font-path: '../fonts/';
   // section-broadcast
   //-------------------------------------
   #subsection-broadcast {
-    
+    display: none;
+    padding: 4em 0em;
+
     #broadcast-image {
       width: 450px;
     }
@@ -1124,7 +1127,7 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   #subsection-workshop-detail {
     padding: 0em 0em 4em;
-    
+
 
     #workshop-image {
       width: 450px;
