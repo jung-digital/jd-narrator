@@ -562,96 +562,49 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-work
   //-------------------------------------
-  #section-work {
-    @extend %section;
+  #section-work-flex {
+    display: none;
   }
 
-  #section-work-child {
-    @extend %section-child;
-    text-align: left;
-    width: 75%;
-    left: 12.5%;
-    margin-left: 0;
+  #section-work-flex-mobile {
+    padding: 0em 1em;
+    
+    .work-story-1 img {
+      width: 100%;
+    }
 
-    @include flex-container;
+    h2 {
+      margin-top: 0;
+    }
 
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
+    .work-stories {
+      display: flex;
+      margin-bottom: 1em;
 
-    #work-header {
-      flex: 1 100%;
-      @include flex-container;
-
-      #work-title {
-        flex: 2;
-        padding: 1em;
-        h1 {
-          font-size: 42px;
-          line-height: 110%;
-          font-weight: 500;
-          margin: 0em 0em 0.5em 0em;
-          margin: 0px;
-        }
+      .work-story-2, .work-story-3 {
+        width: 50%;
       }
 
-      #work-quote {
-        flex: 1;
-        padding: 1em;
-        .quote {
-          position: relative;
-          text-align: center;
-          .quote-text {
-            margin: auto;
-            max-width: 18em;
-          }
-        }
-        .quote-attrib {
-          margin: 0.5em 0em;
-        }
+      .work-story-2 {
+        margin-right: 0.5em;
+      }
+
+      .work-story-3 {
+        margin-left: 0.5em;
+      }
+
+      .work-story-2 img, .work-story-3 img {
+        width: 100%;
       }
     }
 
-    #work-recent-stories {
-      @include flex-container;
-      flex: 1 100%;
-
-      #work-story-1 {
-        flex: 2;
-        padding: 1em;
-        img {
-          width: 100%;
-        }
-      }
-      #work-stories-right {
-        padding: 1em;
-        @include flex-container;
-        flex: 1;
-        flex-flow: row wrap;
-        -webkit-justify-content: center;
-        -moz-justify-content: center;
-        -ms-justify-content: center;
-        -o-justify-content: center;
-        justify-content: center;
-
-        #work-story-2 {
-          img {
-            width: 100%;
-          }
-        }
-        #work-story-3 {
-          align-self: flex-end;
-          img {
-            width: 100%;
-          }
-        }
-      }
+    .btn {
+      font-size: 12px;
+      padding: 0.5em;
     }
 
-    #work-btn-wrapper {
-      padding: 1em;
-      .btn {
-        display: inline-block;
-      }
+    .quote-yellow {
+      font-size: 20px;
     }
   }
 
