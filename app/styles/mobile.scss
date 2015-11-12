@@ -673,8 +673,8 @@ $icon-font-path: '../fonts/';
     text-align: center;
     background-color: rgba(28, 172, 239, 0.3);
 
-    padding: 2em 0em;
-    
+    padding: 0em 0em;
+
     h2 {
       margin: 0.5em 0em;
     }
@@ -692,23 +692,23 @@ $icon-font-path: '../fonts/';
 
     .main-mobile {
       line-height: 2em;
-      padding: 1em 1em 2em;
+      padding: 0em 1em 1em;
       font-size: 12px;
       text-align: left;
     }
   }
 
-  #approach-flex-wrapper {
+  #approach-flex-mobile-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     background-color: white;
     width: 100%;
-    padding: 2em 0em;
+    padding: 1em 0em;
   }
 
-  #approach-reel {
+  #approach-reel, #approach-reel-desktop {
     width: 50%;
     img {
       display: block;
@@ -718,7 +718,11 @@ $icon-font-path: '../fonts/';
     }
   }
 
-  #approach-quote {
+  #approach-reel-desktop {
+    display: none;
+  }
+
+  #approach-quote, #approach-quote-desktop {
     width: 45%;
     background-color: white;
     padding: 1em 1em;
@@ -746,6 +750,11 @@ $icon-font-path: '../fonts/';
     .white-line {
       background-color: DimGray;
     }
+  }
+
+  #approach-quote-desktop {
+    display: none;
+    width: auto;
   }
 
   //-------------------------------------
