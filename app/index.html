@@ -35,7 +35,33 @@
       <![endif]-->
       <div id="section-header">
         <img class="narrator-logo-full" src="images/logo-full.png" alt="Narrator group logo" />
-        <a href="#campfire"><img class="narrator-logo-small" src="images/logo-n.png" alt="Narrator group logo" /></a>
+        <a href="#campfire">
+          <img class="narrator-logo-small" src="images/logo-n.png" alt="Narrator group logo" />
+        </a>
+        <div id="mobile-menu">
+          <button type="button" class="open-menu" id="btn-open-menu">
+          <div class="icon-bar"></div>
+          <div class="icon-bar"></div>
+          <div class="icon-bar"></div>
+          </button>
+          <div id="mobile-menu-fixed" class="mobile-menu-fixed-close">
+            <div class="mobile-menu">
+              <button class="btn-close" id="btn-close-menu"><i class="fa fa-close"></i></button>
+              <div class="mobile-nav">
+                <ul>
+                  <li><a href="#contact">CONTACT</a></li>
+                  <li><a href="#story">STORY</a></li>
+                  <li><a href="#workshop">WORKSHOP</a></li>
+                  <li><a href="#work">WORK</a></li>
+                  <li><a href="#approach">APPROACH</a></li>
+                  <li><a href="#about">ABOUT</a></li>
+                  <li><a href="#campfire">CAMPFIRE</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div id="mouse-shield"></div>
+        </div>
       </div>
       <div class="moon-wrapper">
         <div class="moon">
@@ -282,7 +308,7 @@
             <div class="main">Companies and brands come to us to draw and move audiences. Our sole focus is helping brands uncover the story that makes them distinctive and then tell that story well. Clients have looked to us to launch new brands. To revive old or stagnating ones. To talk to people across the country and film around the world.</div>
             <div class="sub">And they&#8217;ve relied on us to bring a room full of folded-arm executives to enthusiastic agreement on a messaging strategy. Achieving the business results our clients seek begins with showing them how to tell a better brand story.</div>
             <div class="main-mobile">Companies and brands come to us to draw and move audiences. Our sole focus is helping brands uncover the story that makes them distinctive and then tell that story well.</div>
-            <div class="sub-mobile">Client&#8217;s have relied on us to bring a room full of folded-arm executives to enthusiastic agreement on a messaging strategy. Achieving the business results our clients seek begins with showing them how to tell a better brand story.</div>
+            <div class="sub-mobile">Clients have relied on us to bring a room full of folded-arm executives to enthusiastic agreement on a messaging strategy. Achieving the business results our clients seek begins with showing them how to tell a better brand story.</div>
             <div class="relative quote-line">&nbsp;<div class="white-line"></div></div>
             <div class="quote">
               <div class="quote-text quote-orange">&quot;90% of people watch videos to guide product decision making&quot;</div>
@@ -651,7 +677,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/jquery-touchswipe/jquery.touchSwipe.js"></script>
+    <script src="/bower_components/requirejs/require.js"></script>
     <script src="/bower_components/ScrollMagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
     <!-- endbower -->
     <!-- endbuild -->

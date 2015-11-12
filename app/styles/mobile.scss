@@ -277,6 +277,122 @@ $icon-font-path: '../fonts/';
     opacity: 1;
   }
 
+
+
+  /*======================================================*\
+   * Menu
+  \*======================================================*/
+  .open-menu {
+    position: absolute;
+    right: 3.5rem;
+    top: 10%;
+    background: none;
+    border: none;
+    z-index: 20;
+
+    .icon-bar {
+      width: 2.2rem;
+      height: 0.31rem;
+      background-color: white;
+      margin-bottom:0.25rem;
+    }
+  }
+
+  #mouse-shield {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1999;
+    display: none;
+  }
+
+  #mobile-menu-fixed {
+    max-width: 350px;
+    overflow: hidden;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+
+    background-color: #081325;
+
+    @media only screen and (max-height: 580px) and (orientation: landscape) {
+      .mobile-menu {
+        padding-top: 25px;
+        .mobile-nav {
+          // font-weight: 400;
+          // font-size: 18px;
+          // li {
+          //   height: 35px;
+          // }
+        }
+      }
+    }
+    z-index: 2000;
+
+    -webkit-transition: width 0.7s ease;
+    transition: width 0.7s ease;
+  }
+
+  .mobile-menu-fixed-close {
+    width: 0%;
+    height: 0%;
+  }
+
+  .mobile-menu-fixed-open {
+    width: 66%;
+    height: 100%;
+
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 20px;
+
+    .mobile-menu {
+      min-width: 150px;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding-top:50px;
+
+      a {
+        color: #ddd;
+      }
+
+      .btn-close {
+        position: absolute;
+        top: 0px;
+        right: -2px;
+        background: none;
+        border:none;
+        padding: 0px;
+
+        i {
+          color: #9a93bc;
+          font-size: 28px;
+        }
+      }
+
+      ul {
+        padding: 0px;
+        li {
+          list-style: none;
+        }
+      }
+
+      .mobile-nav {
+        text-align:right;
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 20px;
+
+        li {
+          height: 38px;
+        }
+      }
+    }
+  }
+
   /*======================================================*\
    * Page css
   \*======================================================*/
@@ -284,13 +400,11 @@ $icon-font-path: '../fonts/';
     width: 3em;
     position: absolute;
     top: 10%;
-    left: 10%;
   }
 
   .narrator-logo-full {
     position: absolute;
     top: 10%;
-    left: 10%;
     height: 2em;
     opacity: 0;
     @include transition(opacity 1s ease-in-out);
@@ -322,8 +436,9 @@ $icon-font-path: '../fonts/';
 
   #section-header {
     position: fixed;
-    top: 2em;
-    left: 2em;
+    top: 2rem;
+    left: 2rem;
+    width: 100%;
   }
 
   .section {
@@ -1023,7 +1138,6 @@ $icon-font-path: '../fonts/';
   // section-social
   //-------------------------------------
   #subsection-social {
-    display: none;
     padding: 0em 0em 4em;
 
     .subsection-banner {
