@@ -11,7 +11,7 @@ $icon-font-path: '../fonts/';
  * Body
 \*======================================================*/
 
-@media (min-width: 320px) {
+@media (min-width: 240px) {
   html, body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -193,7 +193,7 @@ $icon-font-path: '../fonts/';
 
   .social-fixed-wrapper {
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     width: 100%;
   }
 
@@ -672,7 +672,9 @@ $icon-font-path: '../fonts/';
   #approach-main {
     text-align: center;
     background-color: rgba(28, 172, 239, 0.3);
-    padding-top: 1em;
+
+    padding: 2em 0em;
+    
     h2 {
       margin: 0.5em 0em;
     }
@@ -685,22 +687,41 @@ $icon-font-path: '../fonts/';
     }
 
     .main {
+      display: none;
+    }
+
+    .main-mobile {
       line-height: 2em;
-      margin: 1em 1em 2em;
+      padding: 1em 1em 2em;
       font-size: 12px;
       text-align: left;
     }
   }
 
+  #approach-flex-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: white;
+    width: 100%;
+    padding: 2em 0em;
+  }
+
   #approach-reel {
+    width: 50%;
     img {
+      display: block;
       width: 100%;
+      max-width: 230px;
+      margin: auto;
     }
   }
 
   #approach-quote {
+    width: 45%;
     background-color: white;
-    padding: 1em 0em;
+    padding: 1em 1em;
 
     .quote {
       position: relative;
@@ -708,11 +729,11 @@ $icon-font-path: '../fonts/';
       margin: 0em;
       .quote-text {
         margin: auto;
-        max-width: 18em;
         color: #0099ff;
         font-size: 16px;
         font-family: "Oswald", san-serif;
         font-weight: 100;
+        max-width: 200px;
       }
     }
 
@@ -721,6 +742,7 @@ $icon-font-path: '../fonts/';
       color: grey;
       font-size: 12px;
     }
+
     .white-line {
       background-color: DimGray;
     }
@@ -863,8 +885,6 @@ $icon-font-path: '../fonts/';
   #campfire-image {
     display: none;
   }
-
-
 
   /*======================================================*\
    * Subsections

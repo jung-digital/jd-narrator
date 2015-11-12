@@ -114,7 +114,7 @@ $icon-font-path: '../fonts/';
     background-color: inherit;
     flex: none;
     text-align: left;
-    
+
     h1 {
       font-size: 38px;
       line-height: 110%;
@@ -122,9 +122,14 @@ $icon-font-path: '../fonts/';
     }
 
     .main {
+      display: block;
       line-height: 2.5em;
       margin: 2em 0em 3em;
       font-size: 14px;
+    }
+
+    .main-mobile {
+      display: none;
     }
   }
 

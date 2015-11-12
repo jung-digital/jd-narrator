@@ -51,12 +51,38 @@ var curSubSection;
  * - innerHeight out of 700
  */
 function sectionsScale() {
-  var scaleX = window.innerWidth / 968;
-  var scaleY = window.innerHeight / 700;
-  var scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-  scale = window.innerWidth < 768 ? 1 : scale;
+  var scaleX;
+  var scaleY;
+  var scale;
+
+  if (window.innerWidth < 768) {
+    if (window.innerWidth > window.innerHeight) {
+      // Mobile Landscape
+      scaleX = window.innerWidth / 568;
+      scaleY = window.innerHeight / 320;
+      scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+      console.log('Scaling Mobile Landscape', scaleX, scaleY, scale);
+    } else {
+      // Mobile Portrait
+      scaleX = window.innerWidth / 320;
+      scaleY = window.innerHeight / 568;
+      scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+      console.log('Scaling Mobile Portrait', scaleX, scaleY, scale);
+    }
+  } else {
+    // Desktop
+    scaleX = window.innerWidth / 968;
+    scaleY = window.innerHeight / 700;
+    scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+    scale = window.innerWidth < 768 ? 1 : scale;
+    console.log('Scaling Desktop', scaleX, scaleY, scale);
+  }
 
   $('.section-child').css('transform', 'scale(' + scale + ',' + scale + ')');
+  $('.section-child').css('-ms-transform', 'scale(' + scale + ',' + scale + ')');
+  $('.section-child').css('-webkit-transform', 'scale(' + scale + ',' + scale + ')');
+  $('.section-child').css('-o-transform', 'scale(' + scale + ',' + scale + ')');
+  $('.section-child').css('-moz-transform', 'scale(' + scale + ',' + scale + ')');
 }
 
 /**
@@ -253,7 +279,6 @@ $('body').on('animationend', function() {
  * Scroll Up Button
 \*---------------------------------------------------------------------------*/
 documentScrollHandler = function (event, instant) {
-  console.log('Scroll', event, instant);
   var instantaneous = instant || !loaded;
 
   var divScrollUp = $('.scroll-up');
