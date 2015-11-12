@@ -2,10 +2,11 @@
   "name": "jd-narrator",
   "private": true,
   "dependencies": {
-    "modernizr": "~2.8.1",
     "jquery": "~2.1.4",
-    "ScrollMagic": "~2.0.5",
-    "requirejs": "~2.1.20"
+    "jquery-touchswipe": "~1.6.12",
+    "modernizr": "~2.8.1",
+    "requirejs": "~2.1.20",
+    "ScrollMagic": "~2.0.5"
   },
   "devDependencies": {
     "chai": "~3.2.0",
