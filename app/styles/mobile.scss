@@ -180,6 +180,10 @@ $icon-font-path: '../fonts/';
   /*======================================================*\
    * Parallax Elements
   \*======================================================*/
+  .moon-wrapper {
+    height: 0;
+  }
+
   .moon {
     background: url("/images/moon.png") no-repeat top center;
     -webkit-background-size: contain;
@@ -276,8 +280,6 @@ $icon-font-path: '../fonts/';
   .scroll-up-show {
     opacity: 1;
   }
-
-
 
   /*======================================================*\
    * Menu
@@ -464,12 +466,8 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-contact
   //-------------------------------------
-  #section-contact {
-    @extend %section;
-  }
 
   #section-contact-child {
-    @extend %section-child;
     text-align: left;
   }
 
@@ -482,11 +480,11 @@ $icon-font-path: '../fonts/';
     order: 2;
     @include flex-container;
     flex-flow: row wrap;
-    padding-top: 200px;
+    padding-top: 100px;
     max-width: 500px;
 
     #contact-text {
-      font-size: 22px;
+      font-size: 18px;
       flex: 1 100%;
     }
 
@@ -497,7 +495,8 @@ $icon-font-path: '../fonts/';
     }
 
     #contact-fields {
-      flex: 1 1 60%;
+      position: relative;
+      flex: 1 1 50%;
       @include flex-container;
       justify-content: flex-end;
       flex-flow: row wrap;
@@ -505,7 +504,7 @@ $icon-font-path: '../fonts/';
       input[type=text] {
         border: none;
         padding: 8px;
-        font-size: 22px;
+        font-size: 14px;
         flex: 1 100%;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -525,7 +524,7 @@ $icon-font-path: '../fonts/';
     }
 
     #contact-info {
-      flex: 1 1 35%;
+      flex: 1 1 40%;
       margin-left: 5%;
       font-size: 18px;
       line-height: 2em;
@@ -536,22 +535,22 @@ $icon-font-path: '../fonts/';
   }
 
   #contact-quote {
-    flex: 1 30%;
-    order: 1;
-    .quote {
-      position: relative;
-      text-align: center;
-      margin: 1em auto;
-      max-width: 27em;
-    }
-
-    .quote-attrib {
-      margin: 0.5em 0em;
-    }
-
-    padding-top: 200px;
+    display: none;
   }
 
+  @media screen and (max-height: 400px) {
+    #contact-fields {
+      .btn {
+        position: absolute;
+        right: -200px;
+        bottom: 0px;
+      }
+    }
+
+    #line2 {
+      display: none;
+    }
+  }
   //-------------------------------------
   // section-story-type
   //-------------------------------------
