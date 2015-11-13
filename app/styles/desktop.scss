@@ -152,6 +152,7 @@ $icon-font-path: '../fonts/';
   }
 
   #contact-quote {
+    display: block;
     flex: 1 30%;
     order: 1;
     .quote {
