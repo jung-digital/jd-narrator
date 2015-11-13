@@ -85,17 +85,64 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-contact
   //-------------------------------------
-  #section-contact {
-    @extend %section;
-  }
 
   //-------------------------------------
   // section-story-type
   //-------------------------------------
+  #section-story-type-child {
+    text-align: center;
+
+    .section-story-type-header {
+      max-width: 64em;
+      margin: auto;
+      h1 {
+        font-size: 38px;
+        line-height: 110%;
+        font-weight: 500;
+        margin: 0em 0em;
+      }
+
+      .main {
+        line-height: 2.5em;
+        margin: 2em 0em 3em;
+        font-size: 14px;
+      }
+    }
+
+    .story-types {
+      @include flex-container;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: auto;
+      max-width: 64em;
+
+      .story-type {
+        flex: 1;
+        margin: 2em;
+        max-height: 12em;
+        max-width: 12em;
+        height: 12em;
+        a {
+          color: white;
+        }
+        img {
+          height: 75%;
+        }
+        span {
+          display: block;
+          font-size: 22px;
+        }
+      }
+    }
+  }
 
   //-------------------------------------
   // section-workshop
   //-------------------------------------
+  #section-workshop-flex-mobile {
+    display: none;
+  }
+
   #section-workshop-flex {
     @include flex-container;
 
