@@ -42,6 +42,7 @@ var NO_CAMPFIRE_VIDEO = true;
  * Scaling Sections
 \*---------------------------------------------------------------------------*/
 var curSection;
+var sectionList;
 var curSubSection;
 
 /**
@@ -257,6 +258,14 @@ function setupScenes() {
   addEnterLeaveTransition(sceneCampfire, '#section-campfire-child');
 
   sceneCampfire.addTo(controller);
+
+  sectionList = ['section-contact-child',
+                'section-story-type-child',
+                'section-workshop-child',
+                'section-work-child',
+                'section-approach-child',
+                'section-about-child',
+                'section-campfire-child'];
 }
 
 /*---------------------------------------------------------------------------*\
@@ -419,6 +428,27 @@ $(document).ready(function () {
 });
 
 window.onhashchange = onHashChangeHandler;
+
+
+$(document).ready(function() {
+  $('.touchswipe').swipe({
+    swipeUp: function() {
+      var index = sectionList.indexOf(curSection.id);
+      var nextSection = sectionList[index + 1];
+      if (nextSection) {
+        controller.scrollTo('#' + nextSection);
+      }
+    },
+    swipeDown: function() {
+      var index = sectionList.indexOf(curSection.id);
+      var nextSection = sectionList[index - 1];
+      if (nextSection) {
+        controller.scrollTo('#' + nextSection);
+      }
+    },
+    threshold: 10
+  });
+});
 
 
 /*-----------------------------------------------------*\
