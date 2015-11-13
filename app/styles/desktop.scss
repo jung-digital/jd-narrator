@@ -171,6 +171,9 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-story-type
   //-------------------------------------
+  #section-story-type-flex {
+    margin: 0px auto;
+  }
   #section-story-type-child {
     text-align: center;
 
@@ -292,8 +295,6 @@ $icon-font-path: '../fonts/';
     display: block;
     text-align: left;
     width: 75%;
-    left: 12.5%;
-    margin-left: 0;
 
     @include flex-container;
 
