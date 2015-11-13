@@ -192,19 +192,25 @@ $icon-font-path: '../fonts/';
         line-height: 2.5em;
         margin: 2em 0em 3em;
         font-size: 14px;
+        .story-desktop-copy {
+          display: inline;
+        }
+        .story-mobile-copy {
+          display: none;
+        }
       }
     }
 
     .story-types {
       @include flex-container;
       flex-flow: row nowrap;
-      justify-content: center;
+      justify-content: space-between;
       margin: auto;
       max-width: 64em;
 
       .story-type {
         flex: 1;
-        margin: 2em;
+        margin: 2em 0em;
         max-height: 12em;
         max-width: 12em;
         height: 12em;
