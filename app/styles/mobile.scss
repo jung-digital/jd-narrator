@@ -610,66 +610,63 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-workshop
   //-------------------------------------
-  #section-workshop {
-    @extend %section;
+  #section-workshop-flex {
+    display: none;
   }
 
-  #section-workshop-child {
-    @extend %section-child;
+  #section-workshop-flex-mobile {
+    background-color: rgba(87, 92, 102, 0.7);
+    width: 100%;
+    height: 100%;
 
-    #section-workshop-flex {
-      @include flex-container;
+    h2, h1 {
+      margin: 0em;
+    }
 
-      max-width: 1024px;
-      margin: 0 auto;
-      text-align: left;
+    .main {
+      margin: 1em 0em;
+    }
 
-      #work-right {
-        flex: 1;
-        order: 2;
-        padding: 1em;
-        h1 {
-          font-size: 38px;
-          line-height: 110%;
-          font-weight: 500;
-          margin: 0em 0em;
-        }
+    .workshop-1 {
+      float: left;
+      padding: 1em;
+    }
 
-        .main {
-          line-height: 2.5em;
-          margin: 2em 0em 2em;
-          font-size: 14px;
-        }
+    .btn {
+      font-size: 13px;
+      padding: 0.5em;
+    }
 
-        a {
-          align-self: flex-end;
-        }
+    .workshop-2 {
+      float: left;
+      padding: 1em;
+
+      img {
+        margin: 1em auto;
+        width: 100%;
       }
 
-      #work-left {
-        flex: 1;
-        order: 1;
-        padding: 1em;
+      .quote {
+        margin: 0;
+      }
 
-        #workshop-quote {
-          margin: 4em 0em 3em;
-          .quote {
-            position: relative;
-            text-align: center;
-            .quote-text {
-              margin: auto;
-              max-width: 11em;
-            }
-          }
+      .quote-blue {
+        font-size: 22px;
+      }
+    }
 
-          .quote-attrib {
-            margin: 0.5em 0em;
-          }
-        }
+    .workshop-img-wrapper {
+      margin: auto;
+      max-width: 200px;
+    }
 
-        img {
-          width: 100%;
-        }
+    @media screen and (max-height: 400px) {
+      .workshop-1 {
+        max-width: 210px;
+      }
+
+      .workshop-2 {
+        max-width: 210px;
       }
     }
   }
@@ -683,13 +680,13 @@ $icon-font-path: '../fonts/';
 
   #section-work-flex-mobile {
     padding: 0em 1em;
-    
-    .work-story-1 img {
-      width: 100%;
-    }
 
     h2 {
       margin-top: 0;
+    }
+
+    .work-story-1 img {
+      width: 100%;
     }
 
     .work-stories {
@@ -720,6 +717,32 @@ $icon-font-path: '../fonts/';
 
     .quote-yellow {
       font-size: 20px;
+    }
+
+    @media screen and (max-height: 400px) {
+      .work-story-1 {
+        float: left;
+        margin-right: 1em;
+      }
+
+      .work-story-1 img {
+        max-width: 220px;
+      }
+
+      .work-btn-wrapper {
+        margin: auto;
+        float: right;
+      }
+
+      .work-quote {
+        clear: both;
+        width: 100%;
+        padding-top: 2em;
+      }
+
+      .quote-yellow {
+        font-size: 15px;
+      }
     }
   }
 

@@ -357,6 +357,8 @@ window.startup = function(noCampfireVideo) {
     console.log('Hiding campfire video');
     $('#campfire-video').hide();
     $('#campfire-image').show();
+
+    window.emberRenderer.enabled = false;
   }
 
   // Check to see if we are in a subsection
