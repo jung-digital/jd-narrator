@@ -1,4 +1,5 @@
-/*global $,ScrollMagic,TweenLite,Power1,campfireLoadError,detectAutoplay*/
+/*eslint no-underscore-dangle: 0*/
+/*global $,ScrollMagic,TweenLite,Power1,campfireLoadError,detectAutoplay, jQuery*/
 'use strict';
 
 // Constant used for pass-in to startup()
@@ -17,17 +18,14 @@ var NO_CAMPFIRE_VIDEO = true;
  */
 
 (function($) {
-
-  "use strict";
-
   var instance, proto;
 
   function UserScrollDisabler($container, options) {
     // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
     // left: 37, up: 38, right: 39, down: 40
     this.opts = $.extend({
-      handleKeys : true,
-      scrollEventKeys : [32, 33, 34, 35, 36, 37, 38, 39, 40]
+      handleKeys: true,
+      scrollEventKeys: [32, 33, 34, 35, 36, 37, 38, 39, 40]
     }, options);
 
     this.$container = $container;
@@ -46,16 +44,16 @@ var NO_CAMPFIRE_VIDEO = true;
     ];
 
     t.$container.on(
-      "mousewheel.disablescroll DOMMouseScroll.disablescroll touchmove.disablescroll",
+      'mousewheel.disablescroll DOMMouseScroll.disablescroll touchmove.disablescroll',
       t._handleWheel
     );
 
-    t.$container.on("scroll.disablescroll", function() {
+    t.$container.on('scroll.disablescroll', function() {
       t._handleScrollbar.call(t);
     });
 
     if(t.opts.handleKeys) {
-      t.$document.on("keydown.disablescroll", function(event) {
+      t.$document.on('keydown.disablescroll', function(event) {
         t._handleKeydown.call(t, event);
       });
     }
@@ -63,9 +61,9 @@ var NO_CAMPFIRE_VIDEO = true;
 
   proto.undo = function() {
     var t = this;
-    t.$container.off(".disablescroll");
+    t.$container.off('.disablescroll');
     if(t.opts.handleKeys) {
-      t.$document.off(".disablescroll");
+      t.$document.off('.disablescroll');
     }
   };
 
@@ -93,7 +91,7 @@ var NO_CAMPFIRE_VIDEO = true;
     // If calling for the first time, instantiate the object and save
     // reference. The plugin can therefore only be instantiated once per
     // page. You can pass options object in through the method parameter.
-    if( ! instance ) {
+    if(!instance) {
       instance = new UserScrollDisabler(this, options);
       instance[method].call(instance);
     }
@@ -582,7 +580,6 @@ $(document).ready(function() {
 
   $('#btn-close-menu').click(function() {
     menuClose();
-    //$('html, body').scrollTop(pageScrollLocation);
   });
 
   $('.mobile-nav li').click(function() {
@@ -593,14 +590,12 @@ $(document).ready(function() {
     e.preventDefault();
     e.stopPropagation();
     menuClose();
-    $('html, body').scrollTop(pageScrollLocation);
     return false;
   });
 
   $('#mouse-shield, #mobile-menu-fixed').swipe({
     swipeRight: function() {
       menuClose();
-      $('html, body').scrollTop(pageScrollLocation);
     },
     threshold: 10,
     allowPageScroll: 'none'
