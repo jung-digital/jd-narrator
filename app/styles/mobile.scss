@@ -284,13 +284,16 @@ $icon-font-path: '../fonts/';
   /*======================================================*\
    * Menu
   \*======================================================*/
+  #mobile-menu {
+    z-index: 1000;
+  }
+
   .open-menu {
     position: absolute;
     right: 3.5rem;
     top: 10%;
     background: none;
     border: none;
-    z-index: 600;
 
     .icon-bar {
       width: 2.2rem;
@@ -310,36 +313,32 @@ $icon-font-path: '../fonts/';
     display: none;
   }
 
-  #mobile-menu-fixed {
+  @media only screen and (max-height: 580px) and (orientation: landscape) {
+    .mobile-menu {
+      padding-top: 25px;
+    }
+  }
+
+  .mobile-menu-fixed {
     max-width: 350px;
     overflow: hidden;
     position: fixed;
     right: 0px;
     top: 0px;
 
+    width: 0%;
+    height: 100%;
+
     background-color: #081325;
 
-    @media only screen and (max-height: 580px) and (orientation: landscape) {
-      .mobile-menu {
-        padding-top: 25px;
-        .mobile-nav {
-          // font-weight: 400;
-          // font-size: 18px;
-          // li {
-          //   height: 35px;
-          // }
-        }
-      }
-    }
     z-index: 2000;
 
-    -webkit-transition: width 0.7s ease;
-    transition: width 0.7s ease;
-  }
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 20px;
 
-  .mobile-menu-fixed-close {
-    width: 0%;
-    height: 0%;
+    -webkit-transition: width 1.0s ease, padding 1.0s ease;
+    transition: width 1.0s ease, padding 1.0s ease;
   }
 
   .mobile-menu-fixed-open {
@@ -348,49 +347,48 @@ $icon-font-path: '../fonts/';
 
     padding-right: 40px;
     padding-left: 40px;
-    padding-top: 20px;
+  }
 
-    .mobile-menu {
-      min-width: 150px;
-      position: relative;
-      width: 100%;
-      height: 100%;
-      padding-top:50px;
+  .mobile-menu {
+    min-width: 150px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top:50px;
 
-      a {
-        color: #ddd;
+    a {
+      color: #ddd;
+    }
+
+    .btn-close {
+      position: absolute;
+      top: 0px;
+      right: -2px;
+      background: none;
+      border:none;
+      padding: 0px;
+
+      i {
+        color: #9a93bc;
+        font-size: 28px;
       }
+    }
 
-      .btn-close {
-        position: absolute;
-        top: 0px;
-        right: -2px;
-        background: none;
-        border:none;
-        padding: 0px;
-
-        i {
-          color: #9a93bc;
-          font-size: 28px;
-        }
+    ul {
+      padding: 0px;
+      li {
+        list-style: none;
       }
+    }
 
-      ul {
-        padding: 0px;
-        li {
-          list-style: none;
-        }
-      }
+    .mobile-nav {
+      text-align:right;
+      font-weight: 500;
+      font-size: 20px;
+      margin-bottom: 20px;
 
-      .mobile-nav {
-        text-align:right;
-        font-weight: 500;
-        font-size: 20px;
-        margin-bottom: 20px;
-
-        li {
-          height: 38px;
-        }
+      li {
+        height: 38px;
       }
     }
   }
@@ -438,9 +436,11 @@ $icon-font-path: '../fonts/';
 
   #section-header {
     position: fixed;
-    top: 2rem;
-    left: 2rem;
     width: 100%;
+    padding: 20px;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
   }
 
   .section {
@@ -575,12 +575,6 @@ $icon-font-path: '../fonts/';
         line-height: 2.0em;
         margin: 1em 0em 0em;
         font-size: 14px;
-        .story-desktop-copy {
-          display: none;
-        }
-        .story-mobile-copy {
-          display: inline;
-        }
       }
     }
 
@@ -593,7 +587,7 @@ $icon-font-path: '../fonts/';
 
       .story-type {
         flex: 1;
-        margin: 4vmax 0em;
+        margin: 1.5em;
         max-height: 12em;
         max-width: 12em;
         height: 3em;
@@ -601,8 +595,8 @@ $icon-font-path: '../fonts/';
           color: white;
         }
         img {
-          //height: 100%;
-          height: 8vmax;
+          height: 100%;
+          height: 30px;
         }
         span {
           display: block;

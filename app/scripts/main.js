@@ -46,7 +46,7 @@ canvas = document.getElementById('stars');
 
 window.starRenderer = new Jungle.GraphicRenderer(canvas, {
   canvasAutoClear: true,
-  //debug: true,
+  debug: true,
   debugPosX: 10,
   debugPosY: 100,
   resizeToCanvas: true
@@ -54,7 +54,7 @@ window.starRenderer = new Jungle.GraphicRenderer(canvas, {
 
 window.starRenderer.addChild(new Starfield({
   starViewScrollRatio: 0.1,
-  starDensity: 2,
-  starViewWidth: 1920,
+  starDensity: 4,
+  starViewWidth: 2560,
   starViewHeight: 9000
 }));
