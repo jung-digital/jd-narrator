@@ -4,6 +4,7 @@
 
 // Constant used for pass-in to startup()
 var NO_CAMPFIRE_VIDEO = true;
+var loaded = false;
 
 /*---------------------------------------------------------------------------*\
  * Scroll Blocking
@@ -212,7 +213,6 @@ var ANIMATION_SPEED = 2;
 var body = document.body;
 var html = document.documentElement;
 
-var loaded = false;
 var documentScrollHandler = function() {}; // Overwritten below
 
 function firstSceneTransition() {

@@ -1,4 +1,4 @@
-/*global Embers,Jungle,Starfield*/
+/*global Embers,Jungle,Starfield,$*/
 'use strict';
 
 /*---------------------------------------------------------------------------*\
@@ -68,7 +68,6 @@ if (campfireVideo) {
 }
 
 window.starRenderer.document.addListener(Jungle.events.DocumentEvents.FOCUS_CHANGE, function (event) {
-  var campfireVideo = $('#campfire-video');
   if (campfireVideo.length) {
     if (event.properties.focus) {
       campfireVideo[0].play();
@@ -76,4 +75,4 @@ window.starRenderer.document.addListener(Jungle.events.DocumentEvents.FOCUS_CHAN
       campfireVideo[0].pause();
     }
   }
-})
+});
