@@ -54,7 +54,26 @@ window.starRenderer = new Jungle.GraphicRenderer(canvas, {
 
 window.starRenderer.addChild(new Starfield({
   starViewScrollRatio: 0.1,
-  starDensity: 4,
+  starDensity: 3,
   starViewWidth: 2560,
   starViewHeight: 9000
 }));
+
+/*---------------------------------------------------------------------------*\
+ * Video defaults
+\*---------------------------------------------------------------------------*/
+var campfireVideo = $('#campfire-video');
+if (campfireVideo) {
+  campfireVideo[0].volume = 0.2;
+}
+
+window.starRenderer.document.addListener(Jungle.events.DocumentEvents.FOCUS_CHANGE, function (event) {
+  var campfireVideo = $('#campfire-video');
+  if (campfireVideo.length) {
+    if (event.properties.focus) {
+      campfireVideo[0].play();
+    } else {
+      campfireVideo[0].pause();
+    }
+  }
+})

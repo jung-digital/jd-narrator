@@ -201,7 +201,7 @@ function getSectionFocusTop(section) {
   var percent = ((window.innerHeight - rect.height) / 2) / window.innerHeight;
   percent = Math.max(0, percent);
 
-  return (percent * 100) + '%';
+  return loaded || section === curSection ? (percent * 100) + '%' : '-200%';
 }
 
 /*------------------------------------------------------------------------------------*\
@@ -255,12 +255,14 @@ function addEnterLeaveTransition(_scene, element) {
   });
 
   _scene.on('leave', function (event) {
-    TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
+    if ($(window).scrollTop() >= 0) {
+      TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
         top: event.scrollDirection === 'REVERSE' ? '200%' : '-200%',
         opacity: 0,
         overwrite: 'concurrent',
         ease: Power1.easeInOut
       });
+    }
   });
 }
 
