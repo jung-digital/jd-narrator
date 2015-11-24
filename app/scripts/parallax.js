@@ -626,15 +626,17 @@ $(document).ready(function() {
     afterAction: function() {
       $('.dockItem').removeClass('activeDockItem');
       $('.dockItem[slide="' + this.owl.currentItem + '"]').addClass('activeDockItem');
+      //TODO: history.replaceState(null, null, %current slide hash%);
     }
   });
 
   var owl = $('.owl-carousel').data('owlCarousel');
   var btns = $('.dockItem');
   btns.click(function (e) {
-    var element = $(e.target);
-    console.log($(e.target));
+    var element = $(e.currentTarget);
+    history.replaceState(null, null, element.attr('data-href'));
     owl.goTo(1 * element.attr('slide'));
+
     btns.removeClass('activeDockItem');
     element.addClass('activeDockItem');
   });
