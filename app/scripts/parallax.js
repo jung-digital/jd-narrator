@@ -458,6 +458,8 @@ function onHashChangeHandler() {
     $(body).css('opacity', 1);
 
     curSubSection = subSection;
+    var owl = $('.owl-carousel').data('owlCarousel');
+    owl.goTo(1 * subSection.attr('slide'));
 
     $('#subsection-carousel').show();
 
