@@ -1,4 +1,4 @@
-/*eslint no-underscore-dangle: 0*/
+ /*eslint no-underscore-dangle: 0*/
 /*global $,ScrollMagic,TweenLite,Power1,campfireLoadError,detectAutoplay, jQuery*/
 'use strict';
 
@@ -246,10 +246,12 @@ function addEnterLeaveTransition(_scene, element) {
     }
 
     setTimeout(function () {
-      if (curSection === tempSectionPlaceholder) {
-        console.log('Replacing state', _scene.triggerElement().id);
+      if (!curSubSection) {
+        if (curSection === tempSectionPlaceholder) {
+          console.log('Replacing state', _scene.triggerElement().id);
 
-        history.replaceState(null, null, '#' + _scene.triggerElement().id);
+          history.replaceState(null, null, '#' + _scene.triggerElement().id);
+        }
       }
     }, 100);
   });
@@ -457,11 +459,15 @@ function onHashChangeHandler() {
 
     curSubSection = subSection;
 
-    curSubSection.show();
+    $('#subsection-carousel').show();
 
     $('#sections').hide();
 
     scrollToTop();
+  } else {
+    curSubSection = undefined;
+    $('#sections').show();
+    $('#subsection-carousel').hide();
   }
 }
 
@@ -602,4 +608,33 @@ $(document).ready(function() {
     threshold: 10,
     allowPageScroll: 'none'
   });
+});
+
+
+/*-----------------------------------------------------*\
+ * Subsection carousel
+\*-----------------------------------------------------*/
+$(document).ready(function() {
+  var owlEl = $('.owl-carousel');
+  owlEl.owlCarousel({
+    margin: 10,
+    pagination: false,
+    loop: false,
+    singleItem: true,
+    afterAction: function() {
+      $('.dockItem').removeClass('activeDockItem');
+      $('.dockItem[slide="' + this.owl.currentItem + '"]').addClass('activeDockItem');
+    }
+  });
+
+  var owl = $('.owl-carousel').data('owlCarousel');
+  var btns = $('.dockItem');
+  btns.click(function (e) {
+    var element = $(e.target);
+    console.log($(e.target));
+    owl.goTo(1 * element.attr('slide'));
+    btns.removeClass('activeDockItem');
+    element.addClass('activeDockItem');
+  });
+  btns.first().addClass('activeDockItem');
 });
