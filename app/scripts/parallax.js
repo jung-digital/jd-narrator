@@ -470,6 +470,7 @@ function onHashChangeHandler() {
     curSubSection = undefined;
     $('#sections').show();
     $('#subsection-carousel').hide();
+    controller.scrollTo($('#' + hash).offset().top);
   }
 }
 

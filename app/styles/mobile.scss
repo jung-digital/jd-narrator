@@ -1356,11 +1356,10 @@ $icon-font-path: '../fonts/';
         border: none;
         padding: 0rem;
         margin: 1rem;
-          display: inline-block;
-          height: 2rem;
-        a {
-          color: white;
-        }
+        display: inline-block;
+        height: 2rem;
+        cursor: pointer;
+
         img {
           height: 100%;
         }
