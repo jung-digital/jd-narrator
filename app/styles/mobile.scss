@@ -1013,7 +1013,7 @@ $icon-font-path: '../fonts/';
     position: relative;
     max-width: 650px;
     margin: 0 auto;
-    padding-bottom: 100px;
+    padding: 25px;
     text-align: center;
 
     h1 {
@@ -1340,6 +1340,8 @@ $icon-font-path: '../fonts/';
     margin: auto auto;
     height: 100vh;
 
+    border: 5px solid #25383C;
+
     .item {
     }
 
@@ -1362,23 +1364,22 @@ $icon-font-path: '../fonts/';
       }
     }
 
-    .subsectionDock {
+    .subsection-dock {
       position:fixed;
       bottom: 0px;
-      left:50%;
-      transform: translate(-50%, 0);
       width:100%;
       height: 4rem;
-      background-color: #25383C;
-      vertical-align: bottom;
 
-      .dockItem {
+      background-color: #25383C;
+      border: 1px solid #25383C;
+
+      .dock-item {
         border: none;
-        padding: 0rem;
-        margin: 1rem;
         display: inline-block;
         height: 2rem;
+        width: 2rem;
         cursor: pointer;
+        margin: 0rem 1rem;
 
         img {
           height: 100%;
@@ -1391,7 +1392,12 @@ $icon-font-path: '../fonts/';
 
       .activeDockItem {
         height: 3rem;
-        margin-top: 0rem;
+        width: 3rem;
+        margin: 0rem;
+        position: relative;
+        img {
+          height: 100%;
+        }
       }
     }
   }

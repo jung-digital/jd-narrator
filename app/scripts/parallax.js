@@ -625,14 +625,14 @@ $(document).ready(function() {
     loop: false,
     singleItem: true,
     afterAction: function() {
-      $('.dockItem').removeClass('activeDockItem');
-      $('.dockItem[slide="' + this.owl.currentItem + '"]').addClass('activeDockItem');
+      $('.dock-item').removeClass('activeDockItem');
+      $('.dock-item[slide="' + this.owl.currentItem + '"]').addClass('activeDockItem');
       //TODO: history.replaceState(null, null, %current slide hash%);
     }
   });
 
   var owl = $('.owl-carousel').data('owlCarousel');
-  var btns = $('.dockItem');
+  var btns = $('.dock-item');
   btns.click(function (e) {
     var element = $(e.currentTarget);
     history.replaceState(null, null, element.attr('data-href'));
