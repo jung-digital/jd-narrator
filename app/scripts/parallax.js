@@ -466,7 +466,7 @@ function onHashChangeHandler() {
     $('#sections').hide();
 
     scrollToTop();
-  } else {
+  } else if (hash) {
     curSubSection = undefined;
     $('#sections').show();
     $('#subsection-carousel').hide();

@@ -560,4 +560,34 @@ $icon-font-path: '../fonts/';
     width: 100%;
     left: auto;
   }
+
+  /*======================================================*\
+   * Subsection Carousel
+  \*======================================================*/
+  #subsection-carousel {
+    width: 75%;
+    height: 90vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    min-width: 568px;
+
+    .owl-carousel {
+      position: relative;
+      height: calc(100% - 4rem);
+
+      .owl-wrapper-outer {
+        position: relative;
+        height: 100%
+      }
+
+      .owl-wrapper {
+        position: inherit;
+        height: 100%;
+      }
+    }
+
+    .subsectionDock {
+      position:absolute;
+    }
+  }
 }
