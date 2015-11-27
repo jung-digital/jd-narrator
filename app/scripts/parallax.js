@@ -1,154 +1,38 @@
- /*eslint no-underscore-dangle: 0*/
-/*global $,ScrollMagic,TweenLite,Power1,campfireLoadError,detectAutoplay, jQuery*/
+/*eslint no-underscore-dangle: 0*/
+/*global $,ScrollMagic,TweenLite,Power1,campfireLoadError,detectAutoplay*/
+
 'use strict';
 
 // Constant used for pass-in to startup()
 var NO_CAMPFIRE_VIDEO = true;
 var loaded = false;
+var ANIMATION_SPEED = 2;
+var body = document.body;
+var html = document.documentElement;
+var documentScrollHandler;
+var gotoSubSection;
+var gotoSection;
 
-/*---------------------------------------------------------------------------*\
- * Scroll Blocking
- * See: http://stackoverflow.com/questions/4770025/how-to-disable-scrolling-temporarily
-\*---------------------------------------------------------------------------*/
-/**
- * $.disablescroll
- * Author: Josh Harrison - aloof.co
- *
- * Disables scroll events from mousewheels, touchmoves and keypresses.
- * Use while jQuery is animating the scroll position for a guaranteed super-smooth ride!
- */
-
-(function($) {
-  var instance, proto;
-
-  function UserScrollDisabler($container, options) {
-    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-    // left: 37, up: 38, right: 39, down: 40
-    this.opts = $.extend({
-      handleKeys: true,
-      scrollEventKeys: [32, 33, 34, 35, 36, 37, 38, 39, 40]
-    }, options);
-
-    this.$container = $container;
-    this.$document = $(document);
-    this.lockToScrollPos = [0, 0];
-  }
-
-  proto = UserScrollDisabler.prototype;
-
-  proto.disable = function() {
-    var t = this;
-
-    t.lockToScrollPos = [
-      t.$container.scrollLeft(),
-      t.$container.scrollTop()
-    ];
-
-    t.$container.on(
-      'mousewheel.disablescroll DOMMouseScroll.disablescroll touchmove.disablescroll',
-      t._handleWheel
-    );
-
-    t.$container.on('scroll.disablescroll', function() {
-      t._handleScrollbar.call(t);
-    });
-
-    if(t.opts.handleKeys) {
-      t.$document.on('keydown.disablescroll', function(event) {
-        t._handleKeydown.call(t, event);
-      });
-    }
-  };
-
-  proto.undo = function() {
-    var t = this;
-    t.$container.off('.disablescroll');
-    if(t.opts.handleKeys) {
-      t.$document.off('.disablescroll');
-    }
-  };
-
-  proto._handleWheel = function(event) {
-    event.preventDefault();
-  };
-
-  proto._handleScrollbar = function() {
-    this.$container.scrollLeft(this.lockToScrollPos[0]);
-    this.$container.scrollTop(this.lockToScrollPos[1]);
-  };
-
-  proto._handleKeydown = function(event) {
-    for (var i = 0; i < this.opts.scrollEventKeys.length; i++) {
-      if (event.keyCode === this.opts.scrollEventKeys[i]) {
-        event.preventDefault();
-        return;
-      }
-    }
-  };
-
-  // Plugin wrapper for object
-  $.fn.disablescroll = function(method, options) {
-
-    // If calling for the first time, instantiate the object and save
-    // reference. The plugin can therefore only be instantiated once per
-    // page. You can pass options object in through the method parameter.
-    if(!instance) {
-      instance = new UserScrollDisabler(this, options);
-      instance[method].call(instance);
-    }
-    // Instance already created, and a method is being explicitly called,
-    // e.g. .disablescroll('undo');
-    else {
-      instance[method].call(instance);
-    }
-  };
-
-  // Global access
-  window.UserScrollDisabler = UserScrollDisabler;
-
-})(jQuery);
-
-/*---------------------------------------------------------------------------*\
- * hashchange
-\*---------------------------------------------------------------------------*/
-(function(window) {
-
-  // exit if the browser implements that event
-  if ( 'onhashchange' in window.document.body ) {
-    return;
-  }
-
-  var location = window.location;
-  var oldURL = location.href;
-  var oldHash = location.hash;
-
-  // check the location hash on a 100ms interval
-  setInterval(function() {
-    var newURL = location.href,
-      newHash = location.hash;
-
-    // if the hash has changed and a handler has been bound...
-    if ( newHash !== oldHash && typeof window.onhashchange === 'function' ) {
-      // execute the handler
-      window.onhashchange({
-        type: 'hashchange',
-        oldURL: oldURL,
-        newURL: newURL
-      });
-
-      oldURL = newURL;
-      oldHash = newHash;
-    }
-  }, 100);
-})(window);
+var curSection;
+var curSubSection;
+var sectionChildren = ['section-contact-child',
+  'section-story-type-child',
+  'section-workshop-child',
+  'section-work-child',
+  'section-approach-child',
+  'section-about-child',
+  'section-campfire-child'];
+var sections = ['contact',
+  'story',
+  'workshop',
+  'work',
+  'approach',
+  'about',
+  'campfire'];
 
 /*---------------------------------------------------------------------------*\
  * Scaling Sections
 \*---------------------------------------------------------------------------*/
-var curSection;
-var sectionList;
-var curSubSection;
-
 /**
  * This function automatically scales a section based on the window's:
  *
@@ -207,14 +91,8 @@ function getSectionFocusTop(section) {
 
 /*------------------------------------------------------------------------------------*\
  * Scenes
- * Broken up into 7 sections of 200 pixels each
+ * Broken up into 7 sections of 1200 pixels each
 \*------------------------------------------------------------------------------------*/
-var ANIMATION_SPEED = 2;
-var body = document.body;
-var html = document.documentElement;
-
-var documentScrollHandler = function() {}; // Overwritten below
-
 function firstSceneTransition() {
   if (!loaded) {
     console.log('First scene transition!');
@@ -232,6 +110,7 @@ function addEnterLeaveTransition(_scene, element) {
   _scene.on('enter', function () {
     var tempSectionPlaceholder = curSection = $(element).get(0);
 
+    console.log('Entering', tempSectionPlaceholder);
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
       opacity: 1,
@@ -253,7 +132,7 @@ function addEnterLeaveTransition(_scene, element) {
           history.replaceState(null, null, '#' + _scene.triggerElement().id);
         }
       }
-    }, 100);
+    }, 500);
   });
 
   _scene.on('leave', function (event) {
@@ -272,7 +151,7 @@ function documentHeight() {
   return Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 }
 
-var controller = new ScrollMagic.Controller({
+var scrollMagicController = new ScrollMagic.Controller({
   globalSceneOptions: {
     triggerHook: 'onLeave'
   }
@@ -292,7 +171,7 @@ function setupScenes() {
 
   addEnterLeaveTransition(sceneContact, '#section-contact-child');
 
-  sceneContact.addTo(controller);
+  sceneContact.addTo(scrollMagicController);
 
   //-------------------------------------
   // section-story-type
@@ -304,7 +183,7 @@ function setupScenes() {
 
   addEnterLeaveTransition(sceneStoryType, '#section-story-type-child');
 
-  sceneStoryType.addTo(controller);
+  sceneStoryType.addTo(scrollMagicController);
 
   //-------------------------------------
   // section-workshop
@@ -316,7 +195,7 @@ function setupScenes() {
 
   addEnterLeaveTransition(sceneWorkshop, '#section-workshop-child');
 
-  sceneWorkshop.addTo(controller);
+  sceneWorkshop.addTo(scrollMagicController);
 
   //-------------------------------------
   // section-work
@@ -328,7 +207,7 @@ function setupScenes() {
 
   addEnterLeaveTransition(sceneWork, '#section-work-child');
 
-  sceneWork.addTo(controller);
+  sceneWork.addTo(scrollMagicController);
 
   //-------------------------------------
   // section-approach
@@ -340,7 +219,7 @@ function setupScenes() {
 
   addEnterLeaveTransition(sceneApproach, '#section-approach-child');
 
-  sceneApproach.addTo(controller);
+  sceneApproach.addTo(scrollMagicController);
 
   //-------------------------------------
   // section-about
@@ -352,7 +231,7 @@ function setupScenes() {
 
   addEnterLeaveTransition(sceneAbout, '#section-about-child');
 
-  sceneAbout.addTo(controller);
+  sceneAbout.addTo(scrollMagicController);
 
   //-------------------------------------
   // section-campfire
@@ -364,37 +243,26 @@ function setupScenes() {
 
   addEnterLeaveTransition(sceneCampfire, '#section-campfire-child');
 
-  sceneCampfire.addTo(controller);
-
-  sectionList = ['section-contact-child',
-                'section-story-type-child',
-                'section-workshop-child',
-                'section-work-child',
-                'section-approach-child',
-                'section-about-child',
-                'section-campfire-child'];
+  sceneCampfire.addTo(scrollMagicController);
 }
 
 /*---------------------------------------------------------------------------*\
- * Scroll-to-bottom
+ * Scrolling Utilities
 \*---------------------------------------------------------------------------*/
-var scrollToBottom = function () {
-  $('html, body').scrollTop( $(document).height() );
-  $('body').css('animation-play-state', 'running');
-};
+function scrollToBottom() {
+  scrollMagicController.scrollTo($(document).height());
+  $('body').css('animation-play-state', 'running'); // For initial load
+}
 
-var scrollToTop = function () {
-  $('html, body').scrollTop( 0 );
-};
+function scrollToTop() {
+  scrollMagicController.scrollTo(0);
+}
 
 $('body').on('animationend', function() {
   $(this).css('opacity', 1);
 });
 
-/*---------------------------------------------------------------------------*\
- * Scroll Up Button
-\*---------------------------------------------------------------------------*/
-documentScrollHandler = function (event, instant) {
+documentScrollHandler = function(event, instant) {
   if (window.menuOpen) {
     return;
   }
@@ -418,7 +286,7 @@ documentScrollHandler = function (event, instant) {
 
   var campfireHeight = $('#campfire-video').height();
   var mountainsHeight = $('#mountains-image').height();
-  var value = ((controller.scrollPos() + window.innerHeight) - documentHeight()) * window.CAMPFIRE_SCROLL_RATIO;
+  var value = ((scrollMagicController.scrollPos() + window.innerHeight) - documentHeight()) * window.CAMPFIRE_SCROLL_RATIO;
   value -= campfireHeight * 0.2;
 
   // For the sake of performance, don't bother continuing to tween the video position once it is already
@@ -433,44 +301,32 @@ documentScrollHandler = function (event, instant) {
 };
 
 $(document).scroll(documentScrollHandler);
+
+/*---------------------------------------------------------------------------*\
+ * Window Resize
+\*---------------------------------------------------------------------------*/
 $(window).resize(function () {
   console.log('Resize');
   sectionsScale();
-  curSection.style.top = getSectionFocusTop(curSection);
+  if (curSection) {
+    curSection.style.top = getSectionFocusTop(curSection);
+  }
 });
 
+/*---------------------------------------------------------------------------*\
+ * window.location Change
+\*---------------------------------------------------------------------------*/
 function onHashChangeHandler() {
-  console.log('Hash Change!', window.location.hash);
+  console.log(window.location.hash);
 
   var hash = window.location.hash.slice(1);
-
-  if (hash.toLowerCase() === 'campfire') {
-    scrollToBottom();
-  }
-
   var subSectionID = '#subsection-' + hash;
   var subSection = $(subSectionID);
 
   if (subSection.length) {
-    console.log('Moving to subsection', subSection);
-
-    // Force body to full opacity
-    $(body).css('opacity', 1);
-
-    curSubSection = subSection;
-    var owl = $('.owl-carousel').data('owlCarousel');
-    owl.goTo(1 * subSection.attr('slide'));
-
-    $('#subsection-carousel').show();
-
-    $('#sections').hide();
-
-    scrollToTop();
+    gotoSubSection(subSectionID);
   } else if (hash) {
-    curSubSection = undefined;
-    $('#sections').show();
-    $('#subsection-carousel').hide();
-    controller.scrollTo($('#' + hash).offset().top);
+    gotoSection(sectionChildren.indexOf('section-' + hash + '-child'));
   }
 }
 
@@ -547,27 +403,64 @@ $(document).ready(function () {
 
 window.onhashchange = onHashChangeHandler;
 
-
 $(document).ready(function() {
   $('.touchswipe').swipe({
     swipeUp: function() {
-      var index = sectionList.indexOf(curSection.id);
-      var nextSection = sectionList[index + 1];
-      if (nextSection) {
-        controller.scrollTo('#' + nextSection);
-      }
+      var ix = sectionChildren.indexOf(curSection.id);
+      gotoSection(ix + 1);
     },
     swipeDown: function() {
-      var index = sectionList.indexOf(curSection.id);
-      var nextSection = sectionList[index - 1];
-      if (nextSection) {
-        controller.scrollTo('#' + nextSection);
-      }
+      var ix = sectionChildren.indexOf(curSection.id);
+      gotoSection(ix - 1);
     },
     threshold: 10
   });
 });
 
+gotoSection = function(ix) {
+  function scrollTo(y) {
+    console.log('-> section', sectionChildren[ix], y);
+    curSubSection = undefined;
+    $('#sections').show();
+    $('#subsection-carousel').hide();
+    scrollMagicController.scrollTo(y);
+  }
+
+  if (ix === 0) {
+    scrollTo(0);
+  } else if (ix === sections.length - 1) {
+    scrollTo($(document).height());
+  } else if (sections[ix]) {
+    scrollTo($('#' + sections[ix]).offset().top);
+  }
+};
+
+gotoSubSection = function(id) {
+  console.log('-> subsection', id);
+
+  var subSection = $(id);
+
+  if (subSection) {
+    $(html).css('overflow-y', 'visible');
+    $(body).css('opacity', 1);
+
+    curSubSection = subSection;
+
+    var owl = $('.owl-carousel').data('owlCarousel');
+    owl.goTo(1 * subSection.attr('slide'));
+
+    $('#subsection-carousel').show();
+    $('#sections').hide();
+
+    scrollToTop();
+  }
+};
+
+window.leaveSubSection = function() {
+  curSubSection = undefined;
+  $(html).css('overflow-y', 'auto');
+  gotoSection(sectionChildren.indexOf(curSection.id));
+};
 
 /*-----------------------------------------------------*\
  * Mobile Menu

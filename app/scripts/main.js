@@ -46,7 +46,6 @@ canvas = document.getElementById('stars');
 
 window.starRenderer = new Jungle.GraphicRenderer(canvas, {
   canvasAutoClear: true,
-  debug: true,
   debugPosX: 10,
   debugPosY: 100,
   resizeToCanvas: true
