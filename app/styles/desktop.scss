@@ -83,6 +83,11 @@ $icon-font-path: '../fonts/';
     width: 75%;
   }
 
+  .subsection-header-style {
+    background: none;
+    height: 24px;
+  }
+
   //-------------------------------------
   // section-contact
   //-------------------------------------
@@ -567,6 +572,8 @@ $icon-font-path: '../fonts/';
    * Subsection Carousel
   \*======================================================*/
   .subsection-child {
+    margin-top: 0px;
+
     .icon {
       width: 75px;
       margin: 2em;
@@ -599,6 +606,10 @@ $icon-font-path: '../fonts/';
     .subsection-dock {
       position:absolute;
       border: 1px solid #25383C;
+
+      .dock-item {
+        width: 8vw;
+      }
     }
   }
 
