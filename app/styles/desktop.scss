@@ -56,6 +56,7 @@ $icon-font-path: '../fonts/';
   .narrator-logo-full {
     width: 20em;
     display: block;
+    opacity: 0;
   }
 
   .narrator-logo-small {
@@ -565,11 +566,20 @@ $icon-font-path: '../fonts/';
   /*======================================================*\
    * Subsection Carousel
   \*======================================================*/
+  .subsection-child {
+    .icon {
+      width: 75px;
+      margin: 2em;
+    }
+  }
+
   #subsection-carousel {
     width: 75%;
     height: 85vh;
     margin-top: 50px;
     min-width: 568px;
+
+    border: 5px solid #25383C;
 
     .owl-carousel {
       position: relative;
@@ -588,6 +598,7 @@ $icon-font-path: '../fonts/';
 
     .subsection-dock {
       position:absolute;
+      border: 1px solid #25383C;
     }
   }
 

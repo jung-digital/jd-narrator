@@ -124,6 +124,12 @@ $icon-font-path: '../fonts/';
     font-weight: 100;
   }
 
+  .subsection-child {
+    .quote-blue {
+      font-size: 24px;
+    }
+  }
+
   .quote-yellow {
     color: #ffc94c;
     font-size: 24px;
@@ -291,7 +297,7 @@ $icon-font-path: '../fonts/';
   .open-menu {
     position: absolute;
     right: 3.5rem;
-    top: 10%;
+    top: 18px;
     background: none;
     border: none;
 
@@ -347,6 +353,7 @@ $icon-font-path: '../fonts/';
 
     padding-right: 40px;
     padding-left: 40px;
+    border-left: 5px solid #25383C;
   }
 
   .mobile-menu {
@@ -419,10 +426,14 @@ $icon-font-path: '../fonts/';
 
   .narrator-logo-full {
     position: absolute;
-    top: 10%;
+    top: 20px;
     height: 2em;
     opacity: 0;
     @include transition(opacity 1s ease-in-out);
+  }
+
+  .narrator-logo-full-subsection {
+    opacity: 1;
   }
 
   .narrator-logo-show {
@@ -456,6 +467,11 @@ $icon-font-path: '../fonts/';
     top: 0px;
     left: 0px;
     z-index: 2;
+  }
+
+  .subsection-header-style {
+    background-color: #25383C;
+    height: 24px;
   }
 
   .section {
@@ -496,8 +512,8 @@ $icon-font-path: '../fonts/';
     order: 2;
     @include flex-container;
     flex-flow: row wrap;
-    padding-top: 100px;
     max-width: 500px;
+    margin: 0 25px;
 
     #contact-text {
       font-size: 18px;
@@ -592,6 +608,13 @@ $icon-font-path: '../fonts/';
         margin: 1em 0em 0em;
         font-size: 14px;
       }
+
+      .story-desktop-copy {
+        display: none;
+      }
+      .story-mobile-copy {
+        display: inline;
+      }
     }
 
     .story-types {
@@ -603,7 +626,7 @@ $icon-font-path: '../fonts/';
 
       .story-type {
         flex: 1;
-        margin: 1.5em;
+        margin: 1.5em 0em;
         max-height: 12em;
         max-width: 12em;
         height: 3em;
@@ -779,7 +802,8 @@ $icon-font-path: '../fonts/';
     text-align: center;
     background-color: rgba(28, 172, 239, 0.3);
 
-    padding: 0em 0em;
+    padding: 0 0;
+    padding-top: 10px;
 
     h2 {
       margin: 0.5em 0em;
@@ -1007,38 +1031,48 @@ $icon-font-path: '../fonts/';
   .subsection {
     background-color: #081325;
     width: 100%;
+
+    .main-image {
+      max-width: 450px;
+      max-height: 150px;
+      width: 90%;
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
   }
 
   .subsection-child {
     position: relative;
     max-width: 650px;
     margin: 0 auto;
+    margin-top: 50px;
     padding: 25px;
     text-align: center;
 
     h1 {
-      font-size: 54px;
+      font-size: 32px;
       font-weight: 500;
-      margin: 6px 0px;
     }
     .content {
       color: #a9a9a9;
       font-size: 16px;
       text-align: left;
       line-height: 2em;
-      margin: 2em;
+      margin: 0.5em;
+      margin-top: 3em;
     }
+
     ul {
       color: #a9a9a9;
       font-size: 16px;
-      margin-right: 2em;
+      margin-right: 0em;
       text-align: left;
       line-height: 2em;
-      margin-left: 3em;
+      margin-left: 0.5em;
     }
 
     .icon {
-      width: 75px;
+      width: 50px;
       margin: 2em;
     }
 
@@ -1070,11 +1104,6 @@ $icon-font-path: '../fonts/';
   // section-music
   //-------------------------------------
   #subsection-music {
-
-    .music-girl {
-      width: 100px;
-    }
-
     .music-cassette {
       width: 250px;
       margin: 2em;
@@ -1085,37 +1114,12 @@ $icon-font-path: '../fonts/';
   // section-video
   //-------------------------------------
   #subsection-video {
-
-    .sizzle-reel {
-      width: 350px;
-    }
-
-    .quote-blue {
-      max-width: 12em;
-      margin: auto;
-    }
-
-    .video-examples-row {
-      .video-example {
-
-      }
-    }
   }
 
   //-------------------------------------
   // section-branding
   //-------------------------------------
   #subsection-branding {
-
-    h1 {
-      max-width: 8em;
-      margin: auto;
-    }
-
-    .quote-blue {
-      max-width: 16em;
-      margin: auto;
-    }
 
     .brand-examples-row {
       margin: 4em auto 2em;
@@ -1130,45 +1134,12 @@ $icon-font-path: '../fonts/';
   // section-design
   //-------------------------------------
   #subsection-design {
-
-    h1 {
-      max-width: 8em;
-      margin: auto;
-    }
-
-    .quote-blue {
-      margin: auto;
-    }
-
-    .design-examples-row {
-      .design-example {
-
-      }
-    }
   }
 
   //-------------------------------------
   // section-digital
   //-------------------------------------
   #subsection-digital {
-
-    #digital-image {
-      width: 100%;
-    }
-
-    h1 {
-      font-size: 52px;
-    }
-
-    .quote-blue {
-      margin: auto;
-    }
-
-    .digital-examples-row {
-      .digital-example {
-
-      }
-    }
   }
 
   //-------------------------------------
@@ -1176,26 +1147,6 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   #subsection-social {
     padding: 0em 0em 4em;
-
-    .subsection-banner {
-      height: 20vh;
-      min-height: 100px;
-      max-height: 300px;
-      overflow: hidden;
-      #social-image {
-        width: 100%;
-      }
-    }
-
-    h1 {
-      max-width: 10em;
-      margin: 0em auto 6px;
-    }
-
-    .quote-blue {
-      max-width: 16em;
-      margin: auto;
-    }
   }
 
   //-------------------------------------
@@ -1213,15 +1164,6 @@ $icon-font-path: '../fonts/';
         width: 100%;
       }
     }
-
-    h1 {
-      margin: 0em auto 6px;
-    }
-
-    .quote-blue {
-      max-width: 16em;
-      margin: auto;
-    }
   }
 
   //-------------------------------------
@@ -1231,20 +1173,12 @@ $icon-font-path: '../fonts/';
     padding: 4em 0em;
 
     #broadcast-image {
-      width: 450px;
-    }
-
-    h1 {
-      font-size: 52px;
+      max-width: 450px;
+      width: 100%;
     }
 
     .icon {
       width: 50px;
-    }
-
-    .quote-blue {
-      max-width: 12em;
-      margin: auto;
     }
 
     .broadcast-examples-row {
@@ -1264,10 +1198,6 @@ $icon-font-path: '../fonts/';
       width: 450px;
     }
 
-    h1 {
-      margin: 0em auto 6px;
-    }
-
     .content {
       margin-bottom: 0em;
     }
@@ -1277,8 +1207,8 @@ $icon-font-path: '../fonts/';
       font-size: 16px;
       text-align: left;
       margin: 0em 2em 0em 3em;
-      margin-right: 2em;
-      margin-left: 3em;
+      margin-right: 0em;
+      margin-left: 0.5em;
       line-height: 2em;
 
       ul {
@@ -1287,11 +1217,6 @@ $icon-font-path: '../fonts/';
         padding: 0em;
         margin-bottom: 2em;
       }
-    }
-
-    .quote-blue {
-      max-width: 16em;
-      margin: auto;
     }
 
     #contact-section {
@@ -1340,8 +1265,6 @@ $icon-font-path: '../fonts/';
     margin: auto auto;
     height: 100vh;
 
-    border: 5px solid #25383C;
-
     .item {
     }
 
@@ -1371,18 +1294,17 @@ $icon-font-path: '../fonts/';
       height: 4rem;
 
       background-color: #25383C;
-      border: 1px solid #25383C;
 
       .dock-item {
         border: none;
         display: inline-block;
         height: 2rem;
-        width: 2rem;
+        width: 10vw;
         cursor: pointer;
-        margin: 0rem 1rem;
+        margin: 0rem 0rem;
 
         img {
-          height: 100%;
+          height: 90%;
         }
       }
 
@@ -1400,6 +1322,10 @@ $icon-font-path: '../fonts/';
         }
       }
     }
+  }
+
+  #subsection-close {
+    display: none;
   }
 }
 

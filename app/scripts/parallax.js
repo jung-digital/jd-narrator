@@ -12,6 +12,7 @@ var html = document.documentElement;
 var documentScrollHandler;
 var gotoSubSection;
 var gotoSection;
+var campfireVideoDisplayed = true;
 
 var curSection;
 var curSubSection;
@@ -333,10 +334,8 @@ function onHashChangeHandler() {
 /*---------------------------------------------------------------------------*\
  * document ready
 \*---------------------------------------------------------------------------*/
-window.startup = function(noCampfireVideo) {
-  console.log('Startup');
-
-  if (noCampfireVideo) {
+window.startup = function() {
+  if (!campfireVideoDisplayed) {
     console.log('Hiding campfire video');
     $('#campfire-video').hide();
     $('#campfire-image').show();
@@ -383,19 +382,22 @@ $(document).ready(function () {
         campfireVideo.on('canplay', videoCanPlayHandler);
       }
     } else {
-      window.startup(NO_CAMPFIRE_VIDEO);
+      campfireVideoDisplayed = false;
+      window.startup();
     }
   }
 
   if (window.campfireLoadError) {
     console.log('could not load campfire video', campfireLoadError);
-    window.startup(NO_CAMPFIRE_VIDEO);
+    campfireVideoDisplayed = false;
+    window.startup();
   } else {
     detectAutoplay(100, function (autoplay) {
       if (autoplay) {
         waitForCampfireVideo(autoplay);
       } else {
-        window.startup(NO_CAMPFIRE_VIDEO);
+        campfireVideoDisplayed = false;
+        window.startup();
       }
     });
   }
@@ -406,10 +408,12 @@ window.onhashchange = onHashChangeHandler;
 $(document).ready(function() {
   $('.touchswipe').swipe({
     swipeUp: function() {
+      console.log('Swipe Up!');
       var ix = sectionChildren.indexOf(curSection.id);
       gotoSection(ix + 1);
     },
     swipeDown: function() {
+      console.log('Swipe Down!');
       var ix = sectionChildren.indexOf(curSection.id);
       gotoSection(ix - 1);
     },
@@ -423,6 +427,8 @@ gotoSection = function(ix) {
     curSubSection = undefined;
     $('#sections').show();
     $('#subsection-carousel').hide();
+    $('#section-header').removeClass('subsection-header-style');
+    $('#section-header').removeClass('narrator-logo-full-subsection');
     scrollMagicController.scrollTo(y);
   }
 
@@ -443,6 +449,8 @@ gotoSubSection = function(id) {
   if (subSection) {
     $(html).css('overflow-y', 'visible');
     $(body).css('opacity', 1);
+    $('#section-header').addClass('subsection-header-style');
+    $('#section-header').addClass('narrator-logo-full-subsection');
 
     curSubSection = subSection;
 
