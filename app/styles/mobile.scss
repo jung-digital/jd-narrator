@@ -782,6 +782,34 @@ $icon-font-path: '../fonts/';
         font-size: 15px;
       }
     }
+
+    @media only screen and (max-height: 580px) and (orientation: landscape) {
+      h1 {
+        display: inline;
+      }
+      h2 {
+        display: inline-block;
+        margin-right: 2em;
+      }
+      .work-story-1 {
+        width: 33%;
+        margin-right: 0rem;
+        img {
+          width: 95%;
+        }
+      }
+      .work-stories {
+        width: 65%;
+      }
+      .work-quote {
+        clear: none;
+        width: 66%;
+        padding-top: 1rem;
+      }
+      .work-btn-wrapper {
+        margin-right: 2%;
+      }
+    }
   }
 
   //-------------------------------------
