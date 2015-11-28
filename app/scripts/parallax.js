@@ -543,3 +543,9 @@ $(document).ready(function() {
   });
   btns.first().addClass('activeDockItem');
 });
+
+$(document).on('click', function(event) {
+  if (curSubSection && !$(event.target).closest('#subsection-carousel').length) {
+    window.leaveSubSection();
+  }
+});
