@@ -584,6 +584,7 @@ $icon-font-path: '../fonts/';
     width: 75%;
     height: 85vh;
     margin-top: 50px;
+    margin-left: 12.5%;
     min-width: 568px;
 
     border: 5px solid #25383C;
@@ -623,6 +624,7 @@ $icon-font-path: '../fonts/';
     z-index: 5000;
     font-size: 20px;
     text-align: center;
+    display: block;
 
     a, a:visited {
       color: white;

@@ -108,6 +108,9 @@ function firstSceneTransition() {
 
 function addEnterLeaveTransition(_scene, element) {
   _scene.on('enter', function () {
+    if (curSubSection) {
+      return;
+    }
     var tempSectionPlaceholder = curSection = $(element).get(0);
 
     console.log('Entering', tempSectionPlaceholder);
@@ -136,6 +139,11 @@ function addEnterLeaveTransition(_scene, element) {
   });
 
   _scene.on('leave', function (event) {
+    if (curSubSection) {
+      return;
+    }
+    console.log('Leaving', arguments);
+
     if ($(window).scrollTop() >= 0) {
       TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
         top: event.scrollDirection === 'REVERSE' ? '200%' : '-200%',
@@ -424,7 +432,7 @@ gotoSection = function(ix) {
   function scrollTo(y) {
     console.log('-> section', sectionChildren[ix], y);
     curSubSection = undefined;
-    $('#sections').show();
+    $('.section-child').show();
     $('#subsection-carousel').hide();
     $('#subsection-workshop-detail').hide();
     $('#section-header').removeClass('subsection-header-style');
@@ -438,6 +446,8 @@ gotoSection = function(ix) {
     scrollTo($(document).height());
   } else if (sections[ix]) {
     scrollTo($('#' + sections[ix]).offset().top);
+  } else {
+    console.log('Could not find section ' + ix);
   }
 };
 
@@ -447,7 +457,8 @@ gotoSubSection = function(id) {
   var subSection = $(id);
 
   if (subSection) {
-    $(html).css('overflow-y', 'visible');
+    $('.social-fixed-wrapper').hide();
+    $(html).css('overflow-y', 'hidden');
     $(body).css('opacity', 1);
     $('#section-header').addClass('subsection-header-style');
     $('#section-header').addClass('narrator-logo-full-subsection');
@@ -455,7 +466,7 @@ gotoSubSection = function(id) {
     curSubSection = subSection;
     if (id === '#subsection-workshop-detail') {
       $('#subsection-workshop-detail').show();
-      $('#sections').hide();
+      $('.section-child').hide();
 
       scrollToTop();
     } else {
@@ -463,7 +474,7 @@ gotoSubSection = function(id) {
       owl.goTo(1 * subSection.attr('slide'));
 
       $('#subsection-carousel').show();
-      $('#sections').hide();
+      $('.section-child').hide();
 
       scrollToTop();
     }
@@ -471,8 +482,12 @@ gotoSubSection = function(id) {
 };
 
 window.leaveSubSection = function() {
+  // Default to the campfire
+  curSection = curSection || $('#section-' + sections[sections.length-1] + '-child').get(0);
+  console.log(curSection, curSection.id);
   curSubSection = undefined;
   $(html).css('overflow-y', 'auto');
+  $('.social-fixed-wrapper').show();
   gotoSection(sectionChildren.indexOf(curSection.id));
 };
 
@@ -520,7 +535,6 @@ $(document).ready(function() {
   });
 });
 
-
 /*-----------------------------------------------------*\
  * Subsection carousel
 \*-----------------------------------------------------*/
@@ -538,12 +552,16 @@ $(document).ready(function() {
     }
   });
 
-  var owl = $('.owl-carousel').data('owlCarousel');
+  var owlData = owlEl.data('owlCarousel');
+
   var btns = $('.dock-item');
   btns.click(function (e) {
     var element = $(e.currentTarget);
     history.replaceState(null, null, element.attr('data-href'));
-    owl.goTo(1 * element.attr('slide'));
+
+    var slideNum = 1 * element.attr('slide');
+
+    owlData.goTo(slideNum);
 
     btns.removeClass('activeDockItem');
     element.addClass('activeDockItem');

@@ -1289,10 +1289,13 @@ $icon-font-path: '../fonts/';
    * Subsection Carousel
   \*======================================================*/
   #subsection-carousel {
-    position: relative;
+    position: fixed;
     display: none;
     margin: auto auto;
     height: 100vh;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
 
     .item {
     }
