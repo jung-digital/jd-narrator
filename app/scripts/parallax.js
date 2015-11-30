@@ -483,7 +483,7 @@ gotoSubSection = function(id) {
 
 window.leaveSubSection = function() {
   // Default to the campfire
-  curSection = curSection || $('#section-' + sections[sections.length-1] + '-child').get(0);
+  curSection = curSection || $('#section-' + sections[sections.length - 1] + '-child').get(0);
   console.log(curSection, curSection.id);
   curSubSection = undefined;
   $(html).css('overflow-y', 'auto');
