@@ -409,6 +409,7 @@ $icon-font-path: '../fonts/';
     width: 48%;
     float: left;
     padding-right: 2%;
+    padding-left: 2%;
     display: block;
     background-color: inherit;
     flex: none;
@@ -440,12 +441,13 @@ $icon-font-path: '../fonts/';
     display: block;
     width: 48%;
     padding-left: 2%;
+    padding-right: 2%;
     float: right;
     padding-top: 10em;
     display: block;
     flex: none;
     img {
-      width: 100%;
+      width: 90%;
       max-width: none;
     }
   }
