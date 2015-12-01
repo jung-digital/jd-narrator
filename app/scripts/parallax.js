@@ -467,6 +467,7 @@ gotoSubSection = function(id) {
     if (id === '#subsection-workshop-detail') {
       $('#subsection-workshop-detail').show();
       $('.section-child').hide();
+      $('#section-header').hide();
 
       scrollToTop();
     } else {
@@ -488,6 +489,8 @@ window.leaveSubSection = function() {
   curSubSection = undefined;
   $(html).css('overflow-y', 'auto');
   $('.social-fixed-wrapper').show();
+  $('#subsection-workshop-detail').hide();
+  $('#section-header').show();
   gotoSection(sectionChildren.indexOf(curSection.id));
 };
 

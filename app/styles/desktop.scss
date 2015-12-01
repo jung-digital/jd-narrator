@@ -636,4 +636,25 @@ $icon-font-path: '../fonts/';
       color: #CCC;
     }
   }
+
+  #workshop-close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    right: 0px;
+    z-index: 20000;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+
+    a, a:visited {
+      color: white;
+    }
+
+    a:hover {
+      color: #CCC;
+    }
+  }
 }
