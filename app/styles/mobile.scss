@@ -743,7 +743,7 @@ $icon-font-path: '../fonts/';
         margin-left: 0.5em;
       }
 
-      .work-story-2 img, .work-story-3 img {
+      .work-story-2 iframe, .work-story-3 iframe {
         width: 100%;
       }
     }
@@ -868,10 +868,10 @@ $icon-font-path: '../fonts/';
 
   #approach-reel, #approach-reel-desktop {
     width: 50%;
-    img {
+    iframe {
       display: block;
       width: 100%;
-      max-width: 230px;
+      max-width: 500px;
       margin: auto;
     }
   }
