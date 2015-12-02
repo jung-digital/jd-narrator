@@ -147,6 +147,7 @@ gulp.task('ghost', ['styles', 'fonts'], () => {
 
 gulp.task('serve:dist', () => {
   browserSync({
+    ghostMode: false,
     notify: false,
     port: 9000,
     server: {
