@@ -477,6 +477,8 @@ gotoSubSection = function(id) {
       $('#subsection-carousel').show();
       $('.section-child').hide();
 
+      $('#cassetteMap').imageMapResize();
+
       scrollToTop();
     }
   }

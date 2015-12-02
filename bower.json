@@ -2,6 +2,7 @@
   "name": "jd-narrator",
   "private": true,
   "dependencies": {
+    "image-map-resizer": "~1.0.0",
     "jquery": "~2.1.4",
     "jquery-touchswipe": "~1.6.12",
     "modernizr": "~2.8.1",
