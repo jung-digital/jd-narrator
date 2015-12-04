@@ -294,6 +294,10 @@ $icon-font-path: '../fonts/';
     z-index: 1000;
   }
 
+  #desktop-menu {
+    display: none;
+  }
+
   .open-menu {
     position: absolute;
     right: 3.5rem;

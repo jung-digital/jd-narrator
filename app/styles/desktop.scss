@@ -50,21 +50,50 @@ $icon-font-path: '../fonts/';
     display: none;
   }
 
+  #desktop-menu {
+    position: absolute;
+    display: block;
+    left: calc(220px + 5%);
+    top: 9px;
+    width: calc(85% - 220px);
+    font-size: 14px;
+
+    a, a:hover, a:visited {
+      color: white;
+      text-decoration: none;
+    }
+
+    ul {
+      padding: 0;
+      text-align: justify;
+      width: 100%;
+    }
+
+    ul:after {
+      content: '';
+      width: 100%; /* Ensures justification for single lines */
+      display: inline-block;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    li.active {
+      border-bottom: 1px solid white;
+    }
+  }
   /*======================================================*\
    * Page css
   \*======================================================*/
   .narrator-logo-full {
     display: block;
-    opacity: 0;
-  }
-
-  .narrator-logo-show {
     opacity: 1;
   }
 
   .narrator-logo-small {
     width: 2.2em;
-    display: block;
+    display: none;
   }
 
   .column-left {
@@ -585,7 +614,7 @@ $icon-font-path: '../fonts/';
   #subsection-carousel {
     width: 75%;
     height: 85vh;
-    margin-top: 50px;
+    margin-top: 66px;
     margin-left: 12.5%;
     min-width: 568px;
 

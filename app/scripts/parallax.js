@@ -111,9 +111,12 @@ function addEnterLeaveTransition(_scene, element) {
     if (curSubSection) {
       return;
     }
-    var tempSectionPlaceholder = curSection = $(element).get(0);
+    var tempSection = curSection = $(element).get(0);
 
-    console.log('Entering', tempSectionPlaceholder);
+    console.log('Entering', tempSection);
+
+    $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
+
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
       opacity: 1,
@@ -129,7 +132,7 @@ function addEnterLeaveTransition(_scene, element) {
 
     setTimeout(function () {
       if (!curSubSection) {
-        if (curSection === tempSectionPlaceholder) {
+        if (curSection === tempSection) {
           console.log('Replacing state', _scene.triggerElement().id);
 
           history.replaceState(null, null, '#' + _scene.triggerElement().id);
@@ -143,6 +146,8 @@ function addEnterLeaveTransition(_scene, element) {
       return;
     }
     console.log('Leaving', arguments);
+
+    $('#nav-' + $(element).get(0).id.replace('-child', '')).removeClass('active');
 
     if ($(window).scrollTop() >= 0) {
       TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
@@ -279,17 +284,14 @@ documentScrollHandler = function(event, instant) {
 
   var divScrollUp = $('.scroll-up');
   var divSocialIcons = $('.social-fixed');
-  var divNarratorLogo = $('.narrator-logo-full');
 
   if($(window).scrollTop() > $(document).height() - 1200) {
     divScrollUp.addClass('scroll-up-show');
     divSocialIcons.addClass('social-show');
-    divNarratorLogo.addClass('narrator-logo-show');
   }
   else {
     divScrollUp.removeClass('scroll-up-show');
     divSocialIcons.removeClass('social-show');
-    divNarratorLogo.removeClass('narrator-logo-show');
   }
 
   var campfireHeight = $('#campfire-video').height();
