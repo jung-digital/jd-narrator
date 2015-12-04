@@ -54,16 +54,16 @@ $icon-font-path: '../fonts/';
    * Page css
   \*======================================================*/
   .narrator-logo-full {
-    width: 20em;
     display: block;
     opacity: 0;
   }
 
+  .narrator-logo-show {
+    opacity: 1;
+  }
+
   .narrator-logo-small {
-    position: absolute;
-    top: 10%;
-    height: 2em;
-    width: 2.4em;
+    width: 2.2em;
     display: block;
   }
 
