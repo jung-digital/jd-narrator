@@ -1295,6 +1295,7 @@ $icon-font-path: '../fonts/';
    * Subsection Carousel
   \*======================================================*/
   #subsection-carousel {
+    background-color: #081325;
     position: fixed;
     display: none;
     margin: auto auto;
@@ -1308,7 +1309,8 @@ $icon-font-path: '../fonts/';
 
     .owl-carousel {
       position:relative;
-      height: calc(100% - 4rem);
+      height: calc(100% - 8rem);
+      margin-top: 4rem;
 
       .owl-wrapper-outer {
         height: 100%;

@@ -457,6 +457,10 @@ gotoSubSection = function(id) {
   var subSection = $(id);
 
   if (subSection) {
+    // Turn off stars / embers on mobile
+    if (window.innerWidth < 768) {
+      window.starRenderer.paused = window.emberRenderer.paused = true;
+    }
     $('.social-fixed-wrapper').hide();
     $(html).css('overflow-y', 'hidden');
     $(body).css('opacity', 1);
@@ -493,6 +497,11 @@ window.leaveSubSection = function() {
   $('.social-fixed-wrapper').show();
   $('#subsection-workshop-detail').hide();
   $('#section-header').show();
+
+  if (window.innerWidth < 768) {
+    window.starRenderer.paused = window.emberRenderer.paused = false;
+  }
+
   gotoSection(sectionChildren.indexOf(curSection.id));
 };
 

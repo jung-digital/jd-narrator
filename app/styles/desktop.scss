@@ -594,6 +594,7 @@ $icon-font-path: '../fonts/';
     .owl-carousel {
       position: relative;
       height: calc(100% - 4rem);
+      margin-top: 0;
 
       .owl-wrapper-outer {
         position: relative;
