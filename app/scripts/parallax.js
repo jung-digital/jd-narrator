@@ -592,3 +592,20 @@ $(document).on('click', function(event) {
     window.leaveSubSection();
   }
 });
+
+
+/*-----------------------------------------------------*\
+ * Vimeo popup lightbox
+\*-----------------------------------------------------*/
+
+$(document).ready(function() {
+  $('.vimeo').magnificPopup({
+    disableOn: 700,
+    type: 'iframe',
+    mainClass: 'mfp-fade',
+    removalDelay: 160,
+    preloader: false,
+
+    fixedContentPos: false
+  });
+});

@@ -420,6 +420,42 @@ $icon-font-path: '../fonts/';
   }
 
   /*======================================================*\
+   * Vimeo video link styling
+  \*======================================================*/
+  .vimeo { 
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    img {
+      border: 1px solid white;
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 5px;
+    }
+    i {
+      color: white;
+      font-size: 2rem;
+      position: absolute;
+      top: calc(50% - 1.5rem);
+      left: calc(50% - 2.25rem);
+      background: rgba(0, 0, 0, .6);
+      padding: 0.5rem 1.5rem;
+      border-radius: .5rem;
+    }
+    &:hover {
+      i {
+        background: #00ADEF;
+      }
+    }
+    &:visited, &:focus, &:active {
+      outline: none;
+    }
+  }
+
+  /*======================================================*\
    * Page css
   \*======================================================*/
   .narrator-logo {
@@ -872,11 +908,13 @@ $icon-font-path: '../fonts/';
 
   #approach-reel, #approach-reel-desktop {
     width: 50%;
-    iframe {
-      display: block;
+    a { 
       width: 100%;
-      max-width: 500px;
-      margin: auto;
+      img {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+      }
     }
   }
 
