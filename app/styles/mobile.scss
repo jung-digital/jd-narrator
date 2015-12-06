@@ -431,7 +431,6 @@ $icon-font-path: '../fonts/';
       border: 1px solid white;
       display: block;
       width: 100%;
-      max-width: 500px;
       margin: auto;
       border-radius: 5px;
     }
@@ -776,11 +775,11 @@ $icon-font-path: '../fonts/';
       }
 
       .work-story-2 {
-        margin-right: 0.5em;
+        margin-right: 0.5rem;
       }
 
       .work-story-3 {
-        margin-left: 0.5em;
+        margin-left: 0.4rem;
       }
 
       .work-story-2 iframe, .work-story-3 iframe {
@@ -797,7 +796,7 @@ $icon-font-path: '../fonts/';
       font-size: 20px;
     }
 
-    @media screen and (max-height: 400px) {
+    @media screen and (max-height: 580px) {
       .work-story-1 {
         float: left;
         margin-right: 1em;
@@ -833,7 +832,7 @@ $icon-font-path: '../fonts/';
       }
       .work-story-1 {
         width: 33%;
-        margin-right: 0rem;
+        margin-right: 0.5rem;
         img {
           width: 95%;
         }
