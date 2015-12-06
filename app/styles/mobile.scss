@@ -1183,6 +1183,11 @@ $icon-font-path: '../fonts/';
   // section-video
   //-------------------------------------
   #subsection-video {
+    .examples-row {
+      .video-example {
+        margin: 0.3em;
+      }
+    }
   }
 
   //-------------------------------------
