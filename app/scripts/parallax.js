@@ -5,6 +5,7 @@
 
 // Constant used for pass-in to startup()
 var loaded = false;
+var needsFadeIn = true;
 var ANIMATION_SPEED = 2;
 var body = document.body;
 var html = document.documentElement;
@@ -23,7 +24,7 @@ var sectionChildren = ['section-contact-child',
   'section-about-child',
   'section-campfire-child'];
 var sections = ['contact',
-  'story',
+  'story-type',
   'workshop',
   'work',
   'approach',
@@ -100,7 +101,7 @@ function firstSceneTransition() {
     documentScrollHandler(undefined, true);
 
     // If a subsection has already loaded we don't need to fade in the body
-    if (!curSubSection) {
+    if (!curSubSection && needsFadeIn) {
       $(document.body).addClass('body-fadein');
     }
   }
@@ -111,9 +112,8 @@ function addEnterLeaveTransition(_scene, element) {
     if (curSubSection) {
       return;
     }
-    var tempSection = curSection = $(element).get(0);
 
-    console.log('Entering', tempSection);
+    var tempSection = curSection = $(element).get(0);
 
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
 
@@ -145,7 +145,6 @@ function addEnterLeaveTransition(_scene, element) {
     if (curSubSection) {
       return;
     }
-    console.log('Leaving', arguments);
 
     $('#nav-' + $(element).get(0).id.replace('-child', '')).removeClass('active');
 
@@ -174,6 +173,8 @@ var scrollMagicController = new ScrollMagic.Controller({
  * Section Globals
 \*-----------------------------------------------------------*/
 function setupScenes() {
+  console.log('Setup scenes');
+
   //-------------------------------------
   // section-contact
   //-------------------------------------
@@ -190,8 +191,8 @@ function setupScenes() {
   // section-story-type
   //-------------------------------------
   var sceneStoryType = new ScrollMagic.Scene({
-    triggerElement: '#story',
-    duration: $('#story').height()
+    triggerElement: '#story-type',
+    duration: $('#story-type').height()
   });
 
   addEnterLeaveTransition(sceneStoryType, '#section-story-type-child');
@@ -334,6 +335,7 @@ function onHashChangeHandler() {
   var subSection = $(subSectionID);
 
   if (subSection.length) {
+    gotoSection(1);
     gotoSubSection(subSectionID);
   } else if (hash) {
     gotoSection(sectionChildren.indexOf('section-' + hash + '-child'));
@@ -352,9 +354,6 @@ window.startup = function() {
     window.emberRenderer.enabled = false;
   }
 
-  // Check to see if we are in a subsection
-  onHashChangeHandler();
-
   sectionsScale();
 
   if (!window.location.hash) {
@@ -362,6 +361,9 @@ window.startup = function() {
   }
 
   setupScenes();
+
+  // Check to see if we are in a subsection
+  onHashChangeHandler();
 };
 
 //--------------------------------------------------
@@ -432,7 +434,7 @@ $(document).ready(function() {
 
 gotoSection = function(ix) {
   function scrollTo(y) {
-    console.log('-> section', sectionChildren[ix], y);
+
     curSubSection = undefined;
     $('.section-child').show();
     $('#subsection-carousel').hide();
@@ -441,6 +443,9 @@ gotoSection = function(ix) {
     $('#section-header').removeClass('narrator-logo-full-subsection');
     scrollMagicController.scrollTo(y);
   }
+
+  curSection = $('#section-' + sections[ix] + '-child').get(0);
+  console.log('-> section', ix, curSection);
 
   if (ix === 0) {
     scrollTo(0);
@@ -458,34 +463,40 @@ gotoSubSection = function(id) {
 
   var subSection = $(id);
 
+  needsFadeIn = false; // Make sure when we leave we don't fade in!
+
   if (subSection) {
     // Turn off stars / embers on mobile
     if (window.innerWidth < 768) {
       window.starRenderer.paused = window.emberRenderer.paused = true;
     }
+
+    /// Hide social buttons
     $('.social-fixed-wrapper').hide();
+
+    // Block scrolling
     $(html).css('overflow-y', 'hidden');
+    scrollMagicController.scrollTo(500);
+
+    // Make sure everything is visible (page starts black)
     $(body).css('opacity', 1);
     $('#section-header').addClass('subsection-header-style');
     $('#section-header').addClass('narrator-logo-full-subsection');
 
     curSubSection = subSection;
+
+    $('.section-child').hide();
+
     if (id === '#subsection-workshop-detail') {
       $('#subsection-workshop-detail').show();
-      $('.section-child').hide();
       $('#section-header').hide();
-
-      scrollToTop();
     } else {
       var owl = $('.owl-carousel').data('owlCarousel');
       owl.goTo(1 * subSection.attr('slide'));
 
       $('#subsection-carousel').show();
-      $('.section-child').hide();
 
       $('#cassetteMap').imageMapResize();
-
-      scrollToTop();
     }
   }
 };
@@ -493,7 +504,7 @@ gotoSubSection = function(id) {
 window.leaveSubSection = function() {
   // Default to the campfire
   curSection = curSection || $('#section-' + sections[sections.length - 1] + '-child').get(0);
-  console.log(curSection, curSection.id);
+  console.log('Leaving subsection for: ', curSection.id);
   curSubSection = undefined;
   $(html).css('overflow-y', 'auto');
   $('.social-fixed-wrapper').show();

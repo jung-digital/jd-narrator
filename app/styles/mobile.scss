@@ -13,9 +13,12 @@ $icon-font-path: '../fonts/';
 
 @media (min-width: 240px) {
   html, body {
-    overflow-x: hidden;
     overflow-y: auto;
     -webkit-text-size-adjust: 100%;
+  }
+
+  html {
+    height: 100%;
   }
 
   body {
@@ -236,7 +239,7 @@ $icon-font-path: '../fonts/';
     height: 1200px;
   }
 
-  #story {
+  #story-type {
     height: 1200px;
   }
 
