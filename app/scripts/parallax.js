@@ -268,10 +268,6 @@ function scrollToBottom() {
   $('body').css('animation-play-state', 'running'); // For initial load
 }
 
-function scrollToTop() {
-  scrollMagicController.scrollTo(0);
-}
-
 $('body').on('animationend', function() {
   $(this).css('opacity', 1);
 });
