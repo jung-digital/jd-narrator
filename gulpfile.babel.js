@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
+import serve from 'gulp-serve';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
 
@@ -145,19 +146,10 @@ gulp.task('ghost', ['styles', 'fonts'], () => {
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-gulp.task('serve:dist', () => {
-  browserSync({
-    ghostMode: false,
-    notify: false,
-    port: 9000,
-    server: {
-      baseDir: ['dist'],
-      routes: {
-        '/jungle-js': '../jungle-js/dist'
-      }
-    }
-  });
-});
+gulp.task('serve:dist', serve({
+    root: ['dist', '../jungle-js/dist'],
+    port: 9000
+  }));
 
 gulp.task('serve:test', () => {
   browserSync({
