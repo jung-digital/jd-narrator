@@ -3,7 +3,6 @@
 
 'use strict';
 
-// Constant used for pass-in to startup()
 var loaded = false;
 var needsFadeIn = true;
 var ANIMATION_SPEED = 2;
@@ -16,6 +15,7 @@ var campfireVideoDisplayed = true;
 
 var curSection;
 var curSubSection;
+
 var sectionChildren = ['section-contact-child',
   'section-story-type-child',
   'section-workshop-child',
@@ -108,7 +108,10 @@ function firstSceneTransition() {
 }
 
 function addEnterLeaveTransition(_scene, element) {
-  _scene.on('enter', function () {
+  //-----------------------------------
+  // ENTER SECTION
+  //-----------------------------------
+  _scene.on('enter', function (event) {
     if (curSubSection) {
       return;
     }
@@ -117,11 +120,29 @@ function addEnterLeaveTransition(_scene, element) {
 
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
 
+    $(element).css('opacity', 0);
+    $(element).css('top', event.scrollDirection === 'REVERSE' ? '-200%' : '200%');
+
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
       opacity: 1,
       overwrite: 'concurrent',
       ease: Power1.easeOut
+    });
+
+    var regionId = $(element).get(0).id.replace('section-', '').replace('-child', '');
+    var region = $('#' + regionId);
+    var sy = region.offset().top + (region.height() / 2);
+
+    console.log('Scroll to', sy, event);
+
+    TweenLite.to(window, 0.5, {
+      scrollTo: {
+        y: sy,
+        autoKill: false
+      },
+      overwrite: 'concurrent',
+      ease: Power1.easeIn
     });
 
     if (!loaded) {
@@ -141,6 +162,9 @@ function addEnterLeaveTransition(_scene, element) {
     }, 500);
   });
 
+  //-----------------------------------
+  // LEAVE SECTION
+  //-----------------------------------
   _scene.on('leave', function (event) {
     if (curSubSection) {
       return;
@@ -496,16 +520,15 @@ gotoSubSection = function(id) {
 
 window.leaveSubSection = function() {
   var ix = sectionChildren.indexOf(curSection.id);
-
-  // Default to the campfire
-  curSection = curSection || $('#section-' + sections[sections.length - 1] + '-child').get(0);
-
-  console.log('Leaving subsection for: ', curSection.id);
   curSubSection = undefined;
 
+  console.log('Leaving subsection for: ', curSection.id);
+
   $(html).css('overflow-y', 'auto');
-  $('.social-fixed-wrapper').show();
+
   $('#subsection-workshop-detail').hide();
+
+  $('.social-fixed-wrapper').show();
   $('#section-header').show();
 
   if (window.innerWidth < 768) {
