@@ -5,9 +5,14 @@ import browserSync from 'browser-sync';
 import serve from 'gulp-serve';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
+import dotenv from 'dotenv';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
+dotenv.load();
+
+process.env.port = process.env.port || 9000;
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -98,38 +103,12 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 gulp.task('serve', ['styles', 'fonts'], () => {
   browserSync({
     notify: false,
-    port: 9000,
+    port: process.env.port,
     server: {
       baseDir: ['.tmp', 'app'],
       routes: {
         '/bower_components': 'bower_components',
-        '/jungle-js/src': '../jungle-js/src',
-        '/jungle-js': '../jungle-js/dist'
-      }
-    }
-  });
-
-  gulp.watch([
-    'app/*.html',
-    'app/scripts/**/*.js',
-    'app/images/**/*',
-    '.tmp/fonts/**/*'
-  ]).on('change', reload);
-
-  gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/fonts/**/*', ['fonts']);
-  gulp.watch('bower.json', ['wiredep', 'fonts']);
-});
-
-gulp.task('ghost', ['styles', 'fonts'], () => {
-  browserSync({
-    ghostMode: false,
-    notify: false,
-    port: 9000,
-    server: {
-      baseDir: ['.tmp', 'app'],
-      routes: {
-        '/bower_components': 'bower_components'
+        '/narrator': '../jungle-js/dist/narrator'
       }
     }
   });
@@ -148,13 +127,13 @@ gulp.task('ghost', ['styles', 'fonts'], () => {
 
 gulp.task('serve:dist', serve({
     root: ['dist', '../jungle-js/dist'],
-    port: 9000
+    port: process.env.port
   }));
 
 gulp.task('serve:test', () => {
   browserSync({
     notify: false,
-    port: 9000,
+    port: process.env.port,
     ui: false,
     server: {
       baseDir: 'test',
