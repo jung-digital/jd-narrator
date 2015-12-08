@@ -430,7 +430,6 @@ $(document).ready(function() {
 
 gotoSection = function(ix) {
   function scrollTo(y) {
-
     curSubSection = undefined;
     $('.section-child').show();
     $('#subsection-carousel').hide();
@@ -472,7 +471,6 @@ gotoSubSection = function(id) {
 
     // Block scrolling
     $(html).css('overflow-y', 'hidden');
-    scrollMagicController.scrollTo(500);
 
     // Make sure everything is visible (page starts black)
     $(body).css('opacity', 1);
@@ -485,7 +483,6 @@ gotoSubSection = function(id) {
 
     if (id === '#subsection-workshop-detail') {
       $('#subsection-workshop-detail').show();
-      $('#section-header').hide();
     } else {
       var owl = $('.owl-carousel').data('owlCarousel');
       owl.goTo(1 * subSection.attr('slide'));
@@ -498,10 +495,14 @@ gotoSubSection = function(id) {
 };
 
 window.leaveSubSection = function() {
+  var ix = sectionChildren.indexOf(curSection.id);
+
   // Default to the campfire
   curSection = curSection || $('#section-' + sections[sections.length - 1] + '-child').get(0);
+
   console.log('Leaving subsection for: ', curSection.id);
   curSubSection = undefined;
+
   $(html).css('overflow-y', 'auto');
   $('.social-fixed-wrapper').show();
   $('#subsection-workshop-detail').hide();
@@ -511,7 +512,8 @@ window.leaveSubSection = function() {
     window.starRenderer.paused = window.emberRenderer.paused = false;
   }
 
-  gotoSection(sectionChildren.indexOf(curSection.id));
+  history.replaceState(null, null, '#' + sections[ix]);
+  gotoSection(ix);
 };
 
 /*-----------------------------------------------------*\
@@ -593,9 +595,10 @@ $(document).ready(function() {
 });
 
 $(document).on('click', function(event) {
-  if ($('#subsection-carousel').is(':visible') &&
-    !$(event.target).closest('#subsection-carousel').length &&
-    !$(event.target).closest('#mobile-menu').length) {
+  if (($('#subsection-carousel').is(':visible') ||
+       $('#subsection-workshop-detail').is(':visible') ) &&
+       !$(event.target).closest('#subsection-carousel').length &&
+       !$(event.target).closest('#mobile-menu').length) {
     window.leaveSubSection();
   }
 });

@@ -602,6 +602,16 @@ $icon-font-path: '../fonts/';
   /*======================================================*\
    * Subsection Carousel
   \*======================================================*/
+  .popup {
+    width: 75%;
+    height: 85vh;
+    margin-top: 66px;
+    margin-left: 12.5%;
+    min-width: 568px;
+
+    border: 5px solid #25383C;
+  }
+
   .subsection-child {
     margin-top: 0px;
 
@@ -612,14 +622,6 @@ $icon-font-path: '../fonts/';
   }
 
   #subsection-carousel {
-    width: 75%;
-    height: 85vh;
-    margin-top: 66px;
-    margin-left: 12.5%;
-    min-width: 568px;
-
-    border: 5px solid #25383C;
-
     .owl-carousel {
       position: relative;
       height: calc(100% - 4rem);
@@ -646,7 +648,7 @@ $icon-font-path: '../fonts/';
     }
   }
 
-  #subsection-close {
+  #subsection-close, #workshop-close {
     background-color: #25383C;
     width: 30px;
     height: 30px;
@@ -657,27 +659,6 @@ $icon-font-path: '../fonts/';
     font-size: 20px;
     text-align: center;
     display: block;
-
-    a, a:visited {
-      color: white;
-    }
-
-    a:hover {
-      color: #CCC;
-    }
-  }
-
-  #workshop-close {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 20px;
-    right: 0px;
-    z-index: 20000;
-    font-size: 20px;
-    text-align: center;
-    display: block;
-    cursor: pointer;
 
     a, a:visited {
       color: white;
