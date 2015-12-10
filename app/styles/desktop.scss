@@ -282,6 +282,8 @@ $icon-font-path: '../fonts/';
       flex: 1;
       order: 2;
       padding: 1em;
+      position: relative;
+
       h1 {
         font-size: 38px;
         line-height: 110%;
@@ -291,12 +293,14 @@ $icon-font-path: '../fonts/';
 
       .main {
         line-height: 2.5em;
-        margin: 2em 0em 2em;
+        margin: 2vmin 0em;
         font-size: 14px;
       }
 
       a {
         align-self: flex-end;
+        position: absolute;
+        bottom: 16px;
       }
     }
 
