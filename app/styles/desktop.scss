@@ -152,11 +152,12 @@ $icon-font-path: '../fonts/';
       @include flex-container;
       justify-content: flex-end;
       flex-flow: row wrap;
+      max-width: 22rem;
 
       input[type=text] {
         border: none;
         padding: 8px;
-        font-size: 22px;
+        font-size: 20px;
         flex: 1 100%;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -176,9 +177,9 @@ $icon-font-path: '../fonts/';
     }
 
     #contact-info {
-      flex: 1 1 35%;
+      flex: 1 1 25%;
       margin-left: 5%;
-      font-size: 18px;
+      font-size: 14px;
       line-height: 2em;
       a {
         color: white;
@@ -195,14 +196,13 @@ $icon-font-path: '../fonts/';
       position: relative;
       text-align: center;
       margin: 1em auto;
-      max-width: 27em;
     }
 
     .quote-attrib {
       margin: 0.5em 0em;
     }
 
-    padding-top: 200px;
+    padding-top: 100px;
   }
 
   //-------------------------------------
