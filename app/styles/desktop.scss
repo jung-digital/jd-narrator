@@ -83,6 +83,27 @@ $icon-font-path: '../fonts/';
       border-bottom: 1px solid white;
     }
   }
+
+  /*======================================================*\
+   * Vimeo video link styling
+  \*======================================================*/
+  .vimeo {
+    img {
+    }
+
+    i {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      i {
+      }
+    }
+
+    &:visited, &:focus, &:active {
+    }
+  }
+
   /*======================================================*\
    * Page css
   \*======================================================*/
@@ -250,16 +271,31 @@ $icon-font-path: '../fonts/';
         max-height: 12em;
         max-width: 12em;
         height: 12em;
+        padding: 10px;
+
+        border: 2px solid rgba(0, 0, 0, 0);
+
+        -webkit-transition: border 1s;
+        transition: border 1s;
+
         a {
           color: white;
         }
+
         img {
-          height: 75%;
+          height: 66%;
         }
+
         span {
           display: block;
-          font-size: 22px;
+          font-size: 21px;
+          margin-top: 1em;
         }
+      }
+
+      .story-type:hover {
+        border: 2px solid rgba(255, 255, 255, 1);
+        border-radius: 5px;
       }
     }
   }
@@ -588,6 +624,7 @@ $icon-font-path: '../fonts/';
     margin: 1em;
     width: 190px;
     font-size: 18px;
+    padding: 1em 1.5em;
   }
 
   #btn-telling-it {
@@ -597,6 +634,7 @@ $icon-font-path: '../fonts/';
     margin: 1em;
     width: 190px;
     font-size: 18px;
+    padding: 1em 1.5em;
   }
 
   #mountains-image, #campfire-image {

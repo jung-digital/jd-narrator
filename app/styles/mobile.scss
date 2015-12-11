@@ -449,10 +449,10 @@ $icon-font-path: '../fonts/';
     }
     i {
       color: white;
-      font-size: 2rem;
+      font-size: 0.5rem;
       position: absolute;
-      top: calc(50% - 1.5rem);
-      left: calc(50% - 2.25rem);
+      top: calc(50% - 0.75rem);
+      left: calc(50% - 1.66rem);
       background: rgba(0, 0, 0, .6);
       padding: 0.5rem 1.5rem;
       border-radius: .5rem;
@@ -687,10 +687,12 @@ $icon-font-path: '../fonts/';
           color: white;
           text-decoration: none;
         }
+
         img {
           height: 100%;
           height: 30px;
         }
+
         span {
           display: block;
           font-size: 14px;
@@ -1029,14 +1031,8 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-campfire
   //-------------------------------------
-  #section-campfire {
-  }
-
   #section-campfire-child {
     height:700px;
-  }
-
-  #section-campfire-flex {
   }
 
   #campfire-wrapper {
