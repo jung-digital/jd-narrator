@@ -1046,7 +1046,7 @@ $icon-font-path: '../fonts/';
     text-align: center;
 
     h1 {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 300;
       font-family: "Oswald", san-serif;
       margin: 0 1em;
@@ -1063,14 +1063,16 @@ $icon-font-path: '../fonts/';
 
   #btn-find-story {
     margin: 1em;
-    width: 190px;
-    font-size: 18px;
+    padding: 0.5em;
+    width: 160px;
+    font-size: 14px;
   }
 
   #btn-telling-it {
     margin: 1em;
-    width: 190px;
-    font-size: 18px;
+    padding: 0.5em;
+    width: 160px;
+    font-size: 14px;
   }
 
   #campfire-aside {
