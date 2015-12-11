@@ -64,7 +64,6 @@ function sectionsScale() {
     scaleX = window.innerWidth / 968;
     scaleY = window.innerHeight / 700;
     scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-    scale = window.innerWidth < 768 ? 1 : scale;
     console.log('Scaling Desktop', scaleX, scaleY, scale);
   }
 
@@ -84,7 +83,7 @@ function sectionsScale() {
  */
 function getSectionFocusTop(section) {
   var rect = section.getBoundingClientRect();
-  var percent = ((window.innerHeight - rect.height) / 2) / window.innerHeight;
+  var percent = ((window.innerHeight - rect.height) / 2 + 30) / window.innerHeight;
   percent = Math.max(0, percent);
 
   return loaded || section === curSection ? (percent * 100) + '%' : '-200%';

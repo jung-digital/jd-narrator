@@ -375,11 +375,10 @@ $icon-font-path: '../fonts/';
   }
 
   #section-work-flex {
+    @include flex-container;
+
     display: block;
     text-align: left;
-    width: 75%;
-
-    @include flex-container;
 
     -webkit-flex-flow: row wrap;
     flex-flow: row wrap;
@@ -422,15 +421,15 @@ $icon-font-path: '../fonts/';
       flex: 1 100%;
 
       .work-story-1 {
-        flex: 2;
-        padding: 1em;
+        flex: 2.1;
+        padding: 0em 1em;
+
         img {
-          width: 100%;
+          height: 100%;
         }
       }
 
       .work-stories-right {
-        padding: 1em;
         @include flex-container;
         flex: 1;
         flex-flow: row wrap;
@@ -441,15 +440,11 @@ $icon-font-path: '../fonts/';
         justify-content: center;
 
         .work-story-2 {
-          img {
-            width: 100%;
-          }
+          padding-bottom: 1em;
         }
+
         .work-story-3 {
           align-self: flex-end;
-          img {
-            width: 100%;
-          }
         }
       }
     }
