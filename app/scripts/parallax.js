@@ -82,8 +82,9 @@ function sectionsScale() {
  * @returns {string}
  */
 function getSectionFocusTop(section) {
+  var yOffset = window.innerWidth < 768 ? 0 : 30;
   var rect = section.getBoundingClientRect();
-  var percent = ((window.innerHeight - rect.height) / 2 + 30) / window.innerHeight;
+  var percent = ((window.innerHeight - rect.height) / 2 + yOffset) / window.innerHeight;
   percent = Math.max(0, percent);
 
   return loaded || section === curSection ? (percent * 100) + '%' : '-200%';
