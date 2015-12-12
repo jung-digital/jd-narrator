@@ -130,11 +130,12 @@ function addEnterLeaveTransition(_scene, element) {
       ease: Power1.easeOut
     });
 
-    var regionId = $(element).get(0).id.replace('section-', '').replace('-child', '');
-    var region = $('#' + regionId);
-    var sy = region.offset().top + (region.height() / 2);
+    var sectionId = $(element).get(0).id.replace('section-', '').replace('-child', '');
+    var section = $('#' + sectionId);
+    var sectionIx = sections.indexOf(sectionId);
+    var sy = section.offset().top + (sectionIx === 0 ? 0 : (section.height() / 2));
 
-    console.log('Scroll to', sy, region.height(), event);
+    console.log('Scroll to', sy, section.height(), event);
 
     TweenLite.to(window, 0.5, {
       scrollTo: {
@@ -321,7 +322,7 @@ documentScrollHandler = function(event, instant) {
   value -= campfireHeight * 0.2;
 
   $.magnificPopup.close();
-  
+
   // For the sake of performance, don't bother continuing to tween the video position once it is already
   // out of view
   value = Math.max(-(campfireHeight + mountainsHeight), value);
@@ -439,9 +440,9 @@ $(document).ready(function () {
 window.onhashchange = onHashChangeHandler;
 
 $(document).ready(function() {
-  $('.touchswipe').swipe({
+  $(document.body).swipe({
     swipeUp: function() {
-      console.log('Swipe Up!');
+      console.log('Swipe Up!', curSection);
       var ix = sectionChildren.indexOf(curSection.id);
       gotoSection(ix + 1);
     },

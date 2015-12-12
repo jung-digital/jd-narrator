@@ -93,6 +93,12 @@ $icon-font-path: '../fonts/';
 
     i {
       font-size: 2rem;
+      width: 45px;
+      height: 40px;
+      padding-top:10px;
+      padding-left:5px;
+      margin-left: -25px;
+      margin-top: -25px;
     }
 
     &:hover {
@@ -154,7 +160,6 @@ $icon-font-path: '../fonts/';
     order: 2;
     @include flex-container;
     flex-flow: row wrap;
-    padding-top: 200px;
     max-width: 500px;
 
     #contact-text {
@@ -222,8 +227,6 @@ $icon-font-path: '../fonts/';
     .quote-attrib {
       margin: 0.5em 0em;
     }
-
-    padding-top: 100px;
   }
 
   //-------------------------------------
@@ -274,6 +277,7 @@ $icon-font-path: '../fonts/';
         padding: 10px;
 
         border: 2px solid rgba(0, 0, 0, 0);
+        border-radius: 5px;
 
         -webkit-transition: border 1s;
         transition: border 1s;
@@ -295,7 +299,6 @@ $icon-font-path: '../fonts/';
 
       .story-type:hover {
         border: 2px solid #FF9900;
-        border-radius: 5px;
       }
     }
   }
