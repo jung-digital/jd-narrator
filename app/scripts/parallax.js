@@ -636,7 +636,6 @@ $(document).on('click', function(event) {
 
 $(document).ready(function() {
   $('.vimeo').magnificPopup({
-    disableOn: 700,
     type: 'iframe',
     mainClass: 'mfp-fade',
     removalDelay: 160,
