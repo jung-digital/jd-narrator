@@ -718,11 +718,17 @@ $icon-font-path: '../fonts/';
         a {
           color: white;
           text-decoration: none;
+          &:visited, &:focus, &:active {
+            outline: none;
+          }
         }
 
         img {
           height: 100%;
           height: 30px;
+          &:visited, &:focus, &:active {
+            outline: none;
+          }
         }
 
         span {
