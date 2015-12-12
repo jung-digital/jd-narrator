@@ -1444,7 +1444,7 @@ $icon-font-path: '../fonts/';
       }
     }
 
-    .subsection-dock {
+    .subsection-dock-wrapper {
       position:fixed;
       bottom: 0px;
       width:100%;
@@ -1477,6 +1477,16 @@ $icon-font-path: '../fonts/';
         img {
           height: 100%;
         }
+      }
+
+      #subsection-dock-parent {
+         position:relative; 
+         text-align: center;
+         margin-top: 0.5em;
+      }
+      #subsection-dock {
+        display:inline-block; 
+        margin: 0 auto;
       }
     }
   }

@@ -684,7 +684,7 @@ $icon-font-path: '../fonts/';
       }
     }
 
-    .subsection-dock {
+    .subsection-dock-wrapper {
       position:absolute;
       border: 1px solid #25383C;
 
@@ -694,13 +694,18 @@ $icon-font-path: '../fonts/';
 
       .activeDockItem {
         height: 2.5rem;
-        width: 2.5rem;
         margin: 0rem;
         padding: 0.25rem;
         position: relative;
+        img {
+          border: 2px solid #FF9900;
+          border-radius: 5px;
+          padding: 5px;
+        }
+      }
 
-        border: 2px solid #FF9900;
-        border-radius: 5px;
+      #subsection-dock-parent {
+         margin-top: 0em;
       }
     }
   }
