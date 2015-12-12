@@ -1340,33 +1340,38 @@ $icon-font-path: '../fonts/';
   }
 
   #subsection-workshop-detail {
+    overflow: hidden;
     display: none;
-    overflow-x: hidden;
-    overflow-y: scroll;
+
+    #subsection-workshop-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+
+      .content {
+        margin-bottom: 0em;
+      }
+
+      ol {
+        color: #a9a9a9;
+        font-size: 16px;
+        text-align: left;
+        margin: 0em 2em 0em 3em;
+        margin-right: 0em;
+        margin-left: 0.5em;
+        line-height: 2em;
+
+        ul {
+          margin-left: 0em;
+          list-style: inside;
+          padding: 0em;
+          margin-bottom: 2em;
+        }
+      }
+    }
 
     #workshop-image {
       width: 450px;
-    }
-
-    .content {
-      margin-bottom: 0em;
-    }
-
-    ol {
-      color: #a9a9a9;
-      font-size: 16px;
-      text-align: left;
-      margin: 0em 2em 0em 3em;
-      margin-right: 0em;
-      margin-left: 0.5em;
-      line-height: 2em;
-
-      ul {
-        margin-left: 0em;
-        list-style: inside;
-        padding: 0em;
-        margin-bottom: 2em;
-      }
     }
 
     #contact-section {

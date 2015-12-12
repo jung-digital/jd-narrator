@@ -271,6 +271,7 @@ $icon-font-path: '../fonts/';
         padding: 10px;
 
         border: 2px solid rgba(0, 0, 0, 0);
+        border-radius: 5px;
 
         -webkit-transition: border 1s;
         transition: border 1s;
@@ -292,7 +293,6 @@ $icon-font-path: '../fonts/';
 
       .story-type:hover {
         border: 2px solid #FF9900;
-        border-radius: 5px;
       }
     }
   }
