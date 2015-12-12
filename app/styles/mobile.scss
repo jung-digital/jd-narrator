@@ -473,18 +473,18 @@ $icon-font-path: '../fonts/';
 
     i {
       color: white;
-      font-size: 11px;
+      font-size: 1rem;
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 45px;
-      height: 40px;
-      margin-left: -25px;
-      margin-top: -25px;
+      width: 22px;
+      height: 20px;
+      margin-left: -13px;
+      margin-top: -13px;
       background: rgba(0, 0, 0, .6);
       border-radius: 25px;
-      padding-top:10px;
-      padding-left:5px;
+      padding-top:5px;
+      padding-left:3px;
       text-align: center;
     }
 
@@ -821,18 +821,11 @@ $icon-font-path: '../fonts/';
 
     .work-stories {
       display: flex;
+      flex-direction: column;
       margin-bottom: 1em;
 
       .work-story-2, .work-story-3 {
-        width: 50%;
-      }
-
-      .work-story-2 {
-        margin-right: 0.5rem;
-      }
-
-      .work-story-3 {
-        margin-left: 0.4rem;
+        width: 100%;
       }
 
       .work-story-2 iframe, .work-story-3 iframe {
@@ -856,7 +849,7 @@ $icon-font-path: '../fonts/';
       }
 
       .work-story-1 img {
-        max-width: 220px;
+        max-width: 191px;
       }
 
       .work-btn-wrapper {
