@@ -155,6 +155,10 @@ $icon-font-path: '../fonts/';
     position: relative;
   }
 
+  .copyright {
+    font-size: 10px;
+    padding-bottom: 8px;
+  }
   /*======================================================*\
    * Canvas Overlay
   \*======================================================*/
@@ -1255,6 +1259,16 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   #subsection-content {
     padding: 0em 0em 4em;
+
+    .subsection-child {
+      padding-top: 0px;
+
+      .main-image {
+        width: 100%;
+        max-width: none;
+        max-height: 250px;
+      }
+    }
 
     .subsection-banner {
       height: 20vh;

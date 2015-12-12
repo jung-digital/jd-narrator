@@ -134,7 +134,7 @@ function addEnterLeaveTransition(_scene, element) {
     var region = $('#' + regionId);
     var sy = region.offset().top + (region.height() / 2);
 
-    console.log('Scroll to', sy, event);
+    console.log('Scroll to', sy, region.height(), event);
 
     TweenLite.to(window, 0.5, {
       scrollTo: {
