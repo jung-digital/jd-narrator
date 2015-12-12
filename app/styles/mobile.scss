@@ -1128,6 +1128,13 @@ $icon-font-path: '../fonts/';
     background-color: #081325;
     width: 100%;
 
+    .main-image {
+      max-width: 450px;
+      max-height: 150px;
+      width: 90%;
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
     .vimeo {
       max-width: 450px;
       width: 90%;
