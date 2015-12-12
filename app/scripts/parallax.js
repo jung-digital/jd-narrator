@@ -130,11 +130,12 @@ function addEnterLeaveTransition(_scene, element) {
       ease: Power1.easeOut
     });
 
-    var regionId = $(element).get(0).id.replace('section-', '').replace('-child', '');
-    var region = $('#' + regionId);
-    var sy = region.offset().top + (region.height() / 2);
+    var sectionId = $(element).get(0).id.replace('section-', '').replace('-child', '');
+    var section = $('#' + sectionId);
+    var sectionIx = sections.indexOf(sectionId);
+    var sy = section.offset().top + (sectionIx == 0 ? 0 : (section.height() / 2));
 
-    console.log('Scroll to', sy, region.height(), event);
+    console.log('Scroll to', sy, section.height(), event);
 
     TweenLite.to(window, 0.5, {
       scrollTo: {
