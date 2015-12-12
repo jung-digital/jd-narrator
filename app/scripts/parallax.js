@@ -321,7 +321,7 @@ documentScrollHandler = function(event, instant) {
   value -= campfireHeight * 0.2;
 
   $.magnificPopup.close();
-  
+
   // For the sake of performance, don't bother continuing to tween the video position once it is already
   // out of view
   value = Math.max(-(campfireHeight + mountainsHeight), value);
