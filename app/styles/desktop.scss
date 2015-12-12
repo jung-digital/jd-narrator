@@ -154,7 +154,6 @@ $icon-font-path: '../fonts/';
     order: 2;
     @include flex-container;
     flex-flow: row wrap;
-    padding-top: 200px;
     max-width: 500px;
 
     #contact-text {
@@ -222,8 +221,6 @@ $icon-font-path: '../fonts/';
     .quote-attrib {
       margin: 0.5em 0em;
     }
-
-    padding-top: 100px;
   }
 
   //-------------------------------------
