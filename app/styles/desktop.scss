@@ -294,7 +294,7 @@ $icon-font-path: '../fonts/';
       }
 
       .story-type:hover {
-        border: 2px solid rgba(255, 255, 255, 1);
+        border: 2px solid #FF9900;
         border-radius: 5px;
       }
     }
@@ -687,6 +687,17 @@ $icon-font-path: '../fonts/';
 
       .dock-item {
         width: 8vw;
+      }
+
+      .activeDockItem {
+        height: 2.5rem;
+        width: 2.5rem;
+        margin: 0rem;
+        padding: 0.25rem;
+        position: relative;
+
+        border: 2px solid #FF9900;
+        border-radius: 5px;
       }
     }
   }
