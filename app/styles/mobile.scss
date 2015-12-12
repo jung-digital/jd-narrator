@@ -254,6 +254,8 @@ $icon-font-path: '../fonts/';
 
     @include transition(opacity 1s ease-in-out);
 
+    pointer-events: none;
+    cursor: default;
     a {
       color: white;
       margin: 0em 0.2em;
@@ -262,6 +264,8 @@ $icon-font-path: '../fonts/';
 
   .social-show {
     opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
   }
 
   /*======================================================*\
