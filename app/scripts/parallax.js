@@ -12,6 +12,7 @@ var documentScrollHandler;
 var gotoSubSection;
 var gotoSection;
 var campfireVideoDisplayed = true;
+var ignoreTouchSwipe = false;
 
 var curSection;
 var curSubSection;
@@ -440,11 +441,17 @@ window.onhashchange = onHashChangeHandler;
 $(document).ready(function() {
   $(document.body).swipe({
     swipeUp: function() {
+      if (ignoreTouchSwipe) {
+        return;
+      }
       console.log('Swipe Up!', curSection);
       var ix = sectionChildren.indexOf(curSection.id);
       gotoSection(ix + 1, true);
     },
     swipeDown: function() {
+      if (ignoreTouchSwipe) {
+        return;
+      }
       console.log('Swipe Down!');
       var ix = sectionChildren.indexOf(curSection.id);
       gotoSection(ix - 1, true);
@@ -491,6 +498,8 @@ gotoSubSection = function(id) {
   needsFadeIn = false; // Make sure when we leave we don't fade in!
 
   if (subSection) {
+    ignoreTouchSwipe = true;
+
     // Turn off stars / embers on mobile
     if (window.innerWidth < 768) {
       window.starRenderer.paused = window.emberRenderer.paused = true;
@@ -540,6 +549,8 @@ window.leaveSubSection = function() {
   if (window.innerWidth < 768) {
     window.starRenderer.paused = window.emberRenderer.paused = false;
   }
+
+  ignoreTouchSwipe = false;
 
   history.replaceState(null, null, '#' + sections[ix]);
   gotoSection(ix);
