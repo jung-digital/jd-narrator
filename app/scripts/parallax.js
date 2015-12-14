@@ -112,7 +112,7 @@ function scrollAnimateTo(sectionId, speed) {
   var sectionIx = sections.indexOf(sectionId);
   var sy = section.offset().top + (sectionIx === 0 ? 0 : (section.height() / 2));
 
-  console.log('Scroll to', sy, section.height(), event);
+  console.log('Scroll animate to', sectionId, sy, section.height(), event);
 
   TweenLite.to(window, speed || 1, {
     scrollTo: {
@@ -146,7 +146,7 @@ function addEnterLeaveTransition(_scene, element) {
       ease: Power1.easeOut
     });
 
-    scrollAnimateTo(curSection.id.replace('section-', '').replace('-child', ''));
+    scrollAnimateTo(curSection.id.replace('section-', '').replace('-child', ''), loaded ? 1 : 0.01);
 
     if (!loaded) {
       setTimeout(function () {
@@ -351,8 +351,6 @@ $(window).resize(function () {
  * window.location Change
 \*---------------------------------------------------------------------------*/
 function onHashChangeHandler() {
-  console.log(window.location.hash);
-
   var hash = window.location.hash.slice(1);
   var subSectionID = '#subsection-' + hash;
   var subSection = $(subSectionID);
