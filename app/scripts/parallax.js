@@ -112,7 +112,7 @@ function scrollAnimateTo(sectionId, speed) {
   var sectionIx = sections.indexOf(sectionId);
   var sy = section.offset().top + (sectionIx === 0 ? 0 : (section.height() / 2));
 
-  console.log('Scroll animate to', sectionId, sy, section.height(), event);
+  console.log('Scroll animate to', sectionId, sy, section.height());
 
   TweenLite.to(window, speed || 1, {
     scrollTo: {
