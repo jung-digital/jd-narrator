@@ -624,7 +624,8 @@ $(document).on('click', function(event) {
   if (($('#subsection-carousel').is(':visible') ||
        $('#subsection-workshop-detail').is(':visible') ) &&
        !$(event.target).closest('#subsection-carousel').length &&
-       !$(event.target).closest('#mobile-menu').length) {
+       !$(event.target).closest('#mobile-menu').length &&
+       !$(event.target).closest('.mfp-wrap').length) {
     window.leaveSubSection();
   }
 });
