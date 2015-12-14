@@ -129,7 +129,7 @@ function addEnterLeaveTransition(_scene, element) {
   //-----------------------------------
   // ENTER SECTION
   //-----------------------------------
-  _scene.on('enter', function (event) {
+  _scene.on('enter', function () {
     if (curSubSection) {
       return;
     }
@@ -137,8 +137,6 @@ function addEnterLeaveTransition(_scene, element) {
     var tempSection = curSection = $(element).get(0);
 
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
-
-    //$(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
 
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
