@@ -5,7 +5,7 @@
 
 var loaded = false;
 var needsFadeIn = true;
-var ANIMATION_SPEED = 2;
+var ANIMATION_SPEED = 1.5;
 var body = document.body;
 var html = document.documentElement;
 var documentScrollHandler;
@@ -107,6 +107,23 @@ function firstSceneTransition() {
   }
 }
 
+function scrollAnimateTo(sectionId, speed) {
+  var section = $('#' + sectionId);
+  var sectionIx = sections.indexOf(sectionId);
+  var sy = section.offset().top + (sectionIx === 0 ? 0 : (section.height() / 2));
+
+  console.log('Scroll animate to', sectionId, sy, section.height(), event);
+
+  TweenLite.to(window, speed || 1, {
+    scrollTo: {
+      y: sy,
+      autoKill: false
+    },
+    overwrite: 'concurrent',
+    ease: Power1.easeOut
+  });
+}
+
 function addEnterLeaveTransition(_scene, element) {
   //-----------------------------------
   // ENTER SECTION
@@ -120,8 +137,7 @@ function addEnterLeaveTransition(_scene, element) {
 
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
 
-    $(element).css('opacity', 0);
-    $(element).css('top', event.scrollDirection === 'REVERSE' ? '-200%' : '200%');
+    $(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
 
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
@@ -130,21 +146,7 @@ function addEnterLeaveTransition(_scene, element) {
       ease: Power1.easeOut
     });
 
-    var sectionId = $(element).get(0).id.replace('section-', '').replace('-child', '');
-    var section = $('#' + sectionId);
-    var sectionIx = sections.indexOf(sectionId);
-    var sy = section.offset().top + (sectionIx === 0 ? 0 : (section.height() / 2));
-
-    console.log('Scroll to', sy, section.height(), event);
-
-    TweenLite.to(window, 0.5, {
-      scrollTo: {
-        y: sy,
-        autoKill: false
-      },
-      overwrite: 'concurrent',
-      ease: Power1.easeIn
-    });
+    scrollAnimateTo(curSection.id.replace('section-', '').replace('-child', ''), loaded ? 1 : 0.01);
 
     if (!loaded) {
       setTimeout(function () {
@@ -153,12 +155,10 @@ function addEnterLeaveTransition(_scene, element) {
     }
 
     setTimeout(function () {
-      if (!curSubSection) {
-        if (curSection === tempSection) {
-          console.log('Replacing state', _scene.triggerElement().id);
+      if (!curSubSection && curSection === tempSection) {
+        console.log('Replacing state', _scene.triggerElement().id);
 
-          history.replaceState(null, null, '#' + _scene.triggerElement().id);
-        }
+        history.replaceState(null, null, '#' + _scene.triggerElement().id);
       }
     }, 500);
   });
@@ -351,8 +351,6 @@ $(window).resize(function () {
  * window.location Change
 \*---------------------------------------------------------------------------*/
 function onHashChangeHandler() {
-  console.log(window.location.hash);
-
   var hash = window.location.hash.slice(1);
   var subSectionID = '#subsection-' + hash;
   var subSection = $(subSectionID);
@@ -444,40 +442,44 @@ $(document).ready(function() {
     swipeUp: function() {
       console.log('Swipe Up!', curSection);
       var ix = sectionChildren.indexOf(curSection.id);
-      gotoSection(ix + 1);
+      gotoSection(ix + 1, true);
     },
     swipeDown: function() {
       console.log('Swipe Down!');
       var ix = sectionChildren.indexOf(curSection.id);
-      gotoSection(ix - 1);
+      gotoSection(ix - 1, true);
     },
     threshold: 10,
     excludedElements: '.subsection'
   });
 });
 
-gotoSection = function(ix) {
-  function scrollTo(y) {
+gotoSection = function(ix, animate) {
+  function _scrollTo(y) {
     curSubSection = undefined;
+
     $('.section-child').show();
     $('#subsection-carousel').hide();
     $('#subsection-workshop-detail').hide();
     $('#section-header').removeClass('subsection-header-style');
     $('#section-header').removeClass('narrator-logo-full-subsection');
-    scrollMagicController.scrollTo(y);
+
+    if (animate) {
+      scrollAnimateTo(curSection.id, 0.5);
+    } else {
+      scrollMagicController.scrollTo(y);
+    }
   }
 
   curSection = $('#section-' + sections[ix] + '-child').get(0);
   console.log('-> section', ix, curSection);
 
   if (ix === 0) {
-    scrollTo(0);
+    _scrollTo(0);
   } else if (ix === sections.length - 1) {
-    scrollTo($(document).height());
+    _scrollTo($(document).height());
   } else if (sections[ix]) {
-    scrollTo($('#' + sections[ix]).offset().top);
-  } else {
-    console.log('Could not find section ' + ix);
+    _scrollTo($('#' + sections[ix]).offset().top);
   }
 };
 
@@ -630,7 +632,6 @@ $(document).on('click', function(event) {
     window.leaveSubSection();
   }
 });
-
 
 /*-----------------------------------------------------*\
  * Vimeo popup lightbox
