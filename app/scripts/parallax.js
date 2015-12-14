@@ -452,7 +452,7 @@ $(document).ready(function() {
       gotoSection(ix - 1);
     },
     threshold: 10,
-    excludedElements: ''
+    excludedElements: '.subsection'
   });
 });
 
