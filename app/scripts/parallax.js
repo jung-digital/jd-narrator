@@ -451,7 +451,8 @@ $(document).ready(function() {
       var ix = sectionChildren.indexOf(curSection.id);
       gotoSection(ix - 1);
     },
-    threshold: 10
+    threshold: 10,
+    excludedElements: ''
   });
 });
 
