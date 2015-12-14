@@ -187,6 +187,7 @@ $icon-font-path: '../fonts/';
     height: 100%;
     left: 0px;
     top: 0px;
+    pointer-events: none;
   }
 
   #embers {
@@ -196,6 +197,7 @@ $icon-font-path: '../fonts/';
     height: 100%;
     left: 0px;
     top: 0px;
+    pointer-events: none;
   }
 
   #gradient {
@@ -216,6 +218,8 @@ $icon-font-path: '../fonts/';
     background: -ms-linear-gradient(top,  #010105 0%,#090919 51%); /* IE10+ */
     background: linear-gradient(to bottom,  #010105 0%,#090919 51%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010105', endColorstr='#090919',GradientType=0 ); /* IE6-9 */
+
+    pointer-events: none;
   }
 
   /*======================================================*\
@@ -234,6 +238,8 @@ $icon-font-path: '../fonts/';
     width: 100%;
     height: 800px;
     color: white;
+
+    pointer-events: none;
   }
 
   .social-fixed-wrapper {
@@ -570,6 +576,10 @@ $icon-font-path: '../fonts/';
     top: -2000px;
   }
 
+  .section > * {
+    -webkit-transform: translate3d(0,0,0);
+  }
+
   .section-child {
     position: fixed;
     top: 1000px;
@@ -882,6 +892,7 @@ $icon-font-path: '../fonts/';
   #approach-main {
     text-align: center;
     background-color: rgba(28, 172, 239, 0.3);
+    pointer-events: none;
 
     padding: 0 0;
     padding-top: 10px;
@@ -917,6 +928,7 @@ $icon-font-path: '../fonts/';
     background-color: white;
     width: 100%;
     padding: 1em 0em;
+    pointer-events: none;
   }
 
   #approach-reel, #approach-reel-desktop {
@@ -1072,6 +1084,7 @@ $icon-font-path: '../fonts/';
     position: absolute;
     bottom: 0px;
     z-index: -3;
+    pointer-events: none;
     //width: 200vw;
     //left: -50vw;
     img {
@@ -1083,6 +1096,7 @@ $icon-font-path: '../fonts/';
     position: absolute;
     width: 100%;
     bottom: 0px;
+    pointer-events: none;
   }
 
   .campfire-video-offset {
@@ -1102,6 +1116,7 @@ $icon-font-path: '../fonts/';
 
   #campfire-image {
     display: none;
+    pointer-events: none;
   }
 
   /*======================================================*\
