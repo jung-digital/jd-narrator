@@ -12,6 +12,7 @@ var documentScrollHandler;
 var gotoSubSection;
 var gotoSection;
 var campfireVideoDisplayed = true;
+var ignoreTouchSwipe = false;
 
 var curSection;
 var curSubSection;
@@ -137,7 +138,7 @@ function addEnterLeaveTransition(_scene, element) {
 
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
 
-    $(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
+    //$(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
 
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
@@ -440,14 +441,22 @@ window.onhashchange = onHashChangeHandler;
 $(document).ready(function() {
   $(document.body).swipe({
     swipeUp: function() {
+      if (ignoreTouchSwipe) {
+        return;
+      }
       console.log('Swipe Up!', curSection);
       var ix = sectionChildren.indexOf(curSection.id);
       gotoSection(ix + 1, true);
     },
     swipeDown: function() {
+      if (ignoreTouchSwipe) {
+        return;
+      }
       console.log('Swipe Down!');
       var ix = sectionChildren.indexOf(curSection.id);
-      gotoSection(ix - 1, true);
+      if (ix > 0) {
+        gotoSection(ix - 1, true);
+      }
     },
     threshold: 10,
     excludedElements: '.subsection'
@@ -491,6 +500,8 @@ gotoSubSection = function(id) {
   needsFadeIn = false; // Make sure when we leave we don't fade in!
 
   if (subSection) {
+    ignoreTouchSwipe = true;
+
     // Turn off stars / embers on mobile
     if (window.innerWidth < 768) {
       window.starRenderer.paused = window.emberRenderer.paused = true;
@@ -537,9 +548,9 @@ window.leaveSubSection = function() {
   $('.social-fixed-wrapper').show();
   $('#section-header').show();
 
-  if (window.innerWidth < 768) {
-    window.starRenderer.paused = window.emberRenderer.paused = false;
-  }
+  window.starRenderer.paused = window.emberRenderer.paused = false;
+
+  ignoreTouchSwipe = false;
 
   history.replaceState(null, null, '#' + sections[ix]);
   gotoSection(ix);
