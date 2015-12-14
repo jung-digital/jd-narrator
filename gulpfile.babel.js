@@ -103,6 +103,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', ['styles', 'fonts'], () => {
   browserSync({
+    ghostMode: true,
     notify: false,
     port: process.env.port,
     server: {
