@@ -138,7 +138,7 @@ function addEnterLeaveTransition(_scene, element) {
 
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
 
-    $(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
+    //$(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
 
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
@@ -454,7 +454,9 @@ $(document).ready(function() {
       }
       console.log('Swipe Down!');
       var ix = sectionChildren.indexOf(curSection.id);
-      gotoSection(ix - 1, true);
+      if (ix > 0) {
+        gotoSection(ix - 1, true);
+      }
     },
     threshold: 10,
     excludedElements: '.subsection'
@@ -546,9 +548,7 @@ window.leaveSubSection = function() {
   $('.social-fixed-wrapper').show();
   $('#section-header').show();
 
-  if (window.innerWidth < 768) {
-    window.starRenderer.paused = window.emberRenderer.paused = false;
-  }
+  window.starRenderer.paused = window.emberRenderer.paused = false;
 
   ignoreTouchSwipe = false;
 
