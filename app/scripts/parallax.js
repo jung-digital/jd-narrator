@@ -457,7 +457,7 @@ $(document).ready(function() {
       gotoSection(ix - 1, true);
     },
     threshold: 10,
-    excludedElements: ''
+    excludedElements: '.subsection'
   });
 });
 
