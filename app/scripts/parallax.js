@@ -52,20 +52,20 @@ function sectionsScale() {
       scaleX = window.innerWidth / 568;
       scaleY = window.innerHeight / 320;
       scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-      console.log('Scaling Mobile Landscape', scaleX, scaleY, scale);
+      //console.log('Scaling Mobile Landscape', scaleX, scaleY, scale);
     } else {
       // Mobile Portrait
       scaleX = window.innerWidth / 320;
       scaleY = window.innerHeight / 568;
       scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-      console.log('Scaling Mobile Portrait', scaleX, scaleY, scale);
+      //console.log('Scaling Mobile Portrait', scaleX, scaleY, scale);
     }
   } else {
     // Desktop
     scaleX = window.innerWidth / 968;
     scaleY = window.innerHeight / 700;
     scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-    console.log('Scaling Desktop', scaleX, scaleY, scale);
+    //console.log('Scaling Desktop', scaleX, scaleY, scale);
   }
 
   $('.section-child').css('transform', 'scale(' + scale + ',' + scale + ')');
@@ -113,7 +113,7 @@ function scrollAnimateTo(sectionId, speed) {
   var sectionIx = sections.indexOf(sectionId);
   var sy = section.offset().top + (sectionIx === 0 ? 0 : (section.height() / 2));
 
-  console.log('Scroll animate to', sectionId, sy, section.height());
+  //console.log('Scroll animate to', sectionId, sy, section.height());
 
   TweenLite.to(window, speed || 1, {
     scrollTo: {
@@ -339,7 +339,7 @@ $(document).scroll(documentScrollHandler);
  * Window Resize
 \*---------------------------------------------------------------------------*/
 $(window).resize(function () {
-  console.log('Resize');
+  //console.log('Resize');
   sectionsScale();
   if (curSection) {
     curSection.style.top = getSectionFocusTop(curSection);
