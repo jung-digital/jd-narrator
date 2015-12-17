@@ -129,7 +129,7 @@ function addEnterLeaveTransition(_scene, element) {
   //-----------------------------------
   // ENTER SECTION
   //-----------------------------------
-  _scene.on('enter', function () {
+  _scene.on('enter', function (event) {
     if (curSubSection) {
       return;
     }
@@ -137,6 +137,7 @@ function addEnterLeaveTransition(_scene, element) {
     var tempSection = curSection = $(element).get(0);
 
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
+    $(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
 
     TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
       top: getSectionFocusTop(curSection),
@@ -364,7 +365,11 @@ function onHashChangeHandler() {
   var subSection = $(subSectionID);
 
   if (subSection.length) {
-    gotoSection(1);
+    if (hash !== 'workshop-detail') {
+      gotoSection(1);
+    } else {
+      gotoSection(2);
+    }
     gotoSubSection(subSectionID);
   } else if (hash) {
     gotoSection(sectionChildren.indexOf('section-' + hash + '-child'));
@@ -502,6 +507,8 @@ gotoSection = function(ix, animate) {
 gotoSubSection = function(id) {
   console.log('-> subsection', id);
 
+  console.log('Opening workshop detail from: ', curSection.id);
+
   var subSection = $(id);
 
   needsFadeIn = false; // Make sure when we leave we don't fade in!
@@ -530,6 +537,7 @@ gotoSubSection = function(id) {
     $('.section-child').hide();
 
     if (id === '#subsection-workshop-detail') {
+
       $('#subsection-workshop-detail').show();
     } else {
       var owl = $('.owl-carousel').data('owlCarousel');
