@@ -599,88 +599,58 @@ $icon-font-path: '../fonts/';
   #section-contact-child {
     text-align: left;
     opacity: 0;
+    text-align: center;
   }
+
 
   #section-contact-flex {
     @include flex-container;
-  }
-
-  #contact-right {
-    flex: 1 70%;
-    order: 2;
-    @include flex-container;
-    flex-flow: row wrap;
-    max-width: 500px;
-    margin: 0 25px;
+    flex-flow: column nowrap;
 
     #contact-text {
-      font-size: 18px;
+      font-size: 28px;
+      font-weight: 700;
       flex: 1 100%;
-    }
-
-    .line {
-      flex: 1 100%;
-      border-bottom: solid white 1px;
-      margin: 1em 0em;
-    }
-
-    #contact-fields {
-      position: relative;
-      flex: 1 1 50%;
-      @include flex-container;
-      justify-content: flex-end;
-      flex-flow: row wrap;
-
-      input[type=text] {
-        border: none;
-        padding: 8px;
-        font-size: 14px;
-        flex: 1 100%;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        margin: 0.2em 0em;
-      }
-
-      .line {
-        flex: 1 100%;
-        border-bottom: solid white 1px;
-        margin: 1.8em 0em 2em;
-      }
-
-      a {
-        display: block;
-      }
+      max-width: 12em;
+      margin: auto;
     }
 
     #contact-info {
-      flex: 1 1 40%;
-      margin-left: 5%;
-      font-size: 18px;
+      flex: 1 100%;
+      font-size: 16px;
       line-height: 2em;
+      max-width: 32em;
+      margin: 6vh auto;
       a {
         color: white;
       }
-    }
-  }
-
-  #contact-quote {
-    display: none;
-  }
-
-  @media screen and (max-height: 400px) {
-    #contact-fields {
-      .btn {
-        position: absolute;
-        right: -200px;
-        bottom: 0px;
+      .phone {
+        text-decoration: none;
+        margin-left: 0.5em;
       }
     }
 
-    #line2 {
-      display: none;
+    #contact-quote {
+      display: block;
+      flex: 1 100%;
+      order: 1;
+      max-width: 26em;
+      margin: auto;
+      .quote {
+        position: relative;
+        text-align: center;
+        margin: 1em auto;
+      }
+      .quote-text {
+        font-size: 20px;
+      }
+      .quote-attrib {
+        font-size: 14px;
+      }
     }
   }
+
+
   //-------------------------------------
   // section-story-type
   //-------------------------------------
