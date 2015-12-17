@@ -550,8 +550,6 @@ window.leaveSubSection = function() {
 
   $(html).css('overflow-y', 'auto');
 
-  $('#subsection-workshop-detail').hide();
-
   $('.social-fixed-wrapper').show();
   $('#section-header').show();
 
@@ -646,7 +644,8 @@ $(document).on('click', function(event) {
        $('#subsection-workshop-detail').is(':visible') ) &&
        !$(event.target).closest('#subsection-carousel').length &&
        !$(event.target).closest('#mobile-menu').length &&
-       !$(event.target).closest('.mfp-wrap').length) {
+       !$(event.target).closest('.mfp-wrap').length &&
+       !$(event.target).closest('#subsection-workshop-detail').length) {
     window.leaveSubSection();
   }
 });
