@@ -1347,7 +1347,22 @@ $icon-font-path: '../fonts/';
         }
       }
 
+
       #contact-info {
+        flex: 1 100%;
+        font-size: 16px;
+        line-height: 2em;
+        max-width: 32em;
+        margin: 6vh auto;
+        a {
+          color: white;
+        }
+        .phone {
+          text-decoration: none;
+          margin-left: 0.5em;
+        }
+      }
+      #contact-text {
         color: #a9a9a9;
         flex: 1 1 35%;
         margin-left: 5%;
