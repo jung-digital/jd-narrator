@@ -52,20 +52,17 @@ function sectionsScale() {
       scaleX = window.innerWidth / 568;
       scaleY = window.innerHeight / 320;
       scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-      //console.log('Scaling Mobile Landscape', scaleX, scaleY, scale);
     } else {
       // Mobile Portrait
       scaleX = window.innerWidth / 320;
       scaleY = window.innerHeight / 568;
       scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-      //console.log('Scaling Mobile Portrait', scaleX, scaleY, scale);
     }
   } else {
     // Desktop
     scaleX = window.innerWidth / 968;
     scaleY = window.innerHeight / 700;
     scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
-    //console.log('Scaling Desktop', scaleX, scaleY, scale);
   }
 
   $('.section-child').css('transform', 'scale(' + scale + ',' + scale + ')');
@@ -364,6 +361,15 @@ function onHashChangeHandler() {
   var subSectionID = '#subsection-' + hash;
   var subSection = $(subSectionID);
 
+  $(html).css('overflow-y', 'auto');
+
+  $('.social-fixed-wrapper').show();
+  $('#section-header').show();
+
+  window.starRenderer.paused = window.emberRenderer.paused = false;
+
+  ignoreTouchSwipe = false;
+
   if (subSection.length) {
     if (hash !== 'workshop-detail') {
       gotoSection(1);
@@ -553,8 +559,6 @@ gotoSubSection = function(id) {
 window.leaveSubSection = function() {
   var ix = sectionChildren.indexOf(curSection.id);
   curSubSection = undefined;
-
-  console.log('Leaving subsection for: ', curSection.id);
 
   $(html).css('overflow-y', 'auto');
 
