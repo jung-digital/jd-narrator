@@ -478,6 +478,9 @@ $icon-font-path: '../fonts/';
       display: block;
       width: 100%;
       margin: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
     }
 
     i {
@@ -898,18 +901,19 @@ $icon-font-path: '../fonts/';
     flex-wrap: wrap;
     background-color: white;
     width: 100%;
-    padding: 1em 0em;
+    padding: 1em 0em 0em;
     pointer-events: none;
   }
 
   #approach-reel, #approach-reel-desktop {
-    width: 50%;
+    width: 100%;
     a { 
       width: 100%;
       img {
         width: 100%;
         max-width: 500px;
         margin: auto;
+        border:none;
       }
     }
   }
@@ -919,9 +923,9 @@ $icon-font-path: '../fonts/';
   }
 
   #approach-quote, #approach-quote-desktop {
-    width: 45%;
+    width: 85%;
     background-color: white;
-    padding: 1em 1em;
+    padding: 2em 1em;
 
     .quote {
       position: relative;
@@ -933,7 +937,6 @@ $icon-font-path: '../fonts/';
         font-size: 16px;
         font-family: "Oswald", san-serif;
         font-weight: 100;
-        max-width: 200px;
       }
     }
 
