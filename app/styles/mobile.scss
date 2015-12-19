@@ -908,6 +908,7 @@ $icon-font-path: '../fonts/';
   #approach-reel, #approach-reel-desktop {
     width: 100%;
     a { 
+      pointer-events: auto;
       width: 100%;
       img {
         width: 100%;
