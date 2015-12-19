@@ -156,10 +156,10 @@ $icon-font-path: '../fonts/';
     flex-flow: column nowrap;
 
     #contact-text {
-      font-size: 48px;
-      font-weight: 700;
+      font-size: 52px;
+      font-weight: 500;
       flex: 1 100%;
-      max-width: 12em;
+      max-width: 10em;
       margin: auto;
     }
 
@@ -622,10 +622,67 @@ $icon-font-path: '../fonts/';
 
   .subsection-child {
     margin-top: 0px;
+    h1 {
+      font-size: 52px;
+      margin: auto;
+    }
+    .quote-blue {
+      font-size: 32px;
+      margin: auto;
+    }
 
     .icon {
       width: 75px;
       margin: 2em;
+    }
+  }
+  #subsection-video {
+    h1 {
+      max-width: 11em;
+    }
+    .quote-blue {
+      max-width: 12em;
+    }
+  }
+  #subsection-branding {
+    h1 {
+      max-width: 8em;
+    }
+    .quote-blue {
+      max-width: 16em;
+    }
+  }
+  #subsection-music {
+    h1 {
+      max-width: 9em;
+    }
+  }
+  #subsection-design {
+    h1 {
+      max-width: 8em;
+    }
+  }
+  #subsection-social {
+    h1 {
+      max-width: 10em;
+    }
+    .quote-blue {
+      max-width: 16em;
+    }
+    .main-image {
+      max-width: unset;
+      max-height: 150px;
+      width: 100%;
+    }
+  }
+  #subsection-content {
+    .quote-blue {
+      max-width: 16em;
+    }
+  }
+  #subsection-broadcast {
+    .quote-blue {
+      max-width: 12em;
     }
   }
 
