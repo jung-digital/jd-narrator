@@ -388,7 +388,7 @@ function onHashChangeHandler() {
 window.startup = function() {
   if (!campfireVideoDisplayed) {
     console.log('Hiding campfire video');
-    $('#campfire-video').hide();
+    $('#campfire-video').remove();
     $('#campfire-image').show();
 
     window.emberRenderer.enabled = false;
