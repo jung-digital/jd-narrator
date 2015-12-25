@@ -610,6 +610,17 @@ $icon-font-path: '../fonts/';
   /*======================================================*\
    * Subsection Carousel
   \*======================================================*/
+  .subsection {
+    background-color: #FFFFFF;
+
+    .main-image {
+      max-height: 250px;
+      width: 100%;
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
+  }
+
   .popup {
     width: 75%;
     height: 85vh;
@@ -622,6 +633,7 @@ $icon-font-path: '../fonts/';
 
   .subsection-child {
     margin-top: 0px;
+    color: #333333;
     h1 {
       font-size: 52px;
       margin: auto;
@@ -636,6 +648,7 @@ $icon-font-path: '../fonts/';
       margin: 2em;
     }
   }
+
   #subsection-video {
     h1 {
       max-width: 11em;
@@ -669,11 +682,6 @@ $icon-font-path: '../fonts/';
     .quote-blue {
       max-width: 16em;
     }
-    .main-image {
-      max-width: unset;
-      max-height: 150px;
-      width: 100%;
-    }
   }
   #subsection-content {
     .quote-blue {
@@ -687,6 +695,8 @@ $icon-font-path: '../fonts/';
   }
 
   #subsection-carousel {
+    background-color: white;
+
     .owl-carousel {
       position: relative;
       height: calc(100% - 4rem);
@@ -734,8 +744,8 @@ $icon-font-path: '../fonts/';
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: -5px;
+    right: -5px;
     z-index: 1000;
     font-size: 20px;
     text-align: center;

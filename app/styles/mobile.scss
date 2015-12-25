@@ -117,12 +117,6 @@ $icon-font-path: '../fonts/';
     font-weight: 100;
   }
 
-  .subsection-child {
-    .quote-blue {
-      font-size: 24px;
-    }
-  }
-
   .quote-yellow {
     color: #ffc94c;
     font-size: 24px;
@@ -1112,6 +1106,11 @@ $icon-font-path: '../fonts/';
     background-color: #081325;
     width: 100%;
 
+    .btn {
+      color: black;
+      border: .1em solid black;
+    }
+
     .main-image {
       max-width: 450px;
       max-height: 150px;
@@ -1119,6 +1118,7 @@ $icon-font-path: '../fonts/';
       -o-object-fit: contain;
       object-fit: contain;
     }
+
     .vimeo {
       max-width: 450px;
       width: 90%;
@@ -1131,16 +1131,20 @@ $icon-font-path: '../fonts/';
     position: relative;
     max-width: 650px;
     margin: 0 auto;
-    margin-top: 50px;
     padding: 25px;
     text-align: center;
+    color: #a9a9a9;
+
+    .quote-blue {
+      font-size: 24px;
+    }
 
     h1 {
       font-size: 32px;
       font-weight: 500;
     }
+
     .content {
-      color: #a9a9a9;
       font-size: 16px;
       text-align: left;
       line-height: 2em;
@@ -1247,8 +1251,6 @@ $icon-font-path: '../fonts/';
     padding: 0em 0em 4em;
 
     .subsection-child {
-      padding-top: 0px;
-
       .main-image {
         width: 100%;
         max-width: none;
@@ -1271,8 +1273,6 @@ $icon-font-path: '../fonts/';
   // section-broadcast
   //-------------------------------------
   #subsection-broadcast {
-    padding: 4em 0em;
-
     #broadcast-image {
       max-width: 450px;
       width: 100%;
@@ -1392,8 +1392,8 @@ $icon-font-path: '../fonts/';
    * Subsection Carousel
   \*======================================================*/
   #subsection-carousel {
-    background-color: #081325;
     display: none;
+    background-color: #25383C;
 
     .item {
     }
