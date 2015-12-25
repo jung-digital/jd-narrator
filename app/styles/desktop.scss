@@ -272,6 +272,16 @@ $icon-font-path: '../fonts/';
     display: none;
   }
 
+  #subsection-workshop-wrapper {
+    ol, ul {
+      color: #333333;
+    }
+  }
+
+  #contact-info a {
+    color: #333333;
+  }
+
   #section-workshop-flex {
     @include flex-container;
 
@@ -745,7 +755,7 @@ $icon-font-path: '../fonts/';
     height: 30px;
     position: absolute;
     top: -5px;
-    right: -5px;
+    left: -5px;
     z-index: 1000;
     font-size: 20px;
     text-align: center;
