@@ -54,7 +54,7 @@ window.starRenderer = new Jungle.GraphicRenderer(canvas, {
 window.starRenderer.addChild(new Starfield({
   starViewScrollRatio: 0.1,
   starDensity: 2.5,
-  starViewWidth: 2560,
+  starViewWidth: window.innerWidth > 767 ? 2560 : 768,
   starViewHeight: 9000
 }));
 

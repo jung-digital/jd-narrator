@@ -32,43 +32,6 @@ $icon-font-path: '../fonts/';
     opacity: 0;
   }
 
-  .body-fadein {
-    animation-play-state: paused;
-    animation-fill-mode: forwards;
-    @include all-animation(fadein 2s);
-
-    animation-fill-mode: forwards;
-  }
-
-  @mixin fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-
-  @keyframes fadein {
-    @include fadein;
-  }
-
-  /* Firefox < 16 */
-  @-moz-keyframes fadein {
-    @include fadein;
-  }
-
-  /* Safari, Chrome and Opera > 12.1 */
-  @-webkit-keyframes fadein {
-    @include fadein;
-  }
-
-  /* Internet Explorer */
-  @-ms-keyframes fadein {
-    @include fadein;
-  }
-
-  /* Opera < 12.1 */
-  @-o-keyframes fadein {
-    @include fadein;
-  }
-
   /*======================================================*\
    * Global
   \*======================================================*/
@@ -176,10 +139,6 @@ $icon-font-path: '../fonts/';
         width: 40%;
       }
     }
-
-    #sections {
-      display: none;
-    }
   }
 
   /*======================================================*\
@@ -222,7 +181,6 @@ $icon-font-path: '../fonts/';
     background: -o-linear-gradient(top,  #010105 0%,#090919 51%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top,  #010105 0%,#090919 51%); /* IE10+ */
     background: linear-gradient(to bottom,  #010105 0%,#090919 51%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010105', endColorstr='#090919',GradientType=0 ); /* IE6-9 */
 
     pointer-events: none;
   }
@@ -373,11 +331,11 @@ $icon-font-path: '../fonts/';
     display: none;
   }
 
-  @media only screen and (max-height: 580px) and (orientation: landscape) {
-    .mobile-menu {
-      padding-top: 25px;
-    }
-  }
+  //@media only screen and (max-height: 580px) and (orientation: landscape) {
+  //  .mobile-menu {
+  //    padding-top: 25px;
+  //  }
+  //}
 
   .mobile-menu-fixed {
     max-width: 350px;
@@ -605,59 +563,48 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
 
   #section-contact-child {
-    text-align: left;
     opacity: 0;
     text-align: center;
   }
 
+  #contact-header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    max-width: 12em;
+    margin: auto;
+  }
 
-  #section-contact-flex {
-    @include flex-container;
-    flex-flow: column nowrap;
-
-    #contact-text {
-      font-size: 28px;
-      font-weight: 700;
-      flex: 1 100%;
-      max-width: 12em;
-      margin: auto;
+  #contact-info {
+    font-size: 16px;
+    line-height: 2em;
+    max-width: 32em;
+    margin: 6vh auto;
+    a {
+      color: white;
     }
-
-    #contact-info {
-      flex: 1 100%;
-      font-size: 16px;
-      line-height: 2em;
-      max-width: 32em;
-      margin: 6vh auto;
-      a {
-        color: white;
-      }
-      .phone {
-        text-decoration: none;
-        margin-left: 0.5em;
-      }
-    }
-
-    #contact-quote {
-      display: block;
-      flex: 1 100%;
-      order: 1;
-      max-width: 26em;
-      margin: auto;
-      .quote {
-        position: relative;
-        text-align: center;
-        margin: 1em auto;
-      }
-      .quote-text {
-        font-size: 20px;
-      }
-      .quote-attrib {
-        font-size: 14px;
-      }
+    .phone {
+      text-decoration: none;
+      margin-left: 0.5em;
     }
   }
 
+  #contact-quote {
+    display: block;
+    max-width: 26em;
+    margin: auto;
+    .quote {
+      position: relative;
+      text-align: center;
+      margin: 1em auto;
+    }
+    .quote-text {
+      font-size: 20px;
+    }
+    .quote-attrib {
+      font-size: 14px;
+    }
+  }
 
   //-------------------------------------
   // section-story-type
@@ -1065,8 +1012,6 @@ $icon-font-path: '../fonts/';
     bottom: 0px;
     z-index: -3;
     pointer-events: none;
-    //width: 200vw;
-    //left: -50vw;
     img {
       width: 100%;
     }
@@ -1092,6 +1037,7 @@ $icon-font-path: '../fonts/';
     left: -50vw;
     bottom: 0px;
     height: 100%;
+    pointer-events: none;
   }
 
   #campfire-image {

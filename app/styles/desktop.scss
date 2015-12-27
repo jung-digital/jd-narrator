@@ -148,46 +148,36 @@ $icon-font-path: '../fonts/';
   //-------------------------------------
   // section-contact
   //-------------------------------------
-  #section-contact-child {
+  #contact-header {
+    font-size: 52px;
+    font-weight: 500;
+    max-width: 10em;
+    margin: auto;
   }
 
-  #section-contact-flex {
-    @include flex-container;
-    flex-flow: column nowrap;
-
-    #contact-text {
-      font-size: 52px;
-      font-weight: 500;
-      flex: 1 100%;
-      max-width: 10em;
-      margin: auto;
+  #contact-info {
+    font-size: 14px;
+    line-height: 2em;
+    max-width: 32em;
+    margin: 40px auto;
+    a {
+      color: white;
     }
+  }
 
-    #contact-info {
-      flex: 1 100%;
-      font-size: 14px;
-      line-height: 2em;
-      max-width: 32em;
-      margin: 40px auto;
-      a {
-        color: white;
-      }
+  #contact-quote {
+    max-width: 32em;
+    margin: 40px auto 0px;
+    .quote {
+      position: relative;
+      text-align: center;
+      margin: 1em auto;
     }
-
-    #contact-quote {
-      max-width: 32em;
-      margin: 40px auto 0px;
-      .quote {
-        position: relative;
-        text-align: center;
-        margin: 1em auto;
-      }
-      .quote-text {
-        font-size: 24px;
-      }
-      .quote-attrib {
-        font-size: 16px;
-      }
+    .quote-text {
+      font-size: 24px;
+    }
+    .quote-attrib {
+      font-size: 16px;
     }
   }
 

@@ -100,7 +100,11 @@ function firstSceneTransition() {
 
     // If a subsection has already loaded we don't need to fade in the body
     if (!curSubSection && needsFadeIn) {
-      $(document.body).addClass('body-fadein');
+      TweenLite.to(document.body, 1, {
+        opacity: 1,
+        overwrite: 'concurrent',
+        ease: Power1.easeOut
+      });
     }
   }
 }
@@ -285,14 +289,13 @@ function setupScenes() {
 /*---------------------------------------------------------------------------*\
  * Scrolling Utilities
 \*---------------------------------------------------------------------------*/
-function scrollToBottom() {
-  scrollMagicController.scrollTo($(document).height());
-  $('body').css('animation-play-state', 'running'); // For initial load
+function showBody() {
+  $(this).css('opacity', 1);
 }
 
-$('body').on('animationend', function() {
-  $(this).css('opacity', 1);
-});
+function scrollToBottom() {
+  scrollMagicController.scrollTo($(document).height());
+}
 
 documentScrollHandler = function(event, instant) {
   if (window.menuOpen) {
@@ -346,9 +349,9 @@ $(document).scroll(documentScrollHandler);
  * Window Resize
 \*---------------------------------------------------------------------------*/
 $(window).resize(function () {
-  //console.log('Resize');
   sectionsScale();
-  if (curSection) {
+
+  if (curSection && window.innerWidth > 767) {
     curSection.style.top = getSectionFocusTop(curSection);
   }
 });
@@ -467,7 +470,7 @@ $(document).ready(function() {
       gotoSection(ix + 1, true);
     },
     swipeDown: function() {
-      if (ignoreTouchSwipe) {
+      if (ignoreTouchSwipe || scrollMagicController.scrollPos() < 100) {
         return;
       }
       console.log('Swipe Down!');
@@ -497,6 +500,9 @@ gotoSection = function(ix, animate) {
       scrollMagicController.scrollTo(y);
     }
   }
+
+  // Make sure everything is visible (page starts black)
+  showBody();
 
   curSection = $('#section-' + sections[ix] + '-child').get(0);
   console.log('-> section', ix, curSection);
@@ -534,7 +540,8 @@ gotoSubSection = function(id) {
     $(html).css('overflow-y', 'hidden');
 
     // Make sure everything is visible (page starts black)
-    $(body).css('opacity', 1);
+    showBody();
+
     $('#section-header').addClass('subsection-header-style');
     $('#section-header').addClass('narrator-logo-full-subsection');
 

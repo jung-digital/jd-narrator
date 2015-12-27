@@ -49,7 +49,7 @@
         <div class="campfire-video-offset">
           <script>function errHandler(e) {window.campfireLoadError = e; console.log(window.campfireLoadError); if (window.startup) startup(true);}</script>
           <video id="campfire-video" volume="0.15" autoplay="true" loop="true" onerror="errHandler(event)">
-            <source src="https://player.vimeo.com/external/142409311.hd.mp4?s=96f10421b123afc47b7351ae2ea7ff1da2bb450c&profile_id=119" type="video/mp4" onerror="errHandler(event)">
+            <source id="campfire-video-source" src="https://player.vimeo.com/external/142409311.hd.mp4?s=96f10421b123afc47b7351ae2ea7ff1da2bb450c&profile_id=119" type="video/mp4" onerror="errHandler(event)">
             <h1>For the best experience, please view this site in a modern browser.</h1>
           </video>
           <div id="campfire-image">
@@ -64,15 +64,7 @@
       <div id="section-contact" class="section">
         <div id="section-contact-child" class="section-child">
           <div id="section-contact-flex" class="content-centered">
-            <div id="contact-quote">
-              <div class="relative quote-line">&nbsp;<div class="white-line"></div></div>
-              <div class="quote">
-                <div class="quote-text quote-orange">&quot;Scratch the surface in a typical boardroom, and we&#8217;re all just cavemen with briefcases, hungry for a wise man to tell us stories.&quot;</div>
-                <div class="quote-attrib">ALAN KAY, VP WALT DISNEY</div>
-              </div>
-              <div class="relative quote-line">&nbsp;<div class="white-line"></div></div>
-            </div>
-            <h1 id="contact-text">Let&#8217;s find your best story and tell it together</h1>
+            <h1 id="contact-header">Let&#8217;s find your best story and tell it together</h1>
             <div id="contact-info">
               <div>The Narrator Group</div>
               <div> Phone
@@ -80,6 +72,14 @@
                 <a href="tel:+1-303-566-4028" class="phone">303.566.4028</a>
               </div>
               <div><a href="mailto:storyteller@narratorgroup.com">storyteller@narratorgroup.com</a></div>
+            </div>
+            <div id="contact-quote">
+              <div class="relative quote-line">&nbsp;<div class="white-line"></div></div>
+              <div class="quote">
+                <div class="quote-text quote-orange">&quot;Scratch the surface in a typical boardroom, and we&#8217;re all just cavemen with briefcases, hungry for a wise man to tell us stories.&quot;</div>
+                <div class="quote-attrib">ALAN KAY, VP WALT DISNEY</div>
+              </div>
+              <div class="relative quote-line">&nbsp;<div class="white-line"></div></div>
             </div>
           </div>
         </div>
