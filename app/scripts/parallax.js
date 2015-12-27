@@ -161,7 +161,7 @@ function addEnterLeaveTransition(_scene, element) {
 
         history.replaceState(null, null, '#' + _scene.triggerElement().id);
       }
-    }, 500);
+    }, 1000);
   });
 
   //-----------------------------------
