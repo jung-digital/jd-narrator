@@ -122,7 +122,7 @@ function scrollAnimateTo(sectionId, speed) {
       autoKill: false
     },
     overwrite: 'concurrent',
-    ease: Power1.easeOut
+    ease: Power1.easeIn
   });
 }
 
@@ -154,6 +154,8 @@ function addEnterLeaveTransition(_scene, element) {
         firstSceneTransition();
       }, 1);
     }
+
+    console.log('ENTER', tempSection.id);
 
     setTimeout(function () {
       if (!curSubSection && curSection === tempSection) {
@@ -290,7 +292,7 @@ function setupScenes() {
  * Scrolling Utilities
 \*---------------------------------------------------------------------------*/
 function showBody() {
-  $(this).css('opacity', 1);
+  $(document.body).css('opacity', 1);
 }
 
 function scrollToBottom() {
