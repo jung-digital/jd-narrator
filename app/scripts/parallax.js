@@ -3,9 +3,12 @@
 
 'use strict';
 
+/*---------------------------------------------------------------------------*\
+ * Variables
+\*---------------------------------------------------------------------------*/
 var loaded = false;
 var needsFadeIn = true;
-var ANIMATION_SPEED = 1.5;
+var SECTION_ANIMATE_SPEED = 1.5;
 var body = document.body;
 var html = document.documentElement;
 var documentScrollHandler;
@@ -16,6 +19,7 @@ var ignoreTouchSwipe = false;
 
 var curSection;
 var curSubSection;
+var targetSection;
 
 var sectionChildren = ['section-contact-child',
   'section-story-type-child',
@@ -24,6 +28,7 @@ var sectionChildren = ['section-contact-child',
   'section-approach-child',
   'section-about-child',
   'section-campfire-child'];
+
 var sections = ['contact',
   'story-type',
   'workshop',
@@ -33,7 +38,7 @@ var sections = ['contact',
   'campfire'];
 
 /*---------------------------------------------------------------------------*\
- * Scaling Sections
+ * Scaling and Setting Section Top
 \*---------------------------------------------------------------------------*/
 /**
  * This function automatically scales a section based on the window's:
@@ -51,18 +56,18 @@ function sectionsScale() {
       // Mobile Landscape
       scaleX = window.innerWidth / 568;
       scaleY = window.innerHeight / 320;
-      scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+      scale = Math.max(0.68, Math.min(1, Math.min(scaleX, scaleY)));
     } else {
       // Mobile Portrait
       scaleX = window.innerWidth / 320;
       scaleY = window.innerHeight / 568;
-      scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+      scale = Math.max(0.68, Math.min(1, Math.min(scaleX, scaleY)));
     }
   } else {
     // Desktop
     scaleX = window.innerWidth / 968;
     scaleY = window.innerHeight / 700;
-    scale = Math.max(0.72, Math.min(1, Math.min(scaleX, scaleY)));
+    scale = Math.max(0.68, Math.min(1, Math.min(scaleX, scaleY)));
   }
 
   $('.section-child').css('transform', 'scale(' + scale + ',' + scale + ')');
@@ -80,10 +85,10 @@ function sectionsScale() {
  * @returns {string}
  */
 function getSectionFocusTop(section) {
-  var yOffset = window.innerWidth < 768 ? 0 : 30;
+  var yOffset = window.innerWidth < 768 ? 0 : 50;
   var rect = section.getBoundingClientRect();
   var percent = ((window.innerHeight - rect.height) / 2 + yOffset) / window.innerHeight;
-  percent = Math.max(0, percent);
+  percent = Math.max(window.innerWidth < 768 ? 0 : 50 / window.innerHeight, percent);
 
   return loaded || section === curSection ? (percent * 100) + '%' : '-200%';
 }
@@ -114,7 +119,7 @@ function scrollAnimateTo(sectionId, speed) {
   var sectionIx = sections.indexOf(sectionId);
   var sy = section.offset().top + (sectionIx === 0 ? 0 : (section.height() / 2));
 
-  //console.log('Scroll animate to', sectionId, sy, section.height());
+  console.log('Scroll animate to', sectionId, sy, section.height());
 
   TweenLite.to(window, speed || 1, {
     scrollTo: {
@@ -140,30 +145,35 @@ function addEnterLeaveTransition(_scene, element) {
     $('#nav-' + tempSection.id.replace('-child', '')).addClass('active');
     $(element).css('top', event.scrollDirection === 'REVERSE' ? '-100%' : '200%');
 
-    TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
+    TweenLite.to(element, !loaded ? 0 : SECTION_ANIMATE_SPEED, {
       top: getSectionFocusTop(curSection),
       opacity: 1,
       overwrite: 'concurrent',
       ease: Power1.easeOut
     });
 
-    scrollAnimateTo(curSection.id.replace('section-', '').replace('-child', ''), loaded ? 1 : 0.01);
+    if (!targetSection) {
+      scrollAnimateTo(curSection.id.replace('section-', '').replace('-child', ''), loaded ? 1 : 0.01);
+    }
 
     if (!loaded) {
-      setTimeout(function () {
-        firstSceneTransition();
-      }, 1);
+      setTimeout(firstSceneTransition, 1);
     }
 
     console.log('ENTER', tempSection.id);
 
     setTimeout(function () {
+      if (targetSection === curSection) {
+        console.log('CLEARING', targetSection);
+        targetSection = undefined;
+      }
+
       if (!curSubSection && curSection === tempSection) {
         console.log('Replacing state', _scene.triggerElement().id);
 
         history.replaceState(null, null, '#' + _scene.triggerElement().id);
       }
-    }, 1000);
+    }, 100);
   });
 
   //-----------------------------------
@@ -177,7 +187,7 @@ function addEnterLeaveTransition(_scene, element) {
     $('#nav-' + $(element).get(0).id.replace('-child', '')).removeClass('active');
 
     if ($(window).scrollTop() >= 0) {
-      TweenLite.to(element, !loaded ? 0 : ANIMATION_SPEED, {
+      TweenLite.to(element, !loaded ? 0 : SECTION_ANIMATE_SPEED, {
         top: event.scrollDirection === 'REVERSE' ? '200%' : '-200%',
         opacity: 0,
         overwrite: 'concurrent',
@@ -328,9 +338,9 @@ documentScrollHandler = function(event, instant) {
       document.webkitFullscreenElement ||
       document.mozFullScreenElement ||
       document.msFullscreenElement
-  ){
+  ) {
     // User watching video fullscreen, do not close popup
-  }else{
+  } else {
     $.magnificPopup.close();
   }
 
@@ -338,7 +348,7 @@ documentScrollHandler = function(event, instant) {
   // out of view
   value = Math.max(-(campfireHeight + mountainsHeight), value);
 
-  TweenLite.to('.campfire-video-container', instantaneous ? 0 : 1, {
+ TweenLite.to('.campfire-video-container', instantaneous ? 0 : 1, {
     bottom: value,
     overwrite: 'concurrent',
     ease: Power1.easeOut
@@ -383,6 +393,8 @@ function onHashChangeHandler() {
     }
     gotoSubSection(subSectionID);
   } else if (hash) {
+    targetSection = $('#section-' + hash + '-child').get(0);
+    console.log('Setting target section to ', targetSection);
     gotoSection(sectionChildren.indexOf('section-' + hash + '-child'));
   }
 }
