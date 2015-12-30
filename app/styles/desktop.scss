@@ -80,6 +80,12 @@ $icon-font-path: '../fonts/';
 
     li {
       display: inline-block;
+      -o-transition:.5s;
+      -ms-transition:.5s;
+      -moz-transition:.5s;
+      -webkit-transition:.5s;
+      transition:.5s;
+      border-bottom: 1px solid transparent;
     }
 
     li.active {
