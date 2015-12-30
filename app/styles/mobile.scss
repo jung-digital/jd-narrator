@@ -277,8 +277,8 @@ $icon-font-path: '../fonts/';
     position: fixed;
     color: white;
     left: 50%;
-    width: 200px;
-    margin-left: -100px;
+    width: 100px;
+    margin-left: -40px;
     text-align: center;
 
     top: 60px;
@@ -287,8 +287,10 @@ $icon-font-path: '../fonts/';
   }
 
   .scroll-up img {
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    width: 80px;
+    left: 0px;
+    top:0px;
   }
 
   .scroll-up-show {
