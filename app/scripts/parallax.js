@@ -333,17 +333,6 @@ documentScrollHandler = function(event, instant) {
   var value = ((scrollMagicController.scrollPos() + window.innerHeight) - documentHeight()) * window.CAMPFIRE_SCROLL_RATIO;
   value -= campfireHeight * 0.2;
 
-  if (
-      document.fullscreenElement ||
-      document.webkitFullscreenElement ||
-      document.mozFullScreenElement ||
-      document.msFullscreenElement
-  ) {
-    // User watching video fullscreen, do not close popup
-  } else {
-    $.magnificPopup.close();
-  }
-
   // For the sake of performance, don't bother continuing to tween the video position once it is already
   // out of view
   value = Math.max(-(campfireHeight + mountainsHeight), value);
@@ -687,13 +676,29 @@ $(document).on('click', function(event) {
  * Vimeo popup lightbox
 \*-----------------------------------------------------*/
 
+var scrollBefore = 0;
+
 $(document).ready(function() {
   $('.vimeo').magnificPopup({
     type: 'iframe',
     mainClass: 'mfp-fade',
     removalDelay: 160,
     preloader: false,
-
-    fixedContentPos: false
+    fixedContentPos: true,
+    callbacks: {
+      open: function() {
+        ignoreTouchSwipe = true;
+        scrollBefore = scrollMagicController.scrollPos();
+        // Block scrolling
+        $(html).css('overflow-y', 'hidden');
+        console.log('Open video');
+      },
+      close: function() {
+        ignoreTouchSwipe = false;
+        $(html).css('overflow-y', 'auto');
+        scrollMagicController.scrollTo(scrollBefore);
+        console.log('Close video');
+      }
+    }
   });
 });
