@@ -539,6 +539,10 @@ gotoSubSection = function(id) {
     /// Hide social buttons
     $('.social-fixed-wrapper').hide();
 
+    $(window).scrollTop(0);
+
+    $('.moon').hide();
+
     // Block scrolling
     $(html).css('overflow-y', 'hidden');
 
@@ -574,6 +578,7 @@ window.leaveSubSection = function() {
 
   $('.social-fixed-wrapper').show();
   $('#section-header').show();
+  $('.moon').show();
 
   window.starRenderer.paused = window.emberRenderer.paused = false;
 
