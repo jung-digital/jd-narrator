@@ -638,6 +638,11 @@ $icon-font-path: '../fonts/';
       -o-object-fit: contain;
       object-fit: contain;
     }
+    
+    .btn {
+      color: black;
+      border: .1em solid black;
+    }
   }
 
   .popup {
@@ -665,6 +670,12 @@ $icon-font-path: '../fonts/';
     .icon {
       width: 75px;
       margin: 2em;
+    }
+    .icon-dark {
+      display: inline-block;
+    }
+    .icon-light {
+      display: none;
     }
   }
 

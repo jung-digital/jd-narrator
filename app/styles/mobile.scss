@@ -1054,8 +1054,8 @@ $icon-font-path: '../fonts/';
     width: 100%;
 
     .btn {
-      color: black;
-      border: .1em solid black;
+      color: white;
+      border: .1em solid white;
     }
 
     .main-image {
@@ -1110,6 +1110,12 @@ $icon-font-path: '../fonts/';
     .icon {
       width: 50px;
       margin: 2em;
+    }
+    .icon-dark {
+      display: none;
+    }
+    .icon-light {
+      display: inline-block;
     }
 
     .callout {
