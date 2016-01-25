@@ -1172,7 +1172,8 @@ $icon-font-path: '../fonts/';
       margin: 4em auto 2em;
 
       .brand-example {
-
+        border: 1px solid gray;
+        line-height: 0px;
       }
     }
   }
@@ -1181,6 +1182,10 @@ $icon-font-path: '../fonts/';
   // section-design
   //-------------------------------------
   #subsection-design {
+      .design-example {
+        border: 1px solid gray;
+        line-height: 0px;
+      }
   }
 
   //-------------------------------------
