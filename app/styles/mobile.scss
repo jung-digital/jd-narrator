@@ -24,7 +24,7 @@ $icon-font-path: '../fonts/';
   body {
     color: white;
     background-color: black;
-    
+
     font-family: roboto-light;
     font-size: 12px;
 
@@ -433,7 +433,7 @@ $icon-font-path: '../fonts/';
   /*======================================================*\
    * Vimeo video link styling
   \*======================================================*/
-  .vimeo { 
+  .vimeo {
     position: relative;
     display: inline-block;
     width: 100%;
@@ -808,11 +808,11 @@ $icon-font-path: '../fonts/';
   // section-approach
   //-------------------------------------
   #section-approach {
-    @extend %section;
+    @extend .section;
   }
 
   #section-approach-child {
-    @extend %section-child;
+    @extend .section-child;
   }
 
   #section-approach-flex {
@@ -862,7 +862,7 @@ $icon-font-path: '../fonts/';
 
   #approach-reel, #approach-reel-desktop {
     width: 100%;
-    a { 
+    a {
       pointer-events: auto;
       width: 100%;
       img {
@@ -915,11 +915,11 @@ $icon-font-path: '../fonts/';
   // section-about
   //-------------------------------------
   #section-about {
-    @extend %section;
+    @extend .section;
   }
 
   #section-about-child {
-    @extend %section-child;
+    @extend .section-child;
     text-align: center;
 
     h1 {
@@ -1412,12 +1412,12 @@ $icon-font-path: '../fonts/';
       }
 
       #subsection-dock-parent {
-         position:relative; 
+         position:relative;
          text-align: center;
          margin-top: 0.5em;
       }
       #subsection-dock {
-        display:inline-block; 
+        display:inline-block;
         margin: 0 auto;
       }
     }
