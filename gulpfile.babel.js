@@ -2,6 +2,7 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
+import ignore from 'gulp-ignore';
 import serve from 'gulp-serve';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
@@ -50,13 +51,20 @@ gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 gulp.task('html', ['styles'], () => {
   const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
+  function createErrorHandler(name) {
+    return function (err) {
+      console.error('Error from ' + name + ' in compress task', err.toString());
+    };
+  }
+
   return gulp.src('app/*.html')
     .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
+    .pipe($.if(vf => vf.path.indexOf('.js') !== -1, $.uglify()))
+    .on('error', createErrorHandler('uglify'))
+    .pipe($.if(vf => vf.path.indexOf('.css') !== -1, $.minifyCss({compatibility: '*'})))
     .pipe(assets.restore())
     .pipe($.useref())
-    .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+    .pipe($.if(vf => vf.path.indexOf('.html') !== -1, $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
 
